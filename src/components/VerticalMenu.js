@@ -32,11 +32,48 @@ function VerticalMenu() {
                   <span>Dashboard</span>
                 </Link>
               </li>
+
+              <li>
+                <Link to="/coupon">
+                  <MdOutlineCalendarToday />
+                  <span>Daily Calender</span>
+                </Link>
+              </li>
+
               <li>
                 <Link to="/calender" className=" waves-effect">
                   <MdOutlineCalendarToday />
                   <span>Calendar</span>
                 </Link>
+              </li>
+
+              <li>
+                <a href="#" onClick={() => setShowres(!showres)}>
+                  <MdAccountBox />
+                  <span>Reservation</span>
+                  <span style={{ float: "right", fontSize: 20 }}>
+                    {!showres ? <MdArrowDropUp /> : <MdArrowDropDown />}
+                  </span>
+                </a>
+                {showres && (
+                  <ul className="sub-menu">
+                    <li>
+                      <Link to="/reservation">Reservation</Link>
+                    </li>
+                    <li>
+                      <Link to="/room-types">Room Types</Link>
+                    </li>
+                    <li>
+                      <Link to="/rooms">Rooms</Link>
+                    </li>
+                    <li>
+                      <Link to="/timeslot">Time Slot</Link>
+                    </li>
+                    <li>
+                      <Link to="/wallet">Wallet</Link>
+                    </li>
+                  </ul>
+                )}
               </li>
 
               <li>
@@ -67,37 +104,6 @@ function VerticalMenu() {
                 )}
               </li>
 
-              <li>
-                <a href="#" onClick={() => setShowres(!showres)}>
-                  <MdAccountBox />
-                  <span>Reservation</span>
-                  <span style={{ float: "right", fontSize: 20 }}>
-                    {!showres ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                  </span>
-                </a>
-                {showres && (
-                  <ul className="sub-menu">
-                    <li>
-                      <Link to="/res">Reservation</Link>
-                    </li>
-                    <li>
-                      <Link to="/rooms">Rooms</Link>
-                    </li>
-                    <li>
-                      <Link to="/timeslot">Time Slot</Link>
-                    </li>
-                    <li>
-                      <Link to="/wallet">Wallet</Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
-              <li>
-                <Link to="/coupon">
-                  <MdOutlineMailOutline />
-                  <span>Coupon</span>
-                </Link>
-              </li>
               <li>
                 <a href="#" onClick={() => setShowreport(!showreport)}>
                   <MdAccountBox />

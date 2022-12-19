@@ -38,8 +38,9 @@ function App() {
           <Route path="/viewcustomers" element={<ViewCustomer />} />
           <Route path="/coupon" element={<Coupon />} />
           <Route path="/createcoupon" element={<CreateCoupon />} />
-          <Route path="/res" element={<Reservation />} />
+          <Route path="/reservation" element={<Reservation />} />
           <Route path="/rooms" element={<Rooms />} />
+          <Route path="/room-types" element={<Rooms />} />
           <Route path="rooms/createroom" element={<CreateRooms />} />
           <Route path="/available" element={<UpdateAvailability />} />
           <Route path="/timeslot" element={<TimeSlot />} />
