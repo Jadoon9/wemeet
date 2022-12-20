@@ -2,18 +2,29 @@ import React from "react";
 import { useState } from "react";
 import {
   MdAccountBox,
-  MdArrowDropDown,
-  MdArrowDropUp,
   MdOutlineCalendarToday,
   MdOutlineHome,
   MdOutlineMailOutline,
 } from "react-icons/md";
-import { Link } from "react-router-dom";
+
+import MenuItem from "./MenuItem";
 
 function VerticalMenu() {
-  const [show, setShow] = useState(false);
-  const [showres, setShowres] = useState(false);
-  const [showreport, setShowreport] = useState(false);
+  const [showReserv, setShowres] = useState(false);
+  const [showUser, setShowUser] = useState(false);
+  const [showReport, setShowReport] = useState(false);
+
+  const handleShowReservChange = () => {
+    setShowres(!showReserv);
+  };
+
+  const handleUserChange = () => {
+    setShowUser(!showUser);
+  };
+
+  const handleReportChange = () => {
+    setShowReport(!showReport);
+  };
   return (
     <>
       <div className="vertical-menu">
@@ -21,108 +32,78 @@ function VerticalMenu() {
           <div id="sidebar-menu">
             <ul className="metismenu list-unstyled" id="side-menu">
               <li className="menu-title">Menu</li>
+              <div style={{ marginBottom: "2rem" }}>
+                <MenuItem mainLink="/" Icon={MdOutlineHome} title="Dashboard" />
+              </div>
 
-              <li>
-                <Link
-                  to="/"
-                  className="waves-effect"
-                  style={{ textDecoration: "none" }}
-                >
-                  <MdOutlineHome style={{ fontSize: 17.6, minWidth: 24 }} />
-                  <span>Dashboard</span>
-                </Link>
-              </li>
+              <MenuItem
+                mainLink="/calender"
+                Icon={MdOutlineCalendarToday}
+                title="Daily Calender"
+              />
 
-              <li>
-                <Link to="/coupon">
-                  <MdOutlineCalendarToday />
-                  <span>Daily Calender</span>
-                </Link>
-              </li>
+              <MenuItem
+                mainLink="/calender"
+                Icon={MdOutlineCalendarToday}
+                title="Calender"
+              />
 
-              <li>
-                <Link to="/calender" className=" waves-effect">
-                  <MdOutlineCalendarToday />
-                  <span>Calendar</span>
-                </Link>
-              </li>
+              <MenuItem
+                show={showReserv}
+                handleChange={handleShowReservChange}
+                Icon={MdAccountBox}
+                title="Reservation"
+                showDownIcon="true"
+                item1="Reservation"
+                item2="Room Types"
+                item3="Rooms"
+                item4="Time Slot"
+                item5="Wallet"
+                mainLink="#"
+                link1="/reservation"
+                link2="/room-types"
+                link3="/rooms"
+                link4="/timeslot"
+                link5="/wallet"
+              />
 
-              <li>
-                <a href="#" onClick={() => setShowres(!showres)}>
-                  <MdAccountBox />
-                  <span>Reservation</span>
-                  <span style={{ float: "right", fontSize: 20 }}>
-                    {!showres ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                  </span>
-                </a>
-                {showres && (
-                  <ul className="sub-menu">
-                    <li>
-                      <Link to="/reservation">Reservation</Link>
-                    </li>
-                    <li>
-                      <Link to="/room-types">Room Types</Link>
-                    </li>
-                    <li>
-                      <Link to="/rooms">Rooms</Link>
-                    </li>
-                    <li>
-                      <Link to="/timeslot">Time Slot</Link>
-                    </li>
-                    <li>
-                      <Link to="/wallet">Wallet</Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
+              <MenuItem
+                mainLink="/calender"
+                Icon={MdOutlineCalendarToday}
+                title="Calender"
+              />
 
-              <li>
-                <Link to="/coupon">
-                  <MdOutlineMailOutline />
-                  <span>Coupon</span>
-                </Link>
-              </li>
+              <MenuItem
+                mainLink="/coupon"
+                Icon={MdOutlineMailOutline}
+                title="Coupon"
+              />
 
-              <li>
-                <a href="#" onClick={() => setShow(!show)}>
-                  {/* <button className="has-arrow waves-effect" onClick={()=>setShow(false)}> */}
-                  <MdAccountBox />
-                  <span>Users</span>
-                  <span style={{ float: "right", fontSize: 20 }}>
-                    {!show ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                  </span>
-                </a>
-                {show && (
-                  <ul className="sub-menu">
-                    <li>
-                      <Link to="/users">Manage Users</Link>
-                    </li>
-                    <li>
-                      <Link to="/customers">Manage Customers</Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
+              <MenuItem
+                show={showUser}
+                handleChange={handleUserChange}
+                Icon={MdAccountBox}
+                title="Users"
+                showDownIcon="true"
+                item1="Manage Users"
+                item2="Manage Customers"
+                mainLink="#"
+                link1="/users"
+                link2="/customers"
+              />
 
-              <li>
-                <a href="#" onClick={() => setShowreport(!showreport)}>
-                  <MdAccountBox />
-                  <span>Report</span>
-                  <span style={{ float: "right", fontSize: 20 }}>
-                    {!showreport ? <MdArrowDropUp /> : <MdArrowDropDown />}
-                  </span>
-                </a>
-                {showreport && (
-                  <ul className="sub-menu">
-                    <li>
-                      <Link to="/income">Income Report</Link>
-                    </li>
-                    <li>
-                      <Link to="/userreport">User Report</Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
+              <MenuItem
+                show={showReport}
+                handleChange={handleReportChange}
+                Icon={MdAccountBox}
+                title="Reports"
+                showDownIcon="true"
+                item1="Income Report"
+                item2="User Report"
+                mainLink="#"
+                link1="/income"
+                link2="/userreport"
+              />
             </ul>
           </div>
         </div>

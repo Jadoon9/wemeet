@@ -43,10 +43,10 @@ function Dashboard() {
               {TableData.progress.map((data) => {
                 return (
                   <ProgressCards
-                    key={data.title}
-                    title={data.title}
-                    value={data.value}
-                    percentage={data.percentage}
+                    key={data?.title}
+                    title={data?.title}
+                    value={data?.value}
+                    percentage={data?.percentage}
                   />
                 );
               })}

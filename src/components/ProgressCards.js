@@ -13,7 +13,7 @@ function ProgressCards(props) {
               <div className="flex-shrink-0  me-3 align-self-center">
                 <div style={{ width: 60, height: 60 }}>
                   <CircularProgressbar value={66} text={66} />
-                </div>{" "}
+                </div>
               </div>
               <div className="flex-grow-1 overflow-hidden">
                 <p className="mb-1 font-size-14">{props.title}</p>
