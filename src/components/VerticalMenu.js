@@ -37,16 +37,16 @@ function VerticalMenu() {
               </div>
 
               <MenuItem
-                mainLink="/calender"
+                mainLink="/calendar"
                 Icon={MdOutlineCalendarToday}
-                title="Daily Calender"
+                title="Daily Calendar"
               />
 
-              <MenuItem
+              {/* <MenuItem
                 mainLink="/calender"
                 Icon={MdOutlineCalendarToday}
                 title="Calender"
-              />
+              /> */}
 
               <MenuItem
                 show={showReserv}
@@ -65,12 +65,6 @@ function VerticalMenu() {
                 link3="/rooms"
                 link4="/timeslot"
                 link5="/wallet"
-              />
-
-              <MenuItem
-                mainLink="/calender"
-                Icon={MdOutlineCalendarToday}
-                title="Calender"
               />
 
               <MenuItem

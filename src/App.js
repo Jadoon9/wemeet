@@ -19,7 +19,7 @@ import IncomeReport from "./pages/IncomeReport";
 import UserReport from "./pages/UserReport";
 import Customers from "./pages/Customers";
 import CreateReservation from "./pages/CreateReservation";
-import Calenderr from "./pages/Calender";
+import Calendarr from "./pages/Calendar";
 import UpdateSlot from "./pages/UpdateSlot";
 // import 'libs/jquery/dist/jquery.min.js'
 
@@ -34,24 +34,24 @@ function App() {
         <VerticalMenu />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/users" element={<CreateUser />} />
-          <Route path="/viewcustomers" element={<ViewCustomer />} />
-          <Route path="/coupon" element={<Coupon />} />
-          <Route path="/createcoupon" element={<CreateCoupon />} />
-          <Route path="/reservation" element={<Reservation />} />
-          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/calendar" element={<Calendarr />} />ß
+          <Route path="/reservation" element={<Reservation />} />ß
           <Route path="/room-types" element={<Rooms />} />
-          <Route path="rooms/createroom" element={<CreateRooms />} />
+          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/updateslot" element={<UpdateSlot />} />
           <Route path="/available" element={<UpdateAvailability />} />
           <Route path="/timeslot" element={<TimeSlot />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/createwallet" element={<CreateWallet />} />
+          <Route path="/coupon" element={<Coupon />} />
+          <Route path="rooms/createroom" element={<CreateRooms />} />
+          <Route path="/users" element={<CreateUser />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/viewcustomers" element={<ViewCustomer />} />
           <Route path="/income" element={<IncomeReport />} />
           <Route path="/userreport" element={<UserReport />} />
-          <Route path="/customers" element={<Customers />} />
+          <Route path="/createcoupon" element={<CreateCoupon />} />
+          <Route path="/createwallet" element={<CreateWallet />} />
           <Route path="/createres" element={<CreateReservation />} />
-          <Route path="/calender" element={<Calenderr />} />
-          <Route path="/updateslot" element={<UpdateSlot />} />
         </Routes>
       </BrowserRouter>
     </div>

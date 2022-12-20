@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CouponTable from "../../components/CouponTable";
+import MainPageLayout from "../../components/MainPageLayout";
+import TimeSlotTable from "../../components/TimeSlotTable";
+import TransactionData from "../../components/Transactions";
 
 function Coupon() {
   return (
     <>
-      <div className="main-content">
+      <MainPageLayout
+        title="Manage Coupons"
+        breadcrum1={`Coupons >`}
+        breadcrum2="Create Coupons"
+        cardTitle="All Coupons"
+        link1="/coupon"
+        link2="/createcoupon"
+      >
+        <CouponTable />
+      </MainPageLayout>
+
+      {/* <div className="main-content">
         <div className="page-content">
           <div className="container-fluid">
             <div className="row">
@@ -49,7 +63,7 @@ function Coupon() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

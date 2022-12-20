@@ -51,7 +51,7 @@ function Dashboard() {
                 );
               })}
 
-              <div className="col-xl-3 col-sm-6">
+              {/* <div className="col-xl-3 col-sm-6">
                 <div className="card">
                   <div className="card-body">
                     <div className="d-flex text-muted">
@@ -76,7 +76,7 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <div className="col-xl-12">
@@ -129,20 +129,20 @@ function Dashboard() {
                     </div>
                   </div>
 
-                  <div className="card-body border-top">
+                  {/* <div className="card-body border-top">
                     <div className="text-muted text-center">
                       <div className="row">
                         <div className="col-4 border-end">
                           <div>
                             <p className="mb-2">
-                              {/* <i className="mdi mdi-circle font-size-12 text-primary me-1"></i>{" "} */}
+                              <i className="mdi mdi-circle font-size-12 text-primary me-1"></i>{" "}
                               <BsFillCircleFill className="font-size-12 text-primary me-1" />
                               Expenses
                             </p>
                             <h5 className="font-size-16 mb-0">
                               $ 8,524{" "}
                               <span className="text-success font-size-12">
-                                {/* <i className="mdi mdi-menu-up font-size-14 me-1"></i> */}
+                                <i className="mdi mdi-menu-up font-size-14 me-1"></i>
                                 <MdArrowDropUp className="font-size-14 me-1" />
                                 1.2 %
                               </span>
@@ -181,10 +181,11 @@ function Dashboard() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
+
             <div className="row">
               <div className="col-lg-12">
                 <div className="card">
