@@ -15,6 +15,7 @@ import {} from "react-icons/ri";
 import data from "../../TableData";
 import TableData from "../../TableData";
 import ProgressCards from "../../components/ProgressCards";
+import DataTable from "../../components/DataTable.js";
 
 function Dashboard() {
   return (
@@ -78,6 +79,7 @@ function Dashboard() {
                 </div>
               </div> */}
             </div>
+
             <div className="row">
               <div className="col-xl-12">
                 <div className="card">
@@ -205,8 +207,8 @@ function Dashboard() {
                         </span>
                       </div>
                     </form>
-
-                    <LatestTransaction />
+                    <DataTable />
+                    {/* <LatestTransaction /> */}
                   </div>
                 </div>
               </div>
