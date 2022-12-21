@@ -7,8 +7,8 @@ function UpdateSlot() {
     <>
       <MainPageLayout
         title="Update Rooms Slot"
-        breadcrum1="Update Rooms Slot >"
-        breadcrum2="Room Slots >"
+        breadcrum1="Update Rooms Slot"
+        breadcrum2="Room Slots"
         cardTitle="Example"
         link1="/timeslot"
         link2="/roomslots"

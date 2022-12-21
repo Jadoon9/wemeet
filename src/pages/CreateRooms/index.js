@@ -7,7 +7,7 @@ function CreateRooms() {
     <>
       <MainPageLayout
         title="Create Rooms"
-        breadcrum1="Rooms >"
+        breadcrum1="Rooms"
         breadcrum2="Create Room"
         cardTitle="Example"
         link1="/coupon"

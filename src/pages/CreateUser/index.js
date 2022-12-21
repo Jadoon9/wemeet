@@ -7,7 +7,7 @@ function UserSection() {
     <>
       <MainPageLayout
         title="Create User"
-        breadcrum1="User > "
+        breadcrum1="User"
         breadcrum2="Create"
         cardTitle="Create User"
         link1="/user"

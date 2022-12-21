@@ -2,6 +2,7 @@ import React from "react";
 import { FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import MainPageLayout from "../../components/MainPageLayout";
+import Table from "../../components/Table";
 import TimeSlotTable from "../../components/TimeSlotTable";
 import TransactionData from "../../components/Transactions";
 
@@ -10,13 +11,45 @@ function Wallet() {
     <>
       <MainPageLayout
         title="Wallets"
-        breadcrum1="Wallets >"
+        breadcrum1="Wallets"
         breadcrum2="Create Wallet"
         cardTitle="All Wallets"
         link1="/wallet"
         link2="/createwallet"
       >
-        <TimeSlotTable transactionData={TransactionData} />
+        <Table
+          thead1="ID"
+          thead2="User"
+          thead3="Ammount"
+          thead4="Mobile Number "
+          thead5="Details"
+          thead6="Add Ammount"
+        >
+          {TransactionData?.map(
+            ({ img, Id, Name, Price, Date, Quantity, Amount, Status }) => {
+              return (
+                <tr data-id="1">
+                  <td data-field="id" style={{ width: 80 }}>
+                    {Id}
+                  </td>
+                  <td data-field="name">{Name}</td>
+                  <td data-field="age">{Price}</td>
+                  <td data-field="gender">{Quantity}</td>
+                  <td style={{ width: 100 }}>
+                    <Link to="/available">
+                      <p>Details</p>
+                    </Link>
+                  </td>
+                  <td style={{ width: 100 }}>
+                    <Link to="createroom">
+                      <p>Add </p>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            }
+          )}
+        </Table>
       </MainPageLayout>
 
       {/* <div className="main-content">

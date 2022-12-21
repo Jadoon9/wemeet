@@ -22,7 +22,11 @@ const MenuItem = ({
   return (
     <>
       <li>
-        <Link to={`${mainLink}`} onClick={handleChange}>
+        <Link
+          style={{ textDecration: "none" }}
+          to={`${mainLink}`}
+          onClick={handleChange}
+        >
           <Icon style={{ fontSize: 17.6, minWidth: 24 }} />
           <span>{title}</span>
           {showDownIcon && (

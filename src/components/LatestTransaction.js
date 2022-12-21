@@ -37,7 +37,6 @@ function LatestTransaction() {
               </tr>
             </thead>
             <tbody>
-              {" "}
               {Transactions.map(
                 ({ img, Id, Name, Price, Date, Quantity, Amount, Status }) => (
                   <tr key={Id}>
@@ -58,17 +57,16 @@ function LatestTransaction() {
                     <td className="mb-1 font-size-14">{Quantity}</td>
                     <td className="mb-1 font-size-14">{`$ ${Amount}`}</td>
                     <td className="mb-1 font-size-14">
-                      {" "}
                       {Status === "Confirm" ? (
                         <p>
                           <BsFillCircleFill className=" text-success me-1" />
-                          {"  "}
+
                           {Status}
                         </p>
                       ) : (
                         <p>
                           <BsFillCircleFill className=" text-danger me-1" />
-                          {"  "}
+
                           {Status}
                         </p>
                       )}

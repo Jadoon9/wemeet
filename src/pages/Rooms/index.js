@@ -2,21 +2,55 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MainPageLayout from "../../components/MainPageLayout";
 import RoomTable from "../../components/RoomTable";
+import Table from "../../components/Table";
+import TransactionData from "../../components/Transactions";
+import { FaPenAlt, FaPencilAlt } from "react-icons/fa";
 
 function Rooms() {
   return (
     <>
       <MainPageLayout
         title="Meeting Rooms"
-        breadcrum1={`Disable Whole Availabilty  >`}
-        breadcrum2={"Rooms > "}
+        breadcrum1={`Disable Whole Availabilty`}
+        breadcrum2={"Rooms"}
         breadcrum3="Create Rooms"
         cardTitle="All Rooms"
         link1="/available"
         link2="/rooms"
         link3="/createroom"
       >
-        <RoomTable />
+        <Table
+          thead1="ID"
+          thead2="Name"
+          thead3="Price Per Slot"
+          thead4="Room Type "
+          thead5="Availability"
+          thead6="Action"
+          dataDisplay={TransactionData}
+        >
+          {TransactionData?.map(
+            ({ img, Id, Name, Price, Date, Quantity, Amount, Status }) => {
+              return (
+                <tr data-id="1">
+                  <td data-field="id" style={{ width: 80 }}>
+                    {Id}
+                  </td>
+                  <td data-field="name">{Name}</td>
+                  <td data-field="age">{Price}</td>
+                  <td data-field="gender">{Quantity}</td>
+                  <td data-field="person-limit">{Quantity}</td>
+                  <td style={{ width: 100 }}>
+                    <Link to="createroom">
+                      <i className="fas fa-pencil-alt"></i>
+                      <FaPencilAlt />
+                    </Link>
+                  </td>
+                </tr>
+              );
+            }
+          )}
+        </Table>
+        {/* <RoomTable /> */}
       </MainPageLayout>
 
       {/* <div className="main-content">

@@ -9,6 +9,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import MainPageLayout from "../../components/MainPageLayout";
+import Calendar from "../../components/Calendar";
 
 function Calendarr() {
   const [date, setDate] = useState(new Date());
@@ -20,15 +21,16 @@ function Calendarr() {
     <>
       <MainPageLayout
         title="Daily Calendar"
-        breadcrum1="Dashboard > "
+        breadcrum1="Dashboard >"
         breadcrum2="Daily Calender"
         link1="/available"
         link2="/createroom"
       >
-        <FullCalendar
+        <Calendar />
+        {/* <FullCalendar
           plugins={[timeGridPlugin, interactionPlugin]}
           dateClick={handleDateClick}
-        />
+        /> */}
       </MainPageLayout>
     </>
   );

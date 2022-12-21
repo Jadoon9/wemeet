@@ -1,7 +1,9 @@
 import React from "react";
+import { FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CouponTable from "../../components/CouponTable";
 import MainPageLayout from "../../components/MainPageLayout";
+import Table from "../../components/Table";
 import TimeSlotTable from "../../components/TimeSlotTable";
 import TransactionData from "../../components/Transactions";
 
@@ -10,13 +12,43 @@ function Coupon() {
     <>
       <MainPageLayout
         title="Manage Coupons"
-        breadcrum1={`Coupons >`}
+        breadcrum1={`Coupons`}
         breadcrum2="Create Coupons"
         cardTitle="All Coupons"
         link1="/coupon"
         link2="/createcoupon"
       >
-        <CouponTable />
+        <Table
+          thead1="Code"
+          thead2="Amount"
+          thead3="Minimum Spent"
+          thead4="Valid From"
+          thead5="Exp Date"
+          thead6="Action"
+        >
+          {TransactionData?.map(
+            ({ img, Id, Name, Price, Date, Quantity, Amount, Status }) => {
+              return (
+                <tr data-id="1">
+                  <td data-field="id" style={{ width: 80 }}>
+                    {Id}
+                  </td>
+                  <td data-field="name">{Amount}</td>
+                  <td data-field="age">{Price}</td>
+                  <td data-field="validity">{Date}</td>
+                  <td data-field="expiry">{Date}</td>
+                  <td style={{ width: 100 }}>
+                    <Link to="createroom">
+                      <i className="fas fa-pencil-alt"></i>
+                      <FaPencilAlt />
+                    </Link>
+                  </td>
+                </tr>
+              );
+            }
+          )}
+        </Table>
+        {/* <CouponTable /> */}
       </MainPageLayout>
 
       {/* <div className="main-content">

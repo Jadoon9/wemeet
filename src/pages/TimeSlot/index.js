@@ -9,7 +9,7 @@ function TimeSlot() {
     <>
       <MainPageLayout
         title="Manage Time Slots"
-        breadcrum1="Time Slots >"
+        breadcrum1="Time Slots"
         breadcrum2="Disable Time Slot"
         cardTitle="Time Slots"
         link1="/available"

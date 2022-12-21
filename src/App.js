@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Header from "./components/Header";
 import VerticalMenu from "./components/VerticalMenu";
 import Dashboard from "./pages/Dashboard/index.js";
 import CreateUser from "./pages/CreateUser/index.js";
 import ViewCustomer from "./pages/ViewCustomer";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Coupon from "./pages/Coupon";
 import CreateCoupon from "./pages/CreateCoupon";
 import Reservation from "./pages/Reservation";
+import RoomType from "./pages/RoomType/index.js";
 import Rooms from "./pages/Rooms/index.js";
 import CreateRooms from "./pages/CreateRooms";
 import TimeSlot from "./pages/TimeSlot";
@@ -21,6 +21,7 @@ import Customers from "./pages/Customers";
 import CreateReservation from "./pages/CreateReservation";
 import Calendarr from "./pages/Calendar";
 import UpdateSlot from "./pages/UpdateSlot";
+import UsersDetails from "./components/UsersDetails";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -34,9 +35,9 @@ function App() {
         <VerticalMenu />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/calendar" element={<Calendarr />} />ß
-          <Route path="/reservation" element={<Reservation />} />ß
-          <Route path="/room-types" element={<Rooms />} />
+          <Route path="/calendar" element={<Calendarr />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/room-types" element={<RoomType />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/updateslot" element={<UpdateSlot />} />
           <Route path="/available" element={<UpdateAvailability />} />
@@ -44,7 +45,8 @@ function App() {
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/coupon" element={<Coupon />} />
           <Route path="rooms/createroom" element={<CreateRooms />} />
-          <Route path="/users" element={<CreateUser />} />
+          <Route path="/manage-users" element={<UsersDetails />} />
+          <Route path="/create-user" element={<CreateUser />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/viewcustomers" element={<ViewCustomer />} />
           <Route path="/income" element={<IncomeReport />} />

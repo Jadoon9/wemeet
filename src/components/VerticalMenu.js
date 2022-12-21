@@ -39,7 +39,7 @@ function VerticalMenu() {
               <MenuItem
                 mainLink="/calendar"
                 Icon={MdOutlineCalendarToday}
-                title="Daily Calendar"
+                title="Bookings"
               />
 
               {/* <MenuItem
@@ -82,7 +82,7 @@ function VerticalMenu() {
                 item1="Manage Users"
                 item2="Manage Customers"
                 mainLink="#"
-                link1="/users"
+                link1="/manage-users"
                 link2="/customers"
               />
 
