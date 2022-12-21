@@ -57,14 +57,14 @@ function Header() {
               </a>
             </div>
 
-            {/* <button
+            <button
+              // onClick={}
               type="button"
               className="btn btn-sm px-3 font-size-24 header-item waves-effect"
               id="vertical-menu-btn"
-             
             >
               <RiBarChartHorizontalLine className="align-middle" />
-            </button> */}
+            </button>
 
             <form className="app-search d-none d-lg-block">
               <div className="position-relative" style={{ marginLeft: 30 }}>

@@ -15,7 +15,7 @@ function Reservation() {
         breadcrum1="Reservations"
         breadcrum2="Create Reservation"
         cardTitle="Reservations"
-        link1="/res"
+        link1="/reservation"
         link2="/createres"
       >
         {/* <DataTable /> */}

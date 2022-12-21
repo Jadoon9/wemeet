@@ -22,6 +22,7 @@ import CreateReservation from "./pages/CreateReservation";
 import Calendarr from "./pages/Calendar";
 import UpdateSlot from "./pages/UpdateSlot";
 import UsersDetails from "./components/UsersDetails";
+import IconsSidebar from "./components/IconsSidebar";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -33,6 +34,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <VerticalMenu />
+        {/* <IconsSidebar /> */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/calendar" element={<Calendarr />} />

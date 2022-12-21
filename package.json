@@ -23,6 +23,8 @@
     "bootstrap-rating": "^0.0.1",
     "bootstrap-timepicker": "^0.5.2",
     "bootstrap-touchspin": "^4.2.5",
+    "datatables.net": "^1.13.1",
+    "datatables.net-dt": "^1.13.1",
     "jquery": "^3.6.1",
     "metismenu": "^3.0.7",
     "moment": "^2.29.4",
