@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import "./App.css";
 import Header from "./components/Header";
-import VerticalMenu from "./components/VerticalMenu";
+import VerticalMenu from "./components/Sidebar/VerticalMenu";
 import Dashboard from "./pages/Dashboard/index.js";
+import ProgressBarPage from "./pages/ProgressBarPage";
 import CreateUser from "./pages/CreateUser/index.js";
 import ViewCustomer from "./pages/ViewCustomer";
 import Coupon from "./pages/Coupon";
 import CreateCoupon from "./pages/CreateCoupon";
-import Reservation from "./pages/Reservation";
+import Charts from "./pages/ChartsPage";
 import RoomType from "./pages/RoomType/index.js";
 import Rooms from "./pages/Rooms/index.js";
 import CreateRooms from "./pages/CreateRooms";
@@ -23,6 +24,10 @@ import Calendarr from "./pages/Calendar";
 import UpdateSlot from "./pages/UpdateSlot";
 import UsersDetails from "./components/UsersDetails";
 import IconsSidebar from "./components/IconsSidebar";
+import Notifications from "./components/Notification";
+import Editor from "./components/Editor";
+import EditorPage from "./pages/EditorPage";
+import CarouselPage from "./pages/CarouselPage";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -38,8 +43,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/calendar" element={<Calendarr />} />
-          <Route path="/reservation" element={<Reservation />} />
-          <Route path="/room-types" element={<RoomType />} />
+          <Route path="/charts" element={<Charts />} />
+          <Route path="/progress-bar" element={<ProgressBarPage />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/ui-elements" element={<Notifications />} />
+          <Route path="/editor" element={<EditorPage />} />
+          <Route path="/carousel" element={<CarouselPage />} />
+          {/* <Route path="/alerts" element={< />} /> */}
+
+          {/* <Route path="/room-types" element={<RoomType />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/updateslot" element={<UpdateSlot />} />
           <Route path="/available" element={<UpdateAvailability />} />
@@ -55,7 +67,7 @@ function App() {
           <Route path="/userreport" element={<UserReport />} />
           <Route path="/createcoupon" element={<CreateCoupon />} />
           <Route path="/createwallet" element={<CreateWallet />} />
-          <Route path="/createres" element={<CreateReservation />} />
+          <Route path="/createres" element={<CreateReservation />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

@@ -31,7 +31,8 @@ import Country from "./Country";
 import Brands from "./Brands";
 import NotificationBar from "./NotificationBar";
 import RightSidebar from "./RightSidebar";
-import VerticalMenu from "./VerticalMenu";
+import VerticalMenu from "./Sidebar/VerticalMenu";
+
 function Header() {
   const [showflag, setShowFlag] = useState(false);
   const [showsidebar, setShowSidebar] = useState(true);

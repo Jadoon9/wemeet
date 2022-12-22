@@ -1,14 +1,10 @@
 import React from "react";
-
 import results from "../../Data.js";
 
-import TableData from "../../TableData";
-
 import MainPageLayout from "../../components/MainPageLayout.js";
-import DashboardChart from "../../components/DashboardChart.js";
 import DashboardTransactionTable from "../../components/DashboardTransactionTable.js";
-import DashboardCards from "../../components/DashboardCards.js";
-import DataTable from "../../components/DataTable.js";
+
+import Chart from "../../components/Charts";
 
 function Dashboard() {
   return (
@@ -21,10 +17,16 @@ function Dashboard() {
         link1="/"
         link2="/"
       >
-        <DashboardCards tableData={TableData} />
-        <DashboardChart results={results} />
+        {/* <DashboardCards tableData={TableData} /> */}
+
+        <Chart
+          options={results.results.options}
+          series={results.results.series}
+          type="line"
+        />
+
         <DashboardTransactionTable />
-        <DataTable />
+        {/* <DataTable /> */}
         {/* <CouponTable /> */}
       </MainPageLayout>
       {/* <div className="main-content">

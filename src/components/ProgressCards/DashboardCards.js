@@ -1,5 +1,5 @@
 import React from "react";
-import ProgressCards from "./ProgressCards";
+import ProgressCards from "../ProgressBar/CircularProgress";
 
 const DashboardCards = ({ tableData }) => {
   return (

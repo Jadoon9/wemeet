@@ -4,7 +4,6 @@ import {
   MdAccountBox,
   MdOutlineCalendarToday,
   MdOutlineHome,
-  MdOutlineMailOutline,
 } from "react-icons/md";
 
 import MenuItem from "./MenuItem";
@@ -13,6 +12,7 @@ function VerticalMenu() {
   const [showReserv, setShowres] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [showReport, setShowReport] = useState(false);
+  const [showUiElements, setShowUiElements] = useState(false);
 
   const handleShowReservChange = () => {
     setShowres(!showReserv);
@@ -24,6 +24,10 @@ function VerticalMenu() {
 
   const handleReportChange = () => {
     setShowReport(!showReport);
+  };
+
+  const handleUiElementChange = () => {
+    setShowUiElements(!showReport);
   };
   return (
     <>
@@ -39,9 +43,19 @@ function VerticalMenu() {
               <MenuItem
                 mainLink="/calendar"
                 Icon={MdOutlineCalendarToday}
-                title="Bookings"
+                title="Calendar"
               />
 
+              <MenuItem
+                mainLink="/progress-bar"
+                Icon={MdOutlineCalendarToday}
+                title="Progress Bar"
+              />
+              <MenuItem
+                mainLink="/notifications"
+                Icon={MdOutlineCalendarToday}
+                title="Notification"
+              />
               {/* <MenuItem
                 mainLink="/calender"
                 Icon={MdOutlineCalendarToday}
@@ -52,28 +66,47 @@ function VerticalMenu() {
                 show={showReserv}
                 handleChange={handleShowReservChange}
                 Icon={MdAccountBox}
-                title="Reservation"
+                title="Charts"
                 showDownIcon="true"
-                item1="Reservation"
-                item2="Room Types"
-                item3="Rooms"
-                item4="Time Slot"
-                item5="Wallet"
+                item1="Charts"
+                // item2="Room Types"
+                // item3="Rooms"
+                // item4="Time Slot"
+                // item5="Wallet"
                 mainLink="#"
-                link1="/reservation"
-                link2="/room-types"
-                link3="/rooms"
-                link4="/timeslot"
-                link5="/wallet"
+                link1="/charts"
+                // link2="/room-types"
+                // link3="/rooms"
+                // link4="/timeslot"
+                // link5="/wallet"
               />
 
-              <MenuItem
+              {/* <MenuItem
                 mainLink="/coupon"
                 Icon={MdOutlineMailOutline}
                 title="Coupon"
-              />
-
+              /> */}
               <MenuItem
+                show={showUiElements}
+                handleChange={handleUiElementChange}
+                Icon={MdAccountBox}
+                title="UI Elements"
+                showDownIcon="true"
+                item1="Alerts"
+                item2="Editor"
+                item3="Carousel"
+                // item3="Rooms"
+                // item4="Time Slot"
+                // item5="Wallet"
+                mainLink="#"
+                link1="/alerts"
+                link2="/editor"
+                link3="/carousel"
+                // link3="/rooms"
+                // link4="/timeslot"
+                // link5="/wallet"
+              />
+              {/* <MenuItem
                 show={showUser}
                 handleChange={handleUserChange}
                 Icon={MdAccountBox}
@@ -97,7 +130,7 @@ function VerticalMenu() {
                 mainLink="#"
                 link1="/income"
                 link2="/userreport"
-              />
+              /> */}
             </ul>
           </div>
         </div>

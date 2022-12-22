@@ -1,0 +1,47 @@
+import React from "react";
+import MainPageLayout from "../MainPageLayout";
+import NotificationItem from "./NotificationItem";
+
+const index = () => {
+  return (
+    <>
+      <MainPageLayout
+        title="Notifications"
+        breadcrum1="Dashboard"
+        breadcrum2="Notifications"
+        cardTitle="All Rooms"
+        link1="/"
+        link2="/notifications"
+      >
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Notifications</h4>
+
+              <NotificationItem
+                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXD1SPSNpNbZb0VM_sdy9hUctygrX3alTOn3MCycfeFA&s"
+                name="Scot Adkins"
+                message="Team A Meeting 9:15 AM"
+                time="9:00 am"
+              />
+              <NotificationItem
+                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXD1SPSNpNbZb0VM_sdy9hUctygrX3alTOn3MCycfeFA&s"
+                name="Shahzeb Jadoon"
+                message="Team A Meeting 9:15 AM"
+                time="10:00 am"
+              />
+              <NotificationItem
+                image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXD1SPSNpNbZb0VM_sdy9hUctygrX3alTOn3MCycfeFA&s"
+                name="Team A"
+                message="Team A Meeting 9:15 AM"
+                time="11:00 am"
+              />
+            </div>
+          </div>
+        </div>
+      </MainPageLayout>
+    </>
+  );
+};
+
+export default index;
