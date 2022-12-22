@@ -28,6 +28,7 @@ import Notifications from "./components/Notification";
 import Editor from "./components/Editor";
 import EditorPage from "./pages/EditorPage";
 import CarouselPage from "./pages/CarouselPage";
+import AlertsPage from "./pages/AlertsPage";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -47,6 +48,7 @@ function App() {
           <Route path="/progress-bar" element={<ProgressBarPage />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/ui-elements" element={<Notifications />} />
+          <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/carousel" element={<CarouselPage />} />
           {/* <Route path="/alerts" element={< />} /> */}
