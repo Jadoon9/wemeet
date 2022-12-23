@@ -29,6 +29,8 @@ import Editor from "./components/Editor";
 import EditorPage from "./pages/EditorPage";
 import CarouselPage from "./pages/CarouselPage";
 import AlertsPage from "./pages/AlertsPage";
+import CardsPage from "./pages/CardsPage";
+import BreadCrumbsPage from "./pages/BreadCrumbsPage";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -47,10 +49,12 @@ function App() {
           <Route path="/charts" element={<Charts />} />
           <Route path="/progress-bar" element={<ProgressBarPage />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/ui-elements" element={<Notifications />} />
+          <Route path="/ui-elements" element={<AlertsPage />} />
           <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/carousel" element={<CarouselPage />} />
+          <Route path="/cards" element={<CardsPage />} />
+          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
           {/* <Route path="/alerts" element={< />} /> */}
 
           {/* <Route path="/room-types" element={<RoomType />} />

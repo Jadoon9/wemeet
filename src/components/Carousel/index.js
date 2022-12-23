@@ -6,11 +6,11 @@ import CarouselItem from "./CarouselItem";
 
 const Carousel = () => {
   const settings = {
-    dots: true,
+    focusOnSelect: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    speed: 500,
   };
   return (
     <Slider {...settings}>
