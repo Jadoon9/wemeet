@@ -40,6 +40,7 @@
     "dropzone": "^5.7.2",
     "flot-charts": "^0.8.3",
     "flot-spline": "0.0.1",
+    "formik": "^2.2.9",
     "gmaps": "^0.4.24",
     "gulp-rtlcss": "^1.4.1",
     "inputmask": "^5.0.3",
@@ -85,7 +86,8 @@
     "sweetalert2": "^10.10.4",
     "table-edits": "^0.0.3",
     "twitter-bootstrap-wizard": "^1.2.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",

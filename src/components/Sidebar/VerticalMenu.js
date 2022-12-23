@@ -47,6 +47,12 @@ function VerticalMenu() {
               />
 
               <MenuItem
+                mainLink="/form"
+                Icon={MdOutlineCalendarToday}
+                title="Form"
+              />
+
+              <MenuItem
                 mainLink="/progress-bar"
                 Icon={MdOutlineCalendarToday}
                 title="Progress Bar"

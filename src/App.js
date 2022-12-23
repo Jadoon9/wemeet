@@ -31,6 +31,8 @@ import CarouselPage from "./pages/CarouselPage";
 import AlertsPage from "./pages/AlertsPage";
 import CardsPage from "./pages/CardsPage";
 import BreadCrumbsPage from "./pages/BreadCrumbsPage";
+import Form from "./pages/FormPage";
+import FormPage from "./pages/FormPage";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -46,7 +48,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/calendar" element={<Calendarr />} />
-          <Route path="/charts" element={<Charts />} />
+          <Route path="/form" element={<FormPage />} />
+          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
           <Route path="/progress-bar" element={<ProgressBarPage />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/ui-elements" element={<AlertsPage />} />
