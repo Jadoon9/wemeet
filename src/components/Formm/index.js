@@ -127,7 +127,7 @@ const LoginFormikComponents = ({
     >
       {(formik) => {
         return (
-          <Form>
+          <Form className="justify-content-center">
             {children ? (
               <>
                 {children}
