@@ -9,29 +9,31 @@ const Modall = ({
   deleteButton,
   closeButton,
   saveButton,
+  onClose,
+  showModal,
 }) => {
   return (
     <>
-      <div
-        className="modal show"
-        style={{ display: "block", position: "initial" }}
-      >
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>{title}</Modal.Title>
-          </Modal.Header>
-
-          <Modal.Body>
-            {body && <p>{body}</p>}
-            {children}
-          </Modal.Body>
-
-          <Modal.Footer>
-            {closeButton && <Button variant="secondary" label="Cancel" />}
-            {saveButton && <Button variant="primary" label="Save Changes" />}
-          </Modal.Footer>
-        </Modal.Dialog>
-      </div>
+      <Modal show={showModal} onHide={() => onClose(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>{title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {body && <p>{body}</p>}
+          {children}
+        </Modal.Body>
+        <Modal.Footer>
+          {/* {<Button type="submit" text="Submit" variant="primary" />} */}
+          {closeButton && (
+            <Button
+              variant="secondary"
+              text="Cancel"
+              onClick={() => onClose(false)}
+            />
+          )}
+          {saveButton && <Button variant="primary" text="Save Changes" />}
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

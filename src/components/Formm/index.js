@@ -134,10 +134,7 @@ const LoginFormikComponents = ({
         return (
           <Form className="justify-content-center">
             {children ? (
-              <>
-                {children}
-                <Button type="submit" text="Submit" variant="primary" />
-              </>
+              <>{children}</>
             ) : (
               <div>
                 <FormikField label="Email" name="email" type="email" />

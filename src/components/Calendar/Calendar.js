@@ -7,20 +7,23 @@ import Modal from "../UiElements/Modal";
 import Form from "../Formm";
 import FormikField from "../Formm/FormikField";
 
-const Calendar = ({ onChange, initialEvents }) => {
+const Calendar = ({ onChange, initialEvents, showModal, handleModal }) => {
   return (
     <div>
-      <>
-        <Modal title="Add Event">
-          <Form>
-            <Form password="true" userName="true">
-              <FormikField label="Event Name" name="eventName" type="text" />
-
-              <FormikField label="Password" name="password" type="password" />
-            </Form>
+      <Modal
+        title="Add Event"
+        closeButton="true"
+        saveButton="true"
+        onClose={handleModal}
+        showModal={showModal}
+      >
+        <Form>
+          <Form eventName="true">
+            <FormikField label="Event Name" name="eventName" type="text" />
           </Form>
-        </Modal>
-      </>
+        </Form>
+      </Modal>
+
       <FullCalendar
         headerToolbar={{
           left: "prev,next today",
@@ -36,7 +39,6 @@ const Calendar = ({ onChange, initialEvents }) => {
         selectMirror={true}
         dayMaxEvents={true}
         dateClick={onChange}
-        eve
       />
     </div>
   );

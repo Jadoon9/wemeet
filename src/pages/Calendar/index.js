@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "react-calendar/dist/Calendar.css";
 
@@ -10,10 +10,15 @@ import { v4 as uuidv4 } from "uuid";
 
 function Calendarr() {
   const dispatch = useDispatch();
-
+  const [showModal, setShowModal] = useState(false);
   const calenderData = useSelector((state) => state.calendar);
 
+  const handleModal = (param) => {
+    setShowModal(param);
+  };
+
   const handleDateClick = (e) => {
+    handleModal(true);
     const data = {
       id: uuidv4(),
       title: "test",
@@ -35,7 +40,12 @@ function Calendarr() {
         link1="/available"
         link2="/createroom"
       >
-        <Calendar initialEvents={calenderData} onChange={handleDateClick} />
+        <Calendar
+          initialEvents={calenderData}
+          onChange={handleDateClick}
+          showModal={showModal}
+          handleModal={handleModal}
+        />
       </MainPageLayout>
     </>
   );
