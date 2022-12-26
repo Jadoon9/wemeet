@@ -1,24 +1,31 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import Calendar from "react-calendar";
-// import { Calendar, momentLocalizer } from "react-big-calendar";
+import React, { useEffect } from "react";
+
 import "react-calendar/dist/Calendar.css";
-import moment from "moment";
-import FullCalendar from "@fullcalendar/react"; // must go before plugins
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-// import monthGridPligin from "@fullcalendar/monthgrid";
-import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
+
 import MainPageLayout from "../../components/MainPageLayout";
 import Calendar from "../../components/Calendar/Calendar";
-import { INITIAL_EVENTS } from "../../components/Calendar/eventsData";
+import { useDispatch, useSelector } from "react-redux";
+import { addEvent, getEvents } from "../../redux/store";
+import { v4 as uuidv4 } from "uuid";
 
 function Calendarr() {
-  const [date, setDate] = useState(new Date());
+  const dispatch = useDispatch();
+
+  const calenderData = useSelector((state) => state.calendar);
 
   const handleDateClick = (e) => {
-    console.log(e);
+    const data = {
+      id: uuidv4(),
+      title: "test",
+      start: e.dateStr,
+    };
+    dispatch(addEvent(data));
   };
+
+  useEffect(() => {
+    dispatch(getEvents());
+  }, [dispatch, calenderData]);
+
   return (
     <>
       <MainPageLayout
@@ -28,7 +35,7 @@ function Calendarr() {
         link1="/available"
         link2="/createroom"
       >
-        <Calendar initialEvents={INITIAL_EVENTS} onChange={handleDateClick} />
+        <Calendar initialEvents={calenderData} onChange={handleDateClick} />
       </MainPageLayout>
     </>
   );

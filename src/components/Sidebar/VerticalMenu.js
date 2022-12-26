@@ -8,11 +8,12 @@ import {
 
 import MenuItem from "./MenuItem";
 
-function VerticalMenu() {
+function VerticalMenu({ sidebar }) {
   const [showReserv, setShowres] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [showReport, setShowReport] = useState(false);
   const [showUiElements, setShowUiElements] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
 
   const handleShowReservChange = () => {
     setShowres(!showReserv);
@@ -28,6 +29,9 @@ function VerticalMenu() {
 
   const handleUiElementChange = () => {
     setShowUiElements(!showReport);
+  };
+  const handleAuthChange = () => {
+    setShowAuth(!showAuth);
   };
   return (
     <>
@@ -75,16 +79,20 @@ function VerticalMenu() {
                 title="Charts"
                 showDownIcon="true"
                 item1="Charts"
-                // item2="Room Types"
-                // item3="Rooms"
-                // item4="Time Slot"
-                // item5="Wallet"
                 mainLink="#"
                 link1="/charts"
-                // link2="/room-types"
-                // link3="/rooms"
-                // link4="/timeslot"
-                // link5="/wallet"
+              />
+              <MenuItem
+                show={showAuth}
+                handleChange={handleAuthChange}
+                Icon={MdAccountBox}
+                title="Authentication"
+                showDownIcon="true"
+                item1="Login"
+                item2="Register"
+                mainLink="#"
+                link1="/login"
+                link2="/register"
               />
 
               {/* <MenuItem

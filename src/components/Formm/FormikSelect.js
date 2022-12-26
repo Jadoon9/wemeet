@@ -16,12 +16,16 @@ const FormikField = ({ name, type, label }) => {
             </label>
             <select
               className="form-control"
-              value="Artisanal kale"
-              type={type}
-              id={name}
-              {...formikField.field}
-              defaultChecked={formikField.field.value}
-            />
+              //   value="Artisanal kale"
+              //   type={type}
+              //   id={name}
+              //   {...formikField.field}
+              //   defaultChecked={formikField.field.value}
+            >
+              <option>Select</option>
+              <option>Large select</option>
+              <option>Small select</option>
+            </select>
             <FormikErrorMessage name={name} />
             {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
           </>

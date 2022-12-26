@@ -33,7 +33,7 @@ import NotificationBar from "./NotificationBar";
 import RightSidebar from "./RightSidebar";
 import VerticalMenu from "./Sidebar/VerticalMenu";
 
-function Header() {
+function Header({ onClick }) {
   const [showflag, setShowFlag] = useState(false);
   const [showsidebar, setShowSidebar] = useState(true);
   const [showbrand, setShowBrand] = useState(false);
@@ -59,7 +59,7 @@ function Header() {
             </div>
 
             <button
-              // onClick={}
+              onClick={onClick}
               type="button"
               className="btn btn-sm px-3 font-size-24 header-item waves-effect"
               id="vertical-menu-btn"

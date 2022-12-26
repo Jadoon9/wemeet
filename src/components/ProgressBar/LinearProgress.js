@@ -1,21 +1,18 @@
 import React from "react";
 
-const index = ({ text, percentage, value, color }) => {
+import ProgressBar from "react-bootstrap/ProgressBar";
+
+const ProgressBarr = ({ label, percentage, variant }) => {
   return (
     <div>
-      {text && <p class="text-muted mb-2">{text}</p>}
-      <div class="progress progress-sm animated-progess">
-        <div
-          class={`${color}`}
-          role="progressbar"
-          style={{ width: `${percentage}%` }}
-          aria-valuenow={percentage}
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
-      </div>
+      <ProgressBar
+        className="mb-4"
+        now={percentage}
+        label={percentage}
+        variant={variant}
+      />
     </div>
   );
 };
 
-export default index;
+export default ProgressBarr;

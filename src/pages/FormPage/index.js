@@ -11,7 +11,22 @@ const FormPage = () => {
       link1="/"
       link2="/form"
     >
-      <Formm />
+      <Formm
+        email="true"
+        password="true"
+        rememberMe="true"
+        search="true"
+        text="true"
+        url="true"
+        telephone="true"
+        number="true"
+        date="true"
+        dateandtime="true"
+        month="true"
+        week="true"
+        time="true"
+        color="true"
+      />
     </MainPageLayout>
   );
 };

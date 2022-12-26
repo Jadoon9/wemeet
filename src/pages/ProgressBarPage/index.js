@@ -2,7 +2,8 @@ import React from "react";
 import CircularProgress from "../../components/ProgressBar/CircularProgress";
 import MainPageLayout from "../../components/MainPageLayout";
 import LinearProgress from "../../components/ProgressBar/LinearProgress";
-const index = () => {
+
+const ProgressBar = () => {
   return (
     <MainPageLayout
       title="Meeting Rooms"
@@ -13,12 +14,13 @@ const index = () => {
       link2="/progress-bar"
     >
       <CircularProgress value={80} text="80%" />
-      <LinearProgress text="Completed" percentage={70} color="bg-warning" />
-      <LinearProgress text="Completed" percentage={40} color="bg-danger" />
-      <LinearProgress text="Completed" percentage={100} color="bg-success" />
+      <LinearProgress label="Completed" percentage={70} variant="warning" />
+      <LinearProgress label="Running" percentage={40} variant="info" />
+      <LinearProgress label="Progress" percentage={100} variant="success" />
+      <LinearProgress label="Completed" percentage={100} variant="danger" />
       {/* <ProgressBar /> */}
     </MainPageLayout>
   );
 };
 
-export default index;
+export default ProgressBar;

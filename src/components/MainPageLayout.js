@@ -25,7 +25,7 @@ const MainPageLayout = ({
               <div className="col-12">
                 <div className="page-title-box d-sm-flex align-items-center justify-content-between">
                   <BreadCrumbs
-                    breadcrub1={breadcrum1}
+                    breadcrumb1={breadcrum1}
                     breadcrumb2={breadcrum2}
                     breadcrumb3={breadcrum3}
                     link1={link1}
