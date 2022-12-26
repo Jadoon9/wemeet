@@ -6,10 +6,12 @@ import MainPageLayout from "../../components/MainPageLayout";
 import Calendar from "../../components/Calendar/Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvent, getEvents } from "../../redux/store";
+import { getCalenderEvents } from "../../components/Calendar/actions";
 import { v4 as uuidv4 } from "uuid";
 
 function Calendarr() {
   const dispatch = useDispatch();
+
   const [showModal, setShowModal] = useState(false);
   const calenderData = useSelector((state) => state.calendar);
 
@@ -28,7 +30,7 @@ function Calendarr() {
   };
 
   useEffect(() => {
-    dispatch(getEvents());
+    dispatch(getCalenderEvents());
   }, [dispatch, calenderData]);
 
   return (

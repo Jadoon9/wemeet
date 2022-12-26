@@ -13,7 +13,12 @@ const ProgressBar = () => {
       link1="/"
       link2="/progress-bar"
     >
-      <CircularProgress value={80} text="80%" />
+      <CircularProgress
+        value={80}
+        text="80%"
+        pathColor="danger"
+        textColor="primary"
+      />
       <LinearProgress label="Completed" percentage={70} variant="warning" />
       <LinearProgress label="Running" percentage={40} variant="info" />
       <LinearProgress label="Progress" percentage={100} variant="success" />

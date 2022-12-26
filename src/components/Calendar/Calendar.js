@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClic
 import Modal from "../UiElements/Modal";
 import Form from "../Formm";
 import FormikField from "../Formm/FormikField";
+import FormikSelect from "../Formm/FormikSelect";
 
 const Calendar = ({ onChange, initialEvents, showModal, handleModal }) => {
   return (
@@ -20,6 +21,7 @@ const Calendar = ({ onChange, initialEvents, showModal, handleModal }) => {
         <Form>
           <Form eventName="true">
             <FormikField label="Event Name" name="eventName" type="text" />
+            <FormikSelect name="eventSelect" label="Category" />
           </Form>
         </Form>
       </Modal>

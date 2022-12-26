@@ -3,7 +3,7 @@ import { RiArrowRightUpLine, RiGroupLine } from "react-icons/ri";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-function CircularProgress({ value, text }) {
+function CircularProgress({ value, text, pathColor, textColor }) {
   return (
     <>
       <div
@@ -12,18 +12,18 @@ function CircularProgress({ value, text }) {
       >
         <CircularProgressbar
           styles={buildStyles({
-            rotation: 0.25,
+            // rotation: 0.25,
 
-            strokeLinecap: "butt",
+            // strokeLinecap: "butt",
 
-            textSize: "16px",
+            // textSize: "16px",
 
-            pathTransitionDuration: 0.5,
+            // pathTransitionDuration: 0.5,
 
-            pathColor: `rgba(62, 152, 199, ${value / 100})`,
-            textColor: "#f88",
-            trailColor: "#d6d6d6",
-            backgroundColor: "#3e98c7",
+            pathColor: pathColor,
+            textColor: textColor,
+            // trailColor: "#d6d6d6",
+            // backgroundColor: "#3e98c7",
           })}
           value={value}
           text={text}

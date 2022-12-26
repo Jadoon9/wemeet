@@ -14,6 +14,8 @@ const FormPage = () => {
     >
       <Formm
         email="true"
+        userName="true"
+        eventname="true"
         password="true"
         rememberMe="true"
         search="true"

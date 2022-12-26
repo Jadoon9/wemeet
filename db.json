@@ -17,7 +17,18 @@
       "color": "#0bb197"
     }
   ],
-  "calendarData": {},
+  "calendarData": [
+    {
+      "id": 1,
+      "title": "All-day event",
+      "start": "2022-12-26"
+    },
+    {
+      "id": 2,
+      "title": "Event",
+      "start": "2022-12-26"
+    }
+  ],
 
   "chartsData": {
     "barChartState": {

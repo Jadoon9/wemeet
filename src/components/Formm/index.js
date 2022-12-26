@@ -20,6 +20,7 @@ const regexpTelepone =
 const LoginFormikComponents = ({
   children,
   eventName,
+  eventColor,
   userName,
   email,
   password,
@@ -43,6 +44,7 @@ const LoginFormikComponents = ({
   const initialValues = {
     userName: "",
     eventName: "",
+    eventcolor: "",
     email: "",
     password: "",
     rememberMe: false,
@@ -70,6 +72,9 @@ const LoginFormikComponents = ({
     }),
     ...(eventName && {
       eventName: yup.string().required("Event Name field is required"),
+    }),
+    ...(eventColor && {
+      eventColor: yup.string().required("Event Name field is required"),
     }),
     ...(email && {
       email: yup
@@ -138,6 +143,7 @@ const LoginFormikComponents = ({
             ) : (
               <div>
                 <FormikField label="Email" name="email" type="email" />
+
                 <FormikField label="Password" name="password" type="password" />
                 <FormikField label="Search" name="search" type="search" />
                 <FormikField label="Text" name="text" type="text" />
