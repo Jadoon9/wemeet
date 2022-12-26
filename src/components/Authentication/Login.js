@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Form from "../Formm";
 import FormikField from "../Formm/FormikField";
+import Button from "../UiElements/Button";
 
 const Login = () => {
   return (
@@ -49,6 +50,7 @@ const Login = () => {
                         name="password"
                         type="password"
                       />
+                      <Button text="Login" type="submit" />
                     </Form>
                   </div>
                 </div>

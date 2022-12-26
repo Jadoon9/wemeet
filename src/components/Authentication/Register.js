@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Form from "../../components/Formm";
 import FormikField from "../Formm/FormikField";
+import Button from "../UiElements/Button";
 
 const Register = () => {
   return (
@@ -50,6 +51,7 @@ const Register = () => {
                       name="password"
                       type="password"
                     />
+                    <Button text="Register" type="submit" />
                   </Form>
                 </div>
               </div>
