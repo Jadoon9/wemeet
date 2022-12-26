@@ -19,6 +19,7 @@ const regexpTelepone =
 // remaining  = validation for datetime, date, time, week , month , color
 const LoginFormikComponents = ({
   children,
+  eventName,
   userName,
   email,
   password,
@@ -41,6 +42,7 @@ const LoginFormikComponents = ({
 
   const initialValues = {
     userName: "",
+    eventName: "",
     email: "",
     password: "",
     rememberMe: false,
@@ -65,6 +67,9 @@ const LoginFormikComponents = ({
   const validationSchema = yup.object({
     ...(userName && {
       userName: yup.string().required("User Name field is required"),
+    }),
+    ...(eventName && {
+      eventName: yup.string().required("Event Name field is required"),
     }),
     ...(email && {
       email: yup

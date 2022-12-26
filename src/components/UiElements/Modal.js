@@ -18,16 +18,17 @@ const Modall = ({
       >
         <Modal.Dialog>
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
+            {body && <p>{body}</p>}
+            {children}
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button variant="primary">Save changes</Button>
+            {closeButton && <Button variant="secondary" label="Cancel" />}
+            {saveButton && <Button variant="primary" label="Save Changes" />}
           </Modal.Footer>
         </Modal.Dialog>
       </div>
