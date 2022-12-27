@@ -1,5 +1,4 @@
 import FullCalendar from "@fullcalendar/react";
-import { useSelector } from "react-redux";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
@@ -49,7 +48,6 @@ const Calendar = ({
         // eventAdd={}
         eventRemove={(e) => console.log(e, "zasas")}
       />
-      calendar
     </div>
   );
 };
