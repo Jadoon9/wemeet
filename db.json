@@ -21,23 +21,74 @@
     {
       "id": 1,
       "title": "All-day event",
-      "start": "2022-12-26"
+      "start": "2022-12-26T12:00:00"
     },
     {
       "id": 2,
       "title": "Event",
-      "start": "2022-12-26"
+      "start": "2022-12-26T12:00:00"
+    },
+    {
+      "id": "49f434e7-654d-4501-9ae1-a1762b35b208",
+      "title": "ASD",
+      "eventColor": "danger",
+      "start": "2022-12-07T12:00:00"
+    },
+    {
+      "id": "561e861b-de4b-416d-9eb3-3f299330ab9f",
+      "title": "shahzeb",
+      "eventColor": "primary",
+      "start": "2022-12-05T12:00:00"
+    },
+    {
+      "id": "2bb8716c-cbf6-4505-813b-e0e89726524d",
+      "title": "jadoon",
+      "eventColor": "danger",
+      "start": "2022-12-06T12:00:00"
+    },
+    {
+      "id": "41161900-2807-4dbc-a66d-e46d3733e688",
+      "title": "asda",
+      "eventColor": "primary",
+      "start": "2022-12-13T12:00:00"
+    },
+    {
+      "id": "faca13ce-09d0-43cf-87d2-9388686e0074",
+      "title": "testt",
+      "eventColor": "success",
+      "start": "2022-12-20T12:00:00"
+    },
+    {
+      "id": "06936781-f832-4b70-98c6-a3d27002071e",
+      "title": "asd",
+      "eventColor": "danger",
+      "start": "2022-12-15T12:00:00"
     }
   ],
-
   "chartsData": {
     "barChartState": {
       "series": [
         {
-          "data": [44, 55, 41, 64, 22, 43, 21]
+          "data": [
+            44,
+            55,
+            41,
+            64,
+            22,
+            43,
+            21
+          ]
         },
         {
-          "data": [53, 32, 33, 52, 13, 44, 32]
+          "data": [
+            53,
+            32,
+            33,
+            52,
+            13,
+            44,
+            32
+          ]
         }
       ],
       "options": {
@@ -58,20 +109,32 @@
           "offsetX": -6,
           "style": {
             "fontSize": "12px",
-            "colors": ["#fff"]
+            "colors": [
+              "#fff"
+            ]
           }
         },
         "stroke": {
           "show": true,
           "width": 1,
-          "colors": ["#fff"]
+          "colors": [
+            "#fff"
+          ]
         },
         "tooltip": {
           "shared": true,
           "intersect": false
         },
         "xaxis": {
-          "categories": [2001, 2002, 2003, 2004, 2005, 2006, 2007]
+          "categories": [
+            2001,
+            2002,
+            2003,
+            2004,
+            2005,
+            2006,
+            2007
+          ]
         }
       }
     },
@@ -81,13 +144,32 @@
           "id": "basic-bar"
         },
         "xaxis": {
-          "categories": [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+          "categories": [
+            1991,
+            1992,
+            1993,
+            1994,
+            1995,
+            1996,
+            1997,
+            1998,
+            1999
+          ]
         }
       },
       "series": [
         {
           "name": "series-1",
-          "data": [30, 40, 45, 50, 49, 60, 70, 91]
+          "data": [
+            30,
+            40,
+            45,
+            50,
+            49,
+            60,
+            70,
+            91
+          ]
         }
       ]
     },
@@ -95,17 +177,64 @@
       "series": [
         {
           "name": "Session Duration",
-          "data": [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+          "data": [
+            45,
+            52,
+            38,
+            24,
+            33,
+            26,
+            21,
+            20,
+            6,
+            8,
+            15,
+            10
+          ]
         },
         {
           "name": "Page Views",
-          "data": [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+          "data": [
+            35,
+            41,
+            62,
+            42,
+            13,
+            18,
+            29,
+            37,
+            36,
+            51,
+            32,
+            35
+          ]
         },
         {
           "name": "Total Visits",
-          "data": [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+          "data": [
+            87,
+            57,
+            74,
+            99,
+            75,
+            38,
+            62,
+            47,
+            82,
+            56,
+            45,
+            47
+          ]
         }
       ]
     }
-  }
+  },
+  "loginData": [
+    {
+      "id": "1",
+      "userName": "shahzeb",
+      "email": "shahzeb@gmail.com",
+      "password": "1234"
+    }
+  ]
 }

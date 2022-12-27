@@ -7,6 +7,7 @@ import DashboardTransactionTable from "../../components/DashboardTransactionTabl
 import Chart from "../../components/Charts";
 import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
 import MultiSlider from "../../components/RangeSelector/MultiSlider.js";
+import VoiceInput from "../../components/VoiceInput/index.js";
 
 function Dashboard() {
   // Single Range Slider ========
@@ -47,7 +48,9 @@ function Dashboard() {
           />
           <p>{rangeValue}</p>
         </>
-
+        <>
+          <VoiceInput />
+        </>
         <>{/* <MultiSlider /> */}</>
         {/* <DataTable /> */}
         {/* <CouponTable /> */}

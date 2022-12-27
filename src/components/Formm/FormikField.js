@@ -17,7 +17,7 @@ const FormikField = ({ name, type, label }) => {
             <Form.Group
               as={Col}
               md="12"
-              controlId="validationFormik01"
+              // controlId="validationFormik01"
               className="justify-content-center"
             >
               <Form.Label>{label}</Form.Label>

@@ -27,17 +27,10 @@ const Calendar = ({
       >
         <Form eventName="true" onSubmit={addNewEvent}>
           <FormikField label="Event Name" name="eventName" type="text" />
-
           <FormikSelect name="eventColor" label="Category" type="select" />
-          <Button
-            type="submit"
-            variant="primary"
-            text="Save Changes"
-            onClick={addNewEvent}
-          />
+          <Button type="submit" variant="primary" text="Save Changes" />
         </Form>
       </Modal>
-
       <FullCalendar
         headerToolbar={{
           left: "prev,next today",
@@ -46,14 +39,17 @@ const Calendar = ({
         }}
         initialView="dayGridMonth"
         plugins={[timeGridPlugin, interactionPlugin, dayGridPlugin]}
-        initialEvents={initialEvents?.data}
+        initialEvents={initialEvents}
         weekends={true}
         editable={true}
         selectable={true}
         selectMirror={true}
         dayMaxEvents={true}
         dateClick={onChange}
+        // eventAdd={}
+        eventRemove={(e) => console.log(e, "zasas")}
       />
+      calendar
     </div>
   );
 };
