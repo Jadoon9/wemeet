@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MicRecorder from "mic-recorder-to-mp3";
+import Buttonn from "../UiElements/Button";
 
 const VoiceInput = () => {
   const [micData, setMicData] = useState({
@@ -7,7 +8,9 @@ const VoiceInput = () => {
     blobURL: "",
     isBlocked: false,
   });
-  const Mp3Recorder = new MicRecorder({ bitRate: 128 });
+  const [Mp3Recorder, setMp3Recorder] = useState(
+    new MicRecorder({ bitRate: 128 })
+  );
 
   useEffect(() => {
     navigator.getUserMedia(
@@ -45,14 +48,23 @@ const VoiceInput = () => {
   };
 
   return (
-    <div>
-      <button onClick={startRecording} disabled={micData.isRecording}>
-        Record
-      </button>
-      <button onClick={stopRecording} disabled={!micData.isRecording}>
-        Stop
-      </button>
+    <div className="d-flex flex-column w-25 ">
       <audio src={micData.blobURL} controls="controls" />
+      <div className=" d-flex align-content-center align-items-center">
+        <Buttonn
+          variant="info"
+          onClick={startRecording}
+          disabled={micData.isRecording}
+          text="Record"
+        />
+        &nbsp;&nbsp;&nbsp;
+        <Buttonn
+          variant="danger"
+          onClick={stopRecording}
+          disabled={!micData.isRecording}
+          text="Stop"
+        />
+      </div>
     </div>
   );
 };
