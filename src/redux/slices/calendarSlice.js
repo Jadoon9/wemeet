@@ -8,7 +8,18 @@ let todayStr = new Date().toISOString().replace(/T.*$/, ""); // YYYY-MM-DD of to
 
 const initialState = {
   loading: false,
-  data: [],
+  data: [
+    {
+      id: 1,
+      title: "All-day event",
+      start: todayStr + "T12:00:00",
+    },
+    {
+      id: 2,
+      title: "Timed event",
+      start: todayStr + "T12:00:00",
+    },
+  ],
   error: null,
 };
 
@@ -17,7 +28,8 @@ export const calendarSlice = createSlice({
   initialState,
   reducers: {
     addEvent: (state, action) => {
-      state.data.push(action.payload);
+      console.log(action.payload, "payload");
+      // state.data.push(action.payload);
     },
     getEvents: (state) => {
       return state;
@@ -29,9 +41,9 @@ export const calendarSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getCalenderEvents.fulfilled, (state, action) => {
-      state.data.push(action.payload);
+      state.data.push(action?.payload);
     });
-    builder.addCase(getCalenderEvents.error, (state, action) => {
+    builder.addCase(getCalenderEvents.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload || "Error occured";
     });

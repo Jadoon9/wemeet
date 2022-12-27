@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import results from "../../Data.js";
 
 import MainPageLayout from "../../components/MainPageLayout.js";
 import DashboardTransactionTable from "../../components/DashboardTransactionTable.js";
 
 import Chart from "../../components/Charts";
+import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
+import MultiSlider from "../../components/RangeSelector/MultiSlider.js";
 
 function Dashboard() {
+  // Single Range Slider ========
+  const [rangeValue, setRangeValue] = useState(10);
+  const handleChangeStart = () => {};
+  const handleChange = (e) => {
+    console.log(e);
+    setRangeValue(e);
+  };
+  const handleChangeComplete = () => {};
+
+  // Multi Range slider
   return (
     <div>
       <MainPageLayout
@@ -19,13 +31,24 @@ function Dashboard() {
       >
         {/* <DashboardCards tableData={TableData} /> */}
 
-        <Chart
+        {/* <Chart
           options={results.results.options}
           series={results.results.series}
           type="line"
-        />
+        /> */}
 
-        <DashboardTransactionTable />
+        {/* <DashboardTransactionTable /> */}
+        <>
+          <RangeSelector
+            rangeValue={rangeValue}
+            handleChangeStart={handleChangeStart}
+            handleChange={handleChange}
+            handleChangeComplete={handleChangeComplete}
+          />
+          <p>{rangeValue}</p>
+        </>
+
+        <>{/* <MultiSlider /> */}</>
         {/* <DataTable /> */}
         {/* <CouponTable /> */}
       </MainPageLayout>

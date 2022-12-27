@@ -8,13 +8,18 @@ import FormikErrorMessage from "./FormikErrorMessage";
  */
 const FormikField = ({ name, label }) => {
   return (
-    <Field name={name}>
+    <Field as="select" name={name}>
       {(formikField) => {
         return (
           <>
             <Form.Label>{label}</Form.Label>
-            <Form.Select aria-label="Default select example">
-              <option disabled>-- Select --</option>
+            <Form.Select
+              aria-label="Default select example"
+              {...formikField.field}
+            >
+              <option disabled selected>
+                -- Select --
+              </option>
               <option value="danger">Danger</option>
               <option value="success">Success</option>
               <option value="primary">Primary</option>
@@ -23,20 +28,7 @@ const FormikField = ({ name, label }) => {
               <option value="warning">Warning</option>
             </Form.Select>
 
-            {/* <select
-              className="form-control"
-              //   value="Artisanal kale"
-              //   type={type}
-              //   id={name}
-              //   {...formikField.field}
-              //   defaultChecked={formikField.field.value}
-            >
-              <option>Select</option>
-              <option>Large select</option>
-              <option>Small select</option>
-            </select> */}
             <FormikErrorMessage name={name} />
-            {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
           </>
         );
       }}

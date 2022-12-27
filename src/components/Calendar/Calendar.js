@@ -7,22 +7,34 @@ import Modal from "../UiElements/Modal";
 import Form from "../Formm";
 import FormikField from "../Formm/FormikField";
 import FormikSelect from "../Formm/FormikSelect";
+import Button from "../UiElements/Button";
 
-const Calendar = ({ onChange, initialEvents, showModal, handleModal }) => {
+const Calendar = ({
+  onChange,
+  initialEvents,
+  showModal,
+  handleModal,
+  addNewEvent,
+}) => {
   return (
     <div>
       <Modal
         title="Add Event"
         closeButton="true"
-        saveButton="true"
+        saveButton={addNewEvent}
         onClose={handleModal}
         showModal={showModal}
       >
-        <Form>
-          <Form eventName="true">
-            <FormikField label="Event Name" name="eventName" type="text" />
-            <FormikSelect name="eventSelect" label="Category" />
-          </Form>
+        <Form eventName="true" onSubmit={addNewEvent}>
+          <FormikField label="Event Name" name="eventName" type="text" />
+
+          <FormikSelect name="eventColor" label="Category" type="select" />
+          <Button
+            type="submit"
+            variant="primary"
+            text="Save Changes"
+            onClick={addNewEvent}
+          />
         </Form>
       </Modal>
 
@@ -34,7 +46,7 @@ const Calendar = ({ onChange, initialEvents, showModal, handleModal }) => {
         }}
         initialView="dayGridMonth"
         plugins={[timeGridPlugin, interactionPlugin, dayGridPlugin]}
-        initialEvents={initialEvents.data}
+        initialEvents={initialEvents?.data}
         weekends={true}
         editable={true}
         selectable={true}

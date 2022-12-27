@@ -24,14 +24,21 @@ const Modall = ({
         </Modal.Body>
         <Modal.Footer>
           {/* {<Button type="submit" text="Submit" variant="primary" />} */}
-          {closeButton && (
+          {/* {closeButton && (
             <Button
               variant="secondary"
               text="Cancel"
               onClick={() => onClose(false)}
             />
           )}
-          {saveButton && <Button variant="primary" text="Save Changes" />}
+          {saveButton && (
+            <Button
+              type="submit"
+              variant="primary"
+              text="Save Changes"
+              onClick={saveButton}
+            />
+          )} */}
         </Modal.Footer>
       </Modal>
     </>

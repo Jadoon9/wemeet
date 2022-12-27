@@ -18,6 +18,7 @@ const regexpTelepone =
 
 // remaining  = validation for datetime, date, time, week , month , color
 const LoginFormikComponents = ({
+  onSubmit,
   children,
   eventName,
   eventColor,
@@ -60,11 +61,11 @@ const LoginFormikComponents = ({
     time: "",
     color: "",
   };
-  console.log(userName, email, password, "heree");
-  const onSubmit = (values) => {
-    console.log(values, "valuess");
-    // dispatch(addData(values));
-  };
+
+  // const onSubmit = (values) => {
+  //   console.log(values, "valuess");
+  //   // dispatch(addData(values));
+  // };
 
   const validationSchema = yup.object({
     ...(userName && {
@@ -132,7 +133,10 @@ const LoginFormikComponents = ({
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={onSubmit}
+      onSubmit={(values) => {
+        console.log(values, "valuess");
+        onSubmit(values);
+      }}
       validationSchema={validationSchema}
     >
       {(formik) => {
