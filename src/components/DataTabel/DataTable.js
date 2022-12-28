@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
+import Pagination from "./Pagination";
 import { usePagination, useSortBy, useTable, useRowSelect } from "react-table";
+import { Table } from "react-bootstrap";
 
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
@@ -69,21 +71,14 @@ const DataTable = ({ columns, data }) => {
     }
   );
 
-  console.log(selectedRowIds, "selecteddd");
   return (
     <>
-      <table
-        {...getTableProps()}
-        className="table table-striped table-bordered dt-responsive nowrap"
-      >
+      <Table striped hover bordered responsive {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup?.headers?.map((column) => (
-                <th
-                  scope="col"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -111,84 +106,21 @@ const DataTable = ({ columns, data }) => {
             );
           })}
         </tbody>
-      </table>
+      </Table>
 
-      <nav aria-label="Page navigation example">
-        <ul className="pagination pagination-rounded justify-content-end">
-          <li className="page-item">
-            <button
-              className="page-link"
-              onClick={() => gotoPage(0)}
-              disabled={!canPreviousPage}
-            >
-              {"<<"}
-            </button>
-          </li>
-          <li className="page-item">
-            <button
-              className="page-link active"
-              onClick={() => previousPage()}
-              disabled={!canPreviousPage}
-            >
-              {pageIndex}
-            </button>
-          </li>
-          <li className="page-item">
-            <button
-              className="page-link"
-              onClick={() => nextPage()}
-              disabled={!canNextPage}
-            >
-              {pageIndex + 1}
-            </button>
-          </li>
-          <li className="page-item">
-            <button
-              className="page-link"
-              onClick={() => gotoPage(pageCount - 1)}
-              disabled={!canNextPage}
-            >
-              {">>"}
-            </button>
-          </li>
-          <li className="page-item">
-            <span>
-              Page
-              <strong>
-                {pageIndex + 1} of {pageOptions.length}
-              </strong>{" "}
-            </span>
-          </li>
+      <Pagination
+        gotoPage={gotoPage}
+        canPreviousPage={canPreviousPage}
+        previousPage={previousPage}
+        nextPage={nextPage}
+        canNextPage={canNextPage}
+        pageCount={pageCount}
+        pageIndex={pageIndex}
+        pageOptions={pageOptions}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
+      />
 
-          {/* <li className="page-item">
-            <span>
-              | Go to page:
-              <input
-                type="number"
-                defaultValue={pageIndex + 1}
-                onChange={(e) => {
-                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                  gotoPage(page);
-                }}
-                style={{ width: "100px" }}
-              />
-            </span>
-          </li> */}
-
-          <select
-            value={pageSize}
-            onChange={(e) => {
-              setPageSize(Number(e.target.value));
-            }}
-          >
-            {[10, 20, 30, 40, 50].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
-                Show {pageSize}
-              </option>
-            ))}
-          </select>
-        </ul>
-      </nav>
       {/* <pre>
         <code>
           {JSON.stringify(
