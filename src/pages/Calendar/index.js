@@ -9,7 +9,7 @@ import { addEvent, getEvents } from "../../redux/store";
 import {
   getCalenderEvents,
   postCalenderEvents,
-} from "../../components/Calendar/actions";
+} from "../../components/Calendar/calendrThunk";
 import { v4 as uuidv4 } from "uuid";
 
 function Calendarr() {
@@ -58,8 +58,9 @@ function Calendarr() {
         title="Daily Calendar"
         breadcrum1="Dashboard"
         breadcrum2="Daily Calender"
-        link1="/available"
-        link2="/createroom"
+        cardTitle="Calendar"
+        link1="/"
+        link2="/calendar"
       >
         {loading ? (
           <l1>Loading .... </l1>

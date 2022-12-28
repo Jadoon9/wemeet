@@ -45,6 +45,12 @@ function VerticalMenu({ sidebar }) {
               </div>
 
               <MenuItem
+                mainLink="/table"
+                Icon={MdOutlineCalendarToday}
+                title="Data Table"
+              />
+
+              <MenuItem
                 mainLink="/calendar"
                 Icon={MdOutlineCalendarToday}
                 title="Calendar"
@@ -61,6 +67,7 @@ function VerticalMenu({ sidebar }) {
                 Icon={MdOutlineCalendarToday}
                 title="Progress Bar"
               />
+
               <MenuItem
                 mainLink="/notifications"
                 Icon={MdOutlineCalendarToday}

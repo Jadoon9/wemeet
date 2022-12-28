@@ -3,7 +3,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import Charts from "../../components/Charts";
-import DataTable from "../../components/DataTable";
+import DataTable from "../../components/DataTabel/DataTable";
 import MainPageLayout from "../../components/MainPageLayout";
 import ResTable from "../../components/ResTable";
 import Table from "../../components/Table";
@@ -21,12 +21,12 @@ function ChartsPage() {
   return (
     <>
       <MainPageLayout
-        title="Reservations"
-        breadcrum1="Charts"
-        // breadcrum2="Create Reservation"
+        title="Charts"
+        breadcrum1="Dashboard"
+        breadcrum2="Charts"
         cardTitle="Charts"
-        link1="/charts"
-        link2="#"
+        link1="/"
+        link2="/charts"
       >
         <div className="row">
           <div class="col-lg-6">

@@ -13,6 +13,7 @@ const AlertsPage = () => {
       breadcrum1="Dashboard"
       breadcrum2="UI Elements"
       breadcrum3="Alerts"
+      cardTitle="Alerts Page"
       link1="/"
       link2="/ui-elements"
       link3="/alerts"

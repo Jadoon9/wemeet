@@ -6,10 +6,11 @@ const CarouselPage = () => {
   return (
     <>
       <MainPageLayout
-        title="Editor"
+        title="Carousel"
         breadcrum1="Dashboard"
         breadcrum2="UI Elements"
         breadcrum3="Carousel"
+        cardTitle="Carousel Page"
         link1="/"
         link2="/ui-elements"
         link3="/editor"

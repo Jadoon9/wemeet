@@ -9,7 +9,7 @@ const index = () => {
         title="Notifications"
         breadcrum1="Dashboard"
         breadcrum2="Notifications"
-        cardTitle="All Rooms"
+        cardTitle="Notifications Card"
         link1="/"
         link2="/notifications"
       >

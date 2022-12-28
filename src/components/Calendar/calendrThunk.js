@@ -23,7 +23,6 @@ export const getCalenderEvents = createAsyncThunk(
 export const postCalenderEvents = createAsyncThunk(
   "calender/postEvents",
   async (data) => {
-    console.log(data, "dataacheck");
     try {
       return await axios.post("http://localhost:3005/calendarData", data, {
         headers: headers,

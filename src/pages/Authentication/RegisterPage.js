@@ -8,6 +8,7 @@ const RegisterPage = () => {
       title="Register"
       breadcrum1="Authentication"
       breadcrum2="Register"
+      cardTitle="Registeration Page"
       link1="/"
       link2="/register"
     >

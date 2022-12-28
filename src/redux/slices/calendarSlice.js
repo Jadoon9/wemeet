@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getCalenderEvents,
   postCalenderEvents,
-} from "../../components/Calendar/actions";
+} from "../../components/Calendar/calendrThunk";
 export function createEventId() {
   return String(eventGuid++);
 }

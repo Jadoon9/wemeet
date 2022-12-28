@@ -5,7 +5,7 @@ import Formm from "../../components/Formm";
 const FormPage = () => {
   return (
     <MainPageLayout
-      title="Formik Forms"
+      title="Formik Form With all fields"
       breadcrumb1="Dashboard"
       breadcrumb2="Form"
       cardTitle="Formik Forms"

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import results from "../../Data.js";
-
+import Card from "../../components/Card";
 import MainPageLayout from "../../components/MainPageLayout.js";
-import DashboardTransactionTable from "../../components/DashboardTransactionTable.js";
 
-import Chart from "../../components/Charts";
 import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
-import MultiSlider from "../../components/RangeSelector/MultiSlider.js";
-import VoiceInput from "../../components/VoiceInput/index.js";
+import VideoInput from "../../components/VideoInput/VideoInput.js";
+import VoiceInput from "../../components/VoiceInput/VoiceInput";
+import VoiceRecord from "../../components/VoiceInput/VoiceRecorder.js";
 
 function Dashboard() {
   // Single Range Slider ========
@@ -26,7 +24,6 @@ function Dashboard() {
         title="Dashboard"
         breadcrum1="We Meet"
         breadcrum2="Dashboard"
-        cardTitle="All Customers"
         link1="/"
         link2="/"
       >
@@ -38,8 +35,7 @@ function Dashboard() {
           type="line"
         /> */}
 
-        {/* <DashboardTransactionTable /> */}
-        <>
+        <Card title="Range Selector">
           <RangeSelector
             rangeValue={rangeValue}
             handleChangeStart={handleChangeStart}
@@ -47,12 +43,21 @@ function Dashboard() {
             handleChangeComplete={handleChangeComplete}
           />
           <p>{rangeValue}</p>
-        </>
-        <>
+        </Card>
+        <Card title="Voice Recorder">
+          <VoiceRecord />
+        </Card>
+        <Card title="Audio Input">
           <VoiceInput />
-        </>
+        </Card>
+        <Card title="Video Input">
+          <VideoInput />
+        </Card>
+
+        {/* <DashboardTransactionTable /> */}
+
         <>{/* <MultiSlider /> */}</>
-        {/* <DataTable /> */}
+
         {/* <CouponTable /> */}
       </MainPageLayout>
       {/* <div className="main-content">

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Card = ({ image, title, description, footer1, footer2 }) => {
+const Card = ({ children, image, title, description, footer1, footer2 }) => {
   return (
-    <div className="col-md-6 col-xl-3">
+    <div className="col-sm-12 col-md-12 col-xl-12">
       <div className="card">
         {image && (
           <img className="card-img-top img-fluid" src={image} alt="Card  cap" />
@@ -10,6 +10,7 @@ const Card = ({ image, title, description, footer1, footer2 }) => {
         <div className="card-body">
           {title && <h4 className="card-title">{title}</h4>}
           {description && <p className="card-text">{description}</p>}
+          {children}
         </div>
 
         {footer1 && (

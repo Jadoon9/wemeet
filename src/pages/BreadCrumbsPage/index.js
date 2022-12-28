@@ -12,6 +12,7 @@ const BreadCrumbsPage = () => {
         breadcrumb4="Dashboard"
         breadcrumb5="UI Elements"
         breadcrumb6="Cards"
+        cardTitle="Bread Crums"
         link1="#"
         link2="#"
         link3="#"

@@ -15,6 +15,7 @@ import BreadCrumbsPage from "./pages/BreadCrumbsPage";
 import FormPage from "./pages/FormPage";
 import LoginPage from "./pages/Authentication/LoginPage";
 import RegisterPage from "./pages/Authentication/RegisterPage";
+import DataTablePage from "./pages/DatatablePage/index";
 import { useState } from "react";
 // import 'libs/jquery/dist/jquery.min.js'
 
@@ -34,20 +35,21 @@ function App() {
         {sidebar && <VerticalMenu />}
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/table" element={<DataTablePage />} />
           <Route path="/calendar" element={<Calendarr />} />
           <Route path="/form" element={<FormPage />} />
-          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
           <Route path="/progress-bar" element={<ProgressBarPage />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/charts" element={<Charts />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/ui-elements" element={<AlertsPage />} />
+          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
           <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/editor" element={<EditorPage />} />
           <Route path="/carousel" element={<CarouselPage />} />
           <Route path="/cards" element={<CardsPage />} />
           <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
-          <Route path="/charts" element={<Charts />} />
           {/* <Route path="/alerts" element={< />} /> */}
         </Routes>
       </BrowserRouter>

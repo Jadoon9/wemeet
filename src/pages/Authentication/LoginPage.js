@@ -8,6 +8,7 @@ const LoginPage = () => {
       title="Login"
       breadcrum1="Authentication"
       breadcrum2="Login"
+      cardTitle="Login Page"
       link1="/"
       link2="/login"
     >
