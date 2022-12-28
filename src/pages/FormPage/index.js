@@ -1,5 +1,5 @@
 import React from "react";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import Formm from "../../components/Formm";
 
 const FormPage = () => {

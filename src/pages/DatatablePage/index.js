@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 
 const DataTablePage = () => {
@@ -28,7 +28,7 @@ const DataTablePage = () => {
   }, []);
 
   const tableData = useMemo(() => data, []);
-  console.log(data, loading, "dataaa");
+
   return (
     <>
       <MainPageLayout

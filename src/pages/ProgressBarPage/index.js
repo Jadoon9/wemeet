@@ -1,6 +1,6 @@
 import React from "react";
 import CircularProgress from "../../components/ProgressBar/CircularProgress";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import LinearProgress from "../../components/ProgressBar/LinearProgress";
 import Card from "../../components/Card";
 

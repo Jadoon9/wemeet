@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import Alert from "../../components/Alerts";
 import CardAlerts from "../../components/Alerts/CardAlerts";
 

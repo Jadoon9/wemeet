@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Charts from "../../components/Charts";
 import DataTable from "../../components/DataTabel/DataTable";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import ResTable from "../../components/ResTable";
 import Table from "../../components/Table";
 import TransactionData from "../../components/Transactions";

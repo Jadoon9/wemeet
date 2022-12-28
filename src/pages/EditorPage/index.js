@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../../components/Card";
 import Editor from "../../components/Editor";
 import CkEditor from "../../components/Editor/CkEditor";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 const EditorPage = () => {
   const [editorInput, setEditorInput] = useState("");

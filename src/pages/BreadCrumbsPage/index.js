@@ -1,6 +1,6 @@
 import React from "react";
 import BreadCrumbs from "../../components/BreadCrumbs";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 const BreadCrumbsPage = () => {
   return (

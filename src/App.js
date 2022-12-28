@@ -23,8 +23,6 @@ import { useState } from "react";
 // import 'libs/simplebar/dist/simplebar.min.js'
 
 function App() {
-  const [sidebar, setSideBar] = useState(true);
-
   const handleToggleSidebar = () => {
     // setSideBar(!sidebar);
   };
@@ -32,7 +30,7 @@ function App() {
     <div id="layout-wrapper">
       <BrowserRouter>
         <Header onClick={handleToggleSidebar} />
-        {sidebar && <VerticalMenu />}
+        <VerticalMenu />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/table" element={<DataTablePage />} />

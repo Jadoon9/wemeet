@@ -2,8 +2,14 @@ import React from "react";
 import { useState } from "react";
 import {
   MdAccountBox,
-  MdOutlineCalendarToday,
+  MdPermContactCalendar,
   MdOutlineHome,
+  MdOutlineBackupTable,
+  MdFormatListBulleted,
+  MdStackedBarChart,
+  MdNotifications,
+  MdOutlinePieChartOutline,
+  MdExtension,
 } from "react-icons/md";
 
 import MenuItem from "./MenuItem";
@@ -46,31 +52,31 @@ function VerticalMenu({ sidebar }) {
 
               <MenuItem
                 mainLink="/table"
-                Icon={MdOutlineCalendarToday}
+                Icon={MdOutlineBackupTable}
                 title="Data Table"
               />
 
               <MenuItem
                 mainLink="/calendar"
-                Icon={MdOutlineCalendarToday}
+                Icon={MdPermContactCalendar}
                 title="Calendar"
               />
 
               <MenuItem
                 mainLink="/form"
-                Icon={MdOutlineCalendarToday}
+                Icon={MdFormatListBulleted}
                 title="Form"
               />
 
               <MenuItem
                 mainLink="/progress-bar"
-                Icon={MdOutlineCalendarToday}
+                Icon={MdStackedBarChart}
                 title="Progress Bar"
               />
 
               <MenuItem
                 mainLink="/notifications"
-                Icon={MdOutlineCalendarToday}
+                Icon={MdNotifications}
                 title="Notification"
               />
               {/* <MenuItem
@@ -82,7 +88,7 @@ function VerticalMenu({ sidebar }) {
               <MenuItem
                 show={showReserv}
                 handleChange={handleShowReservChange}
-                Icon={MdAccountBox}
+                Icon={MdOutlinePieChartOutline}
                 title="Charts"
                 showDownIcon="true"
                 item1="Charts"
@@ -110,7 +116,7 @@ function VerticalMenu({ sidebar }) {
               <MenuItem
                 show={showUiElements}
                 handleChange={handleUiElementChange}
-                Icon={MdAccountBox}
+                Icon={MdExtension}
                 title="UI Elements"
                 showDownIcon="true"
                 item1="Alerts"

@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useRef } from "react";
 import Pagination from "./Pagination";
 import { usePagination, useSortBy, useTable, useRowSelect } from "react-table";
 import { Table } from "react-bootstrap";
+import { FaSortUp, FaSortDown, FaSort } from "react-icons/fa";
+import FontAwesome from "react-icons";
 
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
@@ -73,7 +75,7 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <>
-      <Table striped hover bordered responsive {...getTableProps()}>
+      <Table striped hover responsive {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -81,11 +83,15 @@ const DataTable = ({ columns, data }) => {
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? " 🔽"
-                        : " 🔼"
-                      : ""}
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <FaSortDown />
+                      ) : (
+                        <FaSortUp />
+                      )
+                    ) : (
+                      ""
+                    )}
                   </span>
                 </th>
               ))}

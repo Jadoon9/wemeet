@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../components/Card";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 const CardsPage = () => {
   return (

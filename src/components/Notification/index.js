@@ -1,5 +1,5 @@
 import React from "react";
-import MainPageLayout from "../MainPageLayout";
+import MainPageLayout from "../MainPageLayout/MainPageLayout";
 import NotificationItem from "./NotificationItem";
 
 const index = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Register from "../../components/Authentication/Register";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 const RegisterPage = () => {
   return (
