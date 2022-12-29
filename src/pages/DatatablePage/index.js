@@ -4,6 +4,8 @@ import { getTableData } from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 import SearchFilter from "../../components/DataTabel/SearchFilter";
+import RangeFilter from "../../components/DataTabel/RangeFilter";
+import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const DataTablePage = () => {
       {
         Header: "Price",
         accessor: "Price",
-        Filter: SearchFilter,
+        Filter: MultiRangeSlider,
         filter: "between",
       },
       { Header: "Amount", accessor: "Amount" },

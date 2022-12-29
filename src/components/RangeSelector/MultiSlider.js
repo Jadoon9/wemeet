@@ -54,8 +54,8 @@ function MultiRangeSlider({ min, max, onChange }) {
     <>
       <input
         type="range"
-        min={min}
-        max={max}
+        min={min || 0}
+        max={max || 1000}
         value={minVal}
         ref={minValRef}
         onChange={(event) => {
@@ -69,8 +69,8 @@ function MultiRangeSlider({ min, max, onChange }) {
       />
       <input
         type="range"
-        min={min}
-        max={max}
+        min={min || 0}
+        max={max || 1000}
         value={maxVal}
         ref={maxValRef}
         onChange={(event) => {
