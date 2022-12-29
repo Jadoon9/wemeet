@@ -5,12 +5,13 @@ import {
   useSortBy,
   useTable,
   useRowSelect,
-  useAsyncDebounce,
   useGlobalFilter,
   useExpanded,
 } from "react-table";
-import { Form, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import SearchFilter from "./SearchFilter";
+import MultiRangeSlider from "../RangeSelector/MultiSlider";
+import RangeFilter from "./RangeFilter";
 
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
@@ -45,8 +46,7 @@ const DataTable = ({ columns, data }) => {
     nextPage,
     previousPage,
     setPageSize,
-    selectedFlatRows,
-    state: { pageIndex, pageSize, globalFilter, selectedRowIds, expanded },
+    state: { pageIndex, pageSize, globalFilter },
   } = useTable(
     {
       columns,
@@ -85,25 +85,19 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <>
-      {/* <SearchFilter
-        type="text"
-        onChange={setGlobalFilter}
-        value={globalFilter}
-      /> */}
+      <div className="d-flex justify-content-between  w-50 float-end">
+        {/* Search input componet for global search */}
+        <SearchFilter
+          type="text"
+          onChange={setGlobalFilter}
+          value={globalFilter}
+        />
+        <div>
+          <RangeFilter setGlobalFilter={setGlobalFilter} />
+        </div>
+      </div>
 
-      <Form className="justify-content-end w-50">
-        <Form.Group className="mb-3">
-          <Form.Control
-            onChange={(e) => {
-              setGlobalFilter(e.target.value);
-            }}
-            type="text"
-            value={globalFilter}
-            placeholder="Search..."
-          />
-        </Form.Group>
-      </Form>
-
+      {/* react ttable with data and all the columns provided */}
       <Table striped hover responsive {...getTableProps()}>
         <thead>
           {headerGroups?.map((headerGroup) => (
@@ -139,6 +133,7 @@ const DataTable = ({ columns, data }) => {
         </tbody>
       </Table>
 
+      {/* Paginationn component */}
       <Pagination
         gotoPage={gotoPage}
         canPreviousPage={canPreviousPage}
@@ -151,21 +146,6 @@ const DataTable = ({ columns, data }) => {
         pageSize={pageSize}
         setPageSize={setPageSize}
       />
-
-      {/* <pre>
-        <code>
-          {JSON.stringify(
-            {
-              selectedRowIds: selectedRowIds,
-              "selectedFlatRows[].original": selectedFlatRows.map(
-                (d) => d.original
-              ),
-            },
-            null,
-            2
-          )}
-        </code>
-      </pre> */}
     </>
   );
 };

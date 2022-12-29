@@ -3,6 +3,7 @@ import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
+import SearchFilter from "../../components/DataTabel/SearchFilter";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,16 @@ const DataTablePage = () => {
         Header: "Image",
         accessor: "img",
         Cell: (tableProps) => (
-          <img src={tableProps.row.original.img} width={60} alt="Player" />
+          <img src={tableProps.row.original.img} width={60} alt="User" />
         ),
       },
       { Header: "Date", accessor: "Date" },
-      { Header: "Price", accessor: "Price" },
+      {
+        Header: "Price",
+        accessor: "Price",
+        Filter: SearchFilter,
+        filter: "between",
+      },
       { Header: "Amount", accessor: "Amount" },
       { Header: "Quantity", accessor: "Quantity" },
       { Header: "Status", accessor: "Status" },
@@ -34,7 +40,7 @@ const DataTablePage = () => {
   }, [dispatch]);
 
   const tableData = useMemo(() => data, []);
-  console.log(data, loading, "dataaa");
+
   return (
     <>
       <MainPageLayout
@@ -48,7 +54,7 @@ const DataTablePage = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <>{data && <DataTable columns={columns} data={tableData} />}</>
+          <>{tableData && <DataTable columns={columns} data={tableData} />}</>
         )}
       </MainPageLayout>
     </>

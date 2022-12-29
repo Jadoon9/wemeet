@@ -55,15 +55,10 @@ function Dashboard() {
           <MultiRangeSlider
             min={0}
             max={1000}
-            onChange={handleChangeRange}
-            maxVal={1000}
-            minVal={0}
-            maxValRef={maxValRef}
-            minValRef={minValRef}
-            setMaxVal={setMaxVal}
-            setMinVal={setMinVal}
+            onChange={({ min, max }) =>
+              console.log(`min = ${min}, max = ${max}`)
+            }
           />
-          <p>{rangeValue}</p>
         </Card>
         <Card title="Range Selector">
           <RangeSelector
