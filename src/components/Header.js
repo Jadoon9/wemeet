@@ -67,7 +67,7 @@ function Header({ onClick }) {
               <RiBarChartHorizontalLine className="align-middle" />
             </button> */}
 
-            <form className="app-search d-none d-lg-block">
+            {/* <form className="app-search d-none d-lg-block">
               <div className="position-relative" style={{ marginLeft: 30 }}>
                 <input
                   type="text"
@@ -78,7 +78,7 @@ function Header({ onClick }) {
                   <RiSearchLine />
                 </span>
               </div>
-            </form>
+            </form> */}
           </div>
 
           <div className="d-flex">

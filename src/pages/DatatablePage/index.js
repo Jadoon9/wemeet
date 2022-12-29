@@ -13,7 +13,13 @@ const DataTablePage = () => {
     () => [
       { Header: "Id", accessor: "Id" },
       { Header: "Name", accessor: "Name" },
-      { Header: "Image", accessor: "img" },
+      {
+        Header: "Image",
+        accessor: "img",
+        Cell: (tableProps) => (
+          <img src={tableProps.row.original.img} width={60} alt="Player" />
+        ),
+      },
       { Header: "Date", accessor: "Date" },
       { Header: "Price", accessor: "Price" },
       { Header: "Amount", accessor: "Amount" },
@@ -25,7 +31,7 @@ const DataTablePage = () => {
 
   useEffect(() => {
     dispatch(getTableData());
-  }, []);
+  }, [dispatch]);
 
   const tableData = useMemo(() => data, []);
   console.log(data, loading, "dataaa");
@@ -35,14 +41,14 @@ const DataTablePage = () => {
         title="Table"
         breadcrum1="Dashboard"
         breadcrum2="Data Table"
-        cardTitle="Table"
+        // cardTitle="Table"
         link1="/"
         link2="/table"
       >
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <DataTable columns={columns} data={tableData} />
+          <>{data && <DataTable columns={columns} data={tableData} />}</>
         )}
       </MainPageLayout>
     </>

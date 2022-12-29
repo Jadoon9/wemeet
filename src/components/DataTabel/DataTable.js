@@ -1,7 +1,16 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import Pagination from "./Pagination";
-import { usePagination, useSortBy, useTable, useRowSelect } from "react-table";
-import { Table } from "react-bootstrap";
+import {
+  usePagination,
+  useSortBy,
+  useTable,
+  useRowSelect,
+  useAsyncDebounce,
+  useGlobalFilter,
+  useExpanded,
+} from "react-table";
+import { Form, Table } from "react-bootstrap";
+import SearchFilter from "./SearchFilter";
 
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
@@ -28,6 +37,7 @@ const DataTable = ({ columns, data }) => {
     page,
     prepareRow,
     canPreviousPage,
+    setGlobalFilter,
     canNextPage,
     pageOptions,
     pageCount,
@@ -36,18 +46,20 @@ const DataTable = ({ columns, data }) => {
     previousPage,
     setPageSize,
     selectedFlatRows,
-    state: { pageIndex, pageSize, selectedRowIds },
+    state: { pageIndex, pageSize, globalFilter, selectedRowIds, expanded },
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 1 },
+      initialState: { pageIndex: 1, autoResetGlobalFilter: true },
     },
+    useGlobalFilter,
     useSortBy,
+    useExpanded,
     usePagination,
     useRowSelect,
     (hooks) => {
-      hooks.visibleColumns.push((columns) => [
+      hooks?.visibleColumns.push((columns) => [
         // Let's make a column for selection
         {
           id: "selection",
@@ -73,16 +85,35 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <>
-      <Table striped hover bordered responsive {...getTableProps()}>
+      {/* <SearchFilter
+        type="text"
+        onChange={setGlobalFilter}
+        value={globalFilter}
+      /> */}
+
+      <Form className="justify-content-end w-50">
+        <Form.Group className="mb-3">
+          <Form.Control
+            onChange={(e) => {
+              setGlobalFilter(e.target.value);
+            }}
+            type="text"
+            value={globalFilter}
+            placeholder="Search..."
+          />
+        </Form.Group>
+      </Form>
+
+      <Table striped hover responsive {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+          {headerGroups?.map((headerGroup) => (
+            <tr {...headerGroup?.getHeaderGroupProps()}>
               {headerGroup?.headers?.map((column) => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
+                <th {...column?.getHeaderProps(column?.getSortByToggleProps())}>
+                  {column?.render("Header")}
                   <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
+                    {column?.isSorted
+                      ? column?.isSortedDesc
                         ? " 🔽"
                         : " 🔼"
                       : ""}
