@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Card from "../../components/Card";
 import MainPageLayout from "../../components/MainPageLayout.js";
-import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
+// import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
 
 import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
 import VideoInput from "../../components/VideoInput/VideoInput.js";
@@ -21,19 +21,6 @@ function Dashboard() {
 
   // Multi Range slider
 
-  const [minVal, setMinVal] = useState();
-  const [maxVal, setMaxVal] = useState();
-
-  const minValRef = useRef(null);
-  const maxValRef = useRef(null);
-
-  const handleChangeRange = (event) => {
-    console.log(event, "event");
-    // const value = Math.min(+event.target.value, maxVal - 1);
-    // setMinVal(value);
-    // event.target.value = value.toString();
-  };
-
   return (
     <div>
       <MainPageLayout
@@ -51,15 +38,6 @@ function Dashboard() {
           type="line"
         /> */}
 
-        <Card title="Range Selector">
-          <MultiRangeSlider
-            min={0}
-            max={1000}
-            onChange={({ min, max }) =>
-              console.log(`min = ${min}, max = ${max}`)
-            }
-          />
-        </Card>
         <Card title="Range Selector">
           <RangeSelector
             rangeValue={rangeValue}

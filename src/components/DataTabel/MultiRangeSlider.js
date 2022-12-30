@@ -1,17 +1,32 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./slider.css";
 import ReactSlider from "react-slider";
 import classnames from "classnames";
 
-function MultiRangeSlider({ min, max, onChange }) {
+function MultiRangeSlider({
+  minValue,
+  maxValue,
+  column: { filterValue = [], preFilteredRows, setFilter, id },
+}) {
   // Creating the state variables
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
+  const [minVal, setMinVal] = useState(minValue);
+  const [maxVal, setMaxVal] = useState(maxValue);
 
   const minValRef = useRef(null);
   const maxValRef = useRef(null);
   const range = useRef(null);
 
+  const onChange = () => {};
+
+  const [min, max] = useMemo(() => {
+    let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
+    let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
+    preFilteredRows.forEach((row) => {
+      min = Math.min(row.values[id], min);
+      max = Math.max(row.values[id], max);
+    });
+    return [min, max];
+  }, [id, preFilteredRows]);
   // Convert to percentage
   const getPercent = useCallback(
     (value) => {
@@ -54,14 +69,18 @@ function MultiRangeSlider({ min, max, onChange }) {
     <>
       <input
         type="range"
-        min={min || 0}
-        max={max || 1000}
-        value={minVal}
+        min={minValue || 0}
+        max={minValue || 1000}
+        value={filterValue?.[0] || ""}
         ref={minValRef}
         onChange={(event) => {
           const value = Math.min(+event.target.value, maxVal - 1);
           setMinVal(value);
           event.target.value = value.toString();
+          setFilter((old = []) => [
+            minVal ? parseInt(minVal, 10) : undefined,
+            old[1],
+          ]);
         }}
         className={classnames("thumb thumb--zindex-3", {
           "thumb--zindex-5": minVal > max - 100,
@@ -69,14 +88,18 @@ function MultiRangeSlider({ min, max, onChange }) {
       />
       <input
         type="range"
-        min={min || 0}
-        max={max || 1000}
-        value={maxVal}
+        min={minValue || 0}
+        max={maxValue || 1000}
+        value={filterValue?.[1] || ""}
         ref={maxValRef}
         onChange={(event) => {
           const value = Math.max(+event.target.value, minVal + 1);
           setMaxVal(value);
           event.target.value = value.toString();
+          setFilter((old = []) => [
+            old[0],
+            maxVal ? parseInt(maxVal, 10) : undefined,
+          ]);
         }}
         className="thumb thumb--zindex-4"
       />

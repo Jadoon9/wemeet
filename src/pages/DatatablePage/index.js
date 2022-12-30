@@ -3,9 +3,10 @@ import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
-import SearchFilter from "../../components/DataTabel/SearchFilter";
-import RangeFilter from "../../components/DataTabel/RangeFilter";
-import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
+import SearchFilter from "../../components/DataTabel/GlobalSearchFilter";
+import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFilter";
+import RangeFilter from "../../components/DataTabel/NameRangeColumnFilter";
+import MultiRangeSlider from "../../components/DataTabel/MultiRangeSlider";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
@@ -20,14 +21,14 @@ const DataTablePage = () => {
         Header: "Image",
         accessor: "img",
         Cell: (tableProps) => (
-          <img src={tableProps.row.original.img} width={60} alt="User" />
+          <img src={tableProps?.row?.original?.img} width={60} alt="User" />
         ),
       },
       { Header: "Date", accessor: "Date" },
       {
         Header: "Price",
         accessor: "Price",
-        Filter: MultiRangeSlider,
+        Filter: NameRangeColumnFilter,
         filter: "between",
       },
       { Header: "Amount", accessor: "Amount" },
