@@ -21,7 +21,12 @@ const DataTablePage = () => {
         Header: "Image",
         accessor: "img",
         Cell: (tableProps) => (
-          <img src={tableProps?.row?.original?.img} width={60} alt="User" />
+          <img
+            className="rounded-circle w-50"
+            src={tableProps?.row?.original?.img}
+            width={60}
+            alt="User"
+          />
         ),
       },
       { Header: "Date", accessor: "Date" },

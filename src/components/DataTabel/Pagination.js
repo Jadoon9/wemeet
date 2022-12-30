@@ -15,7 +15,7 @@ const Paginationn = ({
 }) => {
   return (
     <>
-      <Pagination size="sm" className="justify-content-end">
+      <Pagination size="sm" className="justify-content-end align-items-center">
         <Pagination.First>
           <button
             className="page-link"
