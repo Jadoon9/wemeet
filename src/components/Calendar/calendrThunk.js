@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import request from "../../api";
 
 const headers = {
   "Content-Type": "application/json",
@@ -11,7 +12,7 @@ export const getCalenderEvents = createAsyncThunk(
   "calender/getEvents",
   async () => {
     try {
-      const response = await axios.get(" http://localhost:3005/calendarData");
+      const response = await request("GET", "/calendarData", null);
       return response?.data;
     } catch (error) {
       return error;
@@ -24,6 +25,7 @@ export const postCalenderEvents = createAsyncThunk(
   "calender/postEvents",
   async (data) => {
     try {
+      return await request("POST", "/calendarData", data);
       return await axios.post("http://localhost:3005/calendarData", data, {
         headers: headers,
       });

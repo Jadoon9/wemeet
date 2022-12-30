@@ -150,7 +150,7 @@ const DataTable = ({ columns, data }) => {
                 {headerGroup?.headers?.map((column) => (
                   <th {...column?.getHeaderProps()}>
                     <span
-                      className="font-size-11 "
+                      className="font-size-11"
                       {...column.getSortByToggleProps()}
                     >
                       {column?.render("Header")}

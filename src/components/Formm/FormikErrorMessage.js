@@ -8,7 +8,7 @@ const FormikErrorMessage = ({ name }) => {
   return (
     <ErrorMessage name={name}>
       {(errMessage) => {
-        return <div style={{ color: "red" }}>{errMessage}</div>;
+        return <div className="text-danger font-size-13">{errMessage}</div>;
       }}
     </ErrorMessage>
   );

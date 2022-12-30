@@ -12,11 +12,8 @@ const FormikField = ({ name, label }) => {
       {(formikField) => {
         return (
           <>
-            <Form.Label>{label}</Form.Label>
-            <Form.Select
-              aria-label="Default select example"
-              {...formikField.field}
-            >
+            <Form.Label className="font-size-13">{label}</Form.Label>
+            <Form.Select className="font-size-13" {...formikField.field}>
               <option disabled selected>
                 -- Select --
               </option>

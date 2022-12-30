@@ -147,7 +147,6 @@ const LoginFormikComponents = ({
             ) : (
               <div>
                 <FormikField label="Email" name="email" type="email" />
-
                 <FormikField label="Password" name="password" type="password" />
                 <FormikField label="Search" name="search" type="search" />
                 <FormikField label="Text" name="text" type="text" />
@@ -163,14 +162,7 @@ const LoginFormikComponents = ({
                 <FormikField label="Month" name="month" type="month" />
                 <FormikField label="Week" name="week" type="week" />
                 <FormikField label="Time" name="time" type="time" />
-                {/* <FormikField label="Color Picker" name="color" type="color" /> */}
-                {/* <FormikSelect /> */}
-                {/* <FormikField label="Select" name="color" type="color" /> */}
-                {/* <FormikField
-                label="Remember Me"
-                name="rememberMe"
-                type="checkbox"
-              /> */}
+
                 <Button type="submit" text="Submit" variant="primary" />
               </div>
             )}

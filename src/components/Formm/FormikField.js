@@ -14,14 +14,10 @@ const FormikField = ({ name, type, label }) => {
       {(formikField) => {
         return (
           <>
-            <Form.Group
-              as={Col}
-              md="12"
-              // controlId="validationFormik01"
-              className="justify-content-center"
-            >
-              <Form.Label>{label}</Form.Label>
+            <Form.Group as={Col} md="12" className="justify-content-center">
+              <Form.Label className="font-size-13">{label}</Form.Label>
               <Form.Control
+                className="font-size-13"
                 id={name}
                 type={type}
                 name="firstName"
@@ -30,19 +26,7 @@ const FormikField = ({ name, type, label }) => {
               />
             </Form.Group>
 
-            {/* <label className="col-md-2 col-form-label" htmlFor={name}>
-              {label}
-            </label>
-            <input
-              className="form-control"
-              value="Artisanal kale"
-              type={type}
-              id={name}
-              {...formikField.field}
-              defaultChecked={formikField.field.value}
-            /> */}
             <FormikErrorMessage name={name} />
-            {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
           </>
         );
       }}
