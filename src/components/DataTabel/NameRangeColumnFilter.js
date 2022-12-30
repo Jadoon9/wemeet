@@ -1,4 +1,7 @@
 import { useMemo } from "react";
+import { Form } from "react-bootstrap";
+import CommonSearchFilter from "./CommonSearchFilter";
+import SearchFilter from "./GlobalSearchFilter";
 
 const NumberRangeColumnFilter = ({
   column: { filterValue = [], preFilteredRows, setFilter, id },
@@ -13,44 +16,30 @@ const NumberRangeColumnFilter = ({
     return [min, max];
   }, [id, preFilteredRows]);
 
+  const minFilterChangeHandler = (e) => {
+    const val = e.target.value;
+    setFilter((old = []) => [val ? parseInt(val, 10) : undefined, old[1]]);
+  };
+
+  const maxFilterChangeHandler = (e) => {
+    const val = e.target.value;
+    setFilter((old = []) => [old[0], val ? parseInt(val, 10) : undefined]);
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-      }}
-    >
-      <input
-        value={filterValue[0] || ""}
+    <div className="d-flex font-size-11 align-items-center">
+      <CommonSearchFilter
         type="number"
-        onChange={(e) => {
-          const val = e.target.value;
-          setFilter((old = []) => [
-            val ? parseInt(val, 10) : undefined,
-            old[1],
-          ]);
-        }}
-        placeholder={`Min (${min})`}
-        style={{
-          width: "70px",
-          marginRight: "0.5rem",
-        }}
+        onChange={minFilterChangeHandler}
+        value={filterValue[0] || ""}
+        count={min}
       />
       to
-      <input
-        value={filterValue[1] || ""}
+      <CommonSearchFilter
         type="number"
-        onChange={(e) => {
-          const val = e.target.value;
-          setFilter((old = []) => [
-            old[0],
-            val ? parseInt(val, 10) : undefined,
-          ]);
-        }}
-        placeholder={`Max (${max})`}
-        style={{
-          width: "70px",
-          marginLeft: "0.5rem",
-        }}
+        onChange={maxFilterChangeHandler}
+        value={filterValue[1] || ""}
+        count={max}
       />
     </div>
   );

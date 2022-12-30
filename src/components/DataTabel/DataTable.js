@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import Pagination from "./Pagination";
 import {
   usePagination,
@@ -10,13 +10,13 @@ import {
   useFilters,
   useAsyncDebounce,
 } from "react-table";
-import { Form, Table } from "react-bootstrap";
-import SearchFilter from "./GlobalSearchFilter";
-import MultiRangeSlider from "./MultiRangeSlider";
-import RangeFilter from "./NameRangeColumnFilter";
+import { Table } from "react-bootstrap";
+
 import { matchSorter } from "match-sorter";
 import GlobalSearchFilter from "./GlobalSearchFilter";
+import DefaultColumnFilter from "./DefaultColumnFilter";
 
+// * Checkboxesss
 const IndeterminateCheckbox = React.forwardRef(
   ({ indeterminate, ...rest }, ref) => {
     const defaultRef = useRef();
@@ -40,31 +40,6 @@ function fuzzyTextFilterFn(rows, id, filterValue) {
 }
 //* Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = (val) => !val;
-
-function DefaultColumnFilter({
-  column: { filterValue, preFilteredRows, setFilter },
-}) {
-  const count = preFilteredRows.length;
-
-  return (
-    <Form className="">
-      <Form.Control
-        onChange={(e) => {
-          setFilter(e.target.value || undefined);
-        }}
-        value={filterValue || ""}
-        placeholder={`Search ${count} records...`}
-      />
-    </Form>
-    // <input
-    //   value={filterValue || ""}
-    //   onChange={(e) => {
-    //     setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-    //   }}
-    //   placeholder={`Search ${count} records...`}
-    // />
-  );
-}
 
 const DataTable = ({ columns, data }) => {
   //* For Filteration =================================================
@@ -157,38 +132,13 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <>
-      <div className="d-flex justify-content-between  w-50 float-end">
-        {/* Search input componet for global search */}
-        {/* <SearchFilter
-          type="text"
-          onChange={setGlobalFilter}
-          value={globalFilter}
-        /> */}
-        {/* <div>
-          <MultiRangeSlider
-            min={0}
-            max={1000}
-            // onChange={({ min, max }) => {
-            //   console.log(`min = ${min}, max = ${max}`);
-            // setFilter([min, max]);
-            // setGlobalFilter([min, max]);
-            // }}
-          />
-        </div> */}
-      </div>
-
       {/* react ttable with data and all the columns provided */}
       <Table striped hover responsive {...getTableProps()}>
         <thead>
           {headerGroups?.map((headerGroup) => (
             <>
               <tr>
-                <th
-                  colSpan={visibleColumns.length}
-                  style={{
-                    textAlign: "left",
-                  }}
-                >
+                <th colSpan={visibleColumns.length}>
                   <GlobalSearchFilter
                     preGlobalFilteredRows={preGlobalFilteredRows}
                     globalFilter={state.globalFilter}
@@ -198,22 +148,21 @@ const DataTable = ({ columns, data }) => {
               </tr>
               <tr {...headerGroup?.getHeaderGroupProps()}>
                 {headerGroup?.headers?.map((column) => (
-                  <th
-                    {...column?.getHeaderProps(column?.getSortByToggleProps())}
-                  >
-                    {column?.render("Header")}
-
-                    <div>
-                      {column?.canFilter ? column?.render("Filter") : null}
-                    </div>
-
-                    {/* <span>
+                  <th {...column?.getHeaderProps()}>
+                    <span
+                      className="font-size-11 "
+                      {...column.getSortByToggleProps()}
+                    >
+                      {column?.render("Header")}
                       {column?.isSorted
                         ? column?.isSortedDesc
                           ? " 🔽"
                           : " 🔼"
                         : ""}
-                    </span> */}
+                    </span>
+                    <div>
+                      {column?.canFilter ? column?.render("Filter") : null}
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -227,7 +176,9 @@ const DataTable = ({ columns, data }) => {
               <tr {...row?.getRowProps()}>
                 {row?.cells?.map((cell) => {
                   return (
-                    <td {...cell?.getCellProps()}>{cell?.render("Cell")}</td>
+                    <td className="font-size-11" {...cell?.getCellProps()}>
+                      {cell?.render("Cell")}
+                    </td>
                   );
                 })}
               </tr>

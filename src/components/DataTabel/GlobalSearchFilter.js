@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useAsyncDebounce } from "react-table";
 
-const SearchFilter = ({
+const GlobalSearchFilter = ({
   preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
@@ -17,15 +17,16 @@ const SearchFilter = ({
   return (
     <>
       <Form className="justify-content-end">
-        Search:
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3 ">
           <Form.Control
+            className="font-size-11"
+            size="lg"
             onChange={(e) => {
               setValue(e.target.value);
               onChange(e.target.value);
             }}
             value={value || ""}
-            placeholder={`${count} records...`}
+            placeholder={`Search ${count} records...`}
           />
         </Form.Group>
       </Form>
@@ -33,4 +34,4 @@ const SearchFilter = ({
   );
 };
 
-export default SearchFilter;
+export default GlobalSearchFilter;

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import request from "../../api";
 
 const headers = {
   "Content-Type": "application/json",
@@ -9,7 +10,7 @@ const headers = {
 // Get Events for calenders
 export const getTableData = createAsyncThunk("table/getTableData", async () => {
   try {
-    const response = await axios.get(" http://localhost:3005/tableData");
+    const response = await request("GET", "/tableData", null);
     return response?.data;
   } catch (error) {
     return error;
