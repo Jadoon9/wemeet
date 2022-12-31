@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "../../components/Carousel";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 const CarouselPage = () => {
   return (

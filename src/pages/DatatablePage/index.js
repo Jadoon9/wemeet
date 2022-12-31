@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 import SearchFilter from "../../components/DataTabel/GlobalSearchFilter";
 import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFilter";

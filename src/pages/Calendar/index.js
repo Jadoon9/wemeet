@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "react-calendar/dist/Calendar.css";
 
-import MainPageLayout from "../../components/MainPageLayout";
+import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import Calendar from "../../components/Calendar/Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { addEvent, getEvents } from "../../redux/store";

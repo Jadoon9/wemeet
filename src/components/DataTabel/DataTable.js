@@ -11,6 +11,8 @@ import {
   useAsyncDebounce,
 } from "react-table";
 import { Table } from "react-bootstrap";
+import { FaSortUp, FaSortDown, FaSort } from "react-icons/fa";
+import FontAwesome from "react-icons";
 
 import { matchSorter } from "match-sorter";
 import GlobalSearchFilter from "./GlobalSearchFilter";
