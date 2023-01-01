@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 import { Field } from "formik";
 import FormikErrorMessage from "./FormikErrorMessage";
 
@@ -12,19 +12,22 @@ const FormikField = ({ name, label }) => {
       {(formikField) => {
         return (
           <>
-            <Form.Label className="font-size-13">{label}</Form.Label>
-            <Form.Select className="font-size-13" {...formikField.field}>
-              <option disabled selected>
-                -- Select --
-              </option>
-              <option value="danger">Danger</option>
-              <option value="success">Success</option>
-              <option value="primary">Primary</option>
-              <option value="info">Info</option>
-              <option value="dark">Dark</option>
-              <option value="warning">Warning</option>
-            </Form.Select>
-
+            <Form.Group as={Col} md="12" className="justify-content-center">
+              <Form.Label className="font-size-13 justify-content-center">
+                {label}
+              </Form.Label>
+              <Form.Select className="font-size-13" {...formikField.field}>
+                <option disabled selected>
+                  -- Select --
+                </option>
+                <option value="danger">Danger</option>
+                <option value="success">Success</option>
+                <option value="primary">Primary</option>
+                <option value="info">Info</option>
+                <option value="dark">Dark</option>
+                <option value="warning">Warning</option>
+              </Form.Select>
+            </Form.Group>
             <FormikErrorMessage name={name} />
           </>
         );

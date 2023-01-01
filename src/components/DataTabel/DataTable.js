@@ -17,6 +17,7 @@ import FontAwesome from "react-icons";
 import { matchSorter } from "match-sorter";
 import GlobalSearchFilter from "./GlobalSearchFilter";
 import DefaultColumnFilter from "./DefaultColumnFilter";
+import MultiRangeSlider from "./MultiRangeSlider";
 
 // * Checkboxesss
 const IndeterminateCheckbox = React.forwardRef(
@@ -108,7 +109,7 @@ const DataTable = ({ columns, data }) => {
     useRowSelect,
     //* For pushing checkbox for seletion
     (hooks) => {
-      hooks?.visibleColumns.push((columns) => [
+      hooks?.visibleColumns?.push((columns) => [
         //* Let's make a column for selection
         {
           id: "selection",
@@ -123,7 +124,7 @@ const DataTable = ({ columns, data }) => {
           //* to the render a checkbox
           Cell: ({ row }) => (
             <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+              <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
             </div>
           ),
         },
@@ -172,20 +173,21 @@ const DataTable = ({ columns, data }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page?.map((row, i) => {
-            prepareRow(row);
-            return (
-              <tr {...row?.getRowProps()}>
-                {row?.cells?.map((cell) => {
-                  return (
-                    <td className="font-size-11" {...cell?.getCellProps()}>
-                      {cell?.render("Cell")}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          {page &&
+            page?.map((row, i) => {
+              prepareRow(row);
+              return (
+                <tr {...row?.getRowProps()}>
+                  {row?.cells?.map((cell) => {
+                    return (
+                      <td className="font-size-11" {...cell?.getCellProps()}>
+                        {cell?.render("Cell")}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
         </tbody>
       </Table>
 

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import Card from "../../components/Card";
+import MultiRangeSlider from "../../components/DataTabel/MultiRangeSlider";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
 // import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
@@ -38,6 +39,8 @@ function Dashboard() {
             handleChangeComplete={handleChangeComplete}
           />
           <p>{rangeValue}</p>
+
+          <MultiRangeSlider min={0} max={500} />
         </Card>
         <Card title="Voice Recorder">
           <VoiceRecord />
