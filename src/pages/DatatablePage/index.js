@@ -8,6 +8,9 @@ import Button from "../../components/UiElements/Button";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTableData());
+  }, [dispatch]);
 
   const { data, loading } = useSelector((state) => state.table);
 
@@ -51,11 +54,8 @@ const DataTablePage = () => {
     []
   );
 
-  useEffect(() => {
-    dispatch(getTableData());
-  }, [dispatch]);
-
   const tableData = useMemo(() => data, []);
+  console.log(tableData, "tableData");
 
   return (
     <>
