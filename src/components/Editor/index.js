@@ -2,6 +2,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const Editor = ({ theme, value, onChange }) => {
+  console.log(value, "valueeee");
   return (
     <div
     //   style={{

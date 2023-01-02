@@ -3,21 +3,21 @@ import Card from "../../components/Card";
 import Editor from "../../components/Editor";
 import CkEditor from "../../components/Editor/CkEditor";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
+import { useDispatch, useSelector } from "react-redux";
+import { setCkEditorInput, setReactQuillInput } from "../../redux/store";
 
 const EditorPage = () => {
-  const [editorInput, setEditorInput] = useState("");
-  const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+  const ckEditorInputData = useSelector((state) => state.editor);
+  const reactQuillInputData = useSelector((state) => state.editor);
 
   const ckEditorChangeHandler = (event, editor) => {
-    const data = editor.getData();
-    setEditorInput(data);
-    // console.log({ event, data });
+    dispatch(setCkEditorInput(editor.getData()));
   };
   const quillChangeHandler = (event) => {
-    setValue(event);
+    dispatch(setReactQuillInput(event));
   };
 
-  console.log(editorInput, "editorinput");
   return (
     <>
       <MainPageLayout
@@ -31,12 +31,16 @@ const EditorPage = () => {
         link3="/editor"
       >
         <Card title="React Quill Editor">
-          <Editor theme="snow" value={value} onChange={quillChangeHandler} />
+          <Editor
+            theme="snow"
+            value={reactQuillInputData.reactQuilInput}
+            onChange={quillChangeHandler}
+          />
         </Card>
 
         <Card title="CK Editor">
           <CkEditor
-            editorInput={editorInput}
+            editorInput={ckEditorInputData.CkEditorInput}
             onChange={ckEditorChangeHandler}
           />
         </Card>
