@@ -80,16 +80,20 @@ function Calendarr() {
         {loading ? (
           <l1>Loading .... </l1>
         ) : (
-          <Calendar
-            initialEvents={data}
-            onChange={handleDateClick}
-            showModal={showModal}
-            handleModal={handleModal}
-            addNewEvent={addNewEvent}
-            eventClick={eventClickHandler}
-            deleteEvent={handleDeleteEvent}
-            selectedEvent={selectedEvent}
-          />
+          <>
+            {data && (
+              <Calendar
+                initialEvents={data}
+                onChange={handleDateClick}
+                showModal={showModal}
+                handleModal={handleModal}
+                addNewEvent={addNewEvent}
+                eventClick={eventClickHandler}
+                deleteEvent={handleDeleteEvent}
+                selectedEvent={selectedEvent}
+              />
+            )}
+          </>
         )}
       </MainPageLayout>
     </>
