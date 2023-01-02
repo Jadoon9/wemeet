@@ -3,15 +3,17 @@ import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
-import SearchFilter from "../../components/DataTabel/GlobalSearchFilter";
 import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFilter";
-import RangeFilter from "../../components/DataTabel/NameRangeColumnFilter";
-import MultiRangeSlider from "../../components/DataTabel/MultiRangeSlider";
+import Button from "../../components/UiElements/Button";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
 
   const { data, loading } = useSelector((state) => state.table);
+
+  const handleClickGroup = (original) => {
+    console.log(original, "clickedd");
+  };
 
   const columns = useMemo(
     () => [
@@ -39,6 +41,12 @@ const DataTablePage = () => {
       { Header: "Amount", accessor: "Amount" },
       { Header: "Quantity", accessor: "Quantity" },
       { Header: "Status", accessor: "Status" },
+      {
+        Header: "Actions",
+        Cell: ({ original }) => (
+          <Button onClick={() => handleClickGroup(original)} text="Delete" />
+        ),
+      },
     ],
     []
   );

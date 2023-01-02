@@ -5,50 +5,65 @@ import "react-calendar/dist/Calendar.css";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import Calendar from "../../components/Calendar/Calendar";
 import { useDispatch, useSelector } from "react-redux";
-import { addEvent, getEvents } from "../../redux/store";
+import { addEvent, addSelectedEvent, getEvents } from "../../redux/store";
 import {
+  deleteCalenderEvents,
   getCalenderEvents,
   postCalenderEvents,
-} from "../../components/Calendar/calendrThunk";
+} from "../../components/Calendar/calendarThunk";
 import { v4 as uuidv4 } from "uuid";
+import {
+  removeEvent,
+  removeSelectedEvent,
+} from "../../redux/slices/calendarSlice";
 
 function Calendarr() {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [saveDate, setSaveDate] = useState("");
-  const { loading, data, error } = useSelector((state) => state.calendar);
 
-  const handleModal = (param) => {
-    setShowModal(param);
-  };
-
-  const handleDateClick = (e) => {
-    handleModal(true);
-    setSaveDate(e);
-    // const data = {
-    //   id: uuidv4(),
-    //   title: "test",
-    //   start: e.dateStr,
-    // };
-    // dispatch(addEvent(data));
-  };
+  const { loading, data, selectedEvent } = useSelector(
+    (state) => state.calendar
+  );
 
   useEffect(() => {
     dispatch(getCalenderEvents());
   }, [dispatch]);
 
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const handleDateClick = (e) => {
+    handleModal(true);
+    setSaveDate(e);
+  };
+
+  const eventClickHandler = (e) => {
+    const selected = {
+      id: e.event.id,
+      title: e.event.title,
+      eventColor: e.event.textColor,
+    };
+    dispatch(addSelectedEvent(selected));
+    handleModal(true);
+  };
+
   const addNewEvent = (item) => {
-    console.log(item, "iteemmm");
     const data = {
       id: uuidv4(),
       title: item.eventName,
       eventColor: item.eventColor,
       start: saveDate.dateStr + "T12:00:00",
     };
-    console.log(data, "dataaa");
     dispatch(postCalenderEvents(data));
-    // dispatch(addEvent(data));
+    handleModal(false);
+  };
+
+  const handleDeleteEvent = () => {
+    dispatch(deleteCalenderEvents(selectedEvent.id));
+    dispatch(getCalenderEvents());
     handleModal(false);
   };
 
@@ -71,6 +86,9 @@ function Calendarr() {
             showModal={showModal}
             handleModal={handleModal}
             addNewEvent={addNewEvent}
+            eventClick={eventClickHandler}
+            deleteEvent={handleDeleteEvent}
+            selectedEvent={selectedEvent}
           />
         )}
       </MainPageLayout>

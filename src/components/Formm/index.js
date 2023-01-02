@@ -37,11 +37,8 @@ const LoginFormikComponents = ({
   week,
   time,
   color,
+  selectedEventTitle,
 }) => {
-  const formData = useSelector((state) => state.form);
-
-  const dispatch = useDispatch();
-
   const initialValues = {
     userName: "",
     eventName: "",
@@ -104,12 +101,12 @@ const LoginFormikComponents = ({
         .matches(regexpUrl, "Enter correct url!")
         .required("Please enter website"),
     }),
-    ...(dateandtime && {
-      dateandtime: yup.object().shape({
-        value: yup.string(),
-        label: yup.string(),
-      }),
-    }),
+    // ...(dateandtime && {
+    //   dateandtime: yup.object().shape({
+    //     value: yup.string(),
+    //     label: yup.string(),
+    //   }),
+    // }),
     ...(telephone && {
       telephone: yup.number().required("Please enter valid phone number"),
     }),
@@ -134,7 +131,6 @@ const LoginFormikComponents = ({
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => {
-        console.log(values, "valuess");
         onSubmit(values);
       }}
       validationSchema={validationSchema}
@@ -153,15 +149,15 @@ const LoginFormikComponents = ({
                 <FormikField label="Url" name="url" type="url" />
                 <FormikField label="Telephone" name="telephone" type="tel" />
                 <FormikField label="Number" name="number" type="number" />
-                <FormikField label="Date" name="date" type="date" />
-                <FormikField
+                {/* <FormikField label="Date" name="date" type="date" /> */}
+                {/* <FormikField
                   label="Date and Time"
                   name="dateandtime"
                   type="datetime-local"
-                />
-                <FormikField label="Month" name="month" type="month" />
+                /> */}
+                {/* <FormikField label="Month" name="month" type="month" />
                 <FormikField label="Week" name="week" type="week" />
-                <FormikField label="Time" name="time" type="time" />
+                <FormikField label="Time" name="time" type="time" /> */}
 
                 <Button type="submit" text="Submit" variant="primary" />
               </div>

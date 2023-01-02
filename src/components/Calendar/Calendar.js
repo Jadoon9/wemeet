@@ -14,6 +14,9 @@ const Calendar = ({
   showModal,
   handleModal,
   addNewEvent,
+  eventClick,
+  deleteEvent,
+  selectedEvent,
 }) => {
   return (
     <div>
@@ -24,10 +27,33 @@ const Calendar = ({
         onClose={handleModal}
         showModal={showModal}
       >
-        <Form eventName="true" onSubmit={addNewEvent}>
+        <Form
+          eventName="true"
+          onSubmit={addNewEvent}
+          selectedEventTitle={selectedEvent?.title}
+          selectedEventColor={selectedEvent?.textColor}
+        >
           <FormikField label="Event Name" name="eventName" type="text" />
           <FormikSelect name="eventColor" label="Category" type="select" />
-          <Button type="submit" variant="primary" text="Save Changes" />
+          <div className="d-flex justify-content-between">
+            <div>
+              <Button
+                type="button"
+                variant="danger"
+                text="Delete Event"
+                onClick={deleteEvent}
+              />
+            </div>
+            <div>
+              <Button
+                type="button"
+                variant="light"
+                text="Close"
+                onClick={handleModal}
+              />
+              <Button type="submit" variant="primary" text="Save" />
+            </div>
+          </div>
         </Form>
       </Modal>
       <FullCalendar
@@ -46,6 +72,7 @@ const Calendar = ({
         dayMaxEvents={true}
         dateClick={onChange}
         // eventAdd={}
+        eventClick={(e) => eventClick(e)}
         eventRemove={(e) => console.log(e, "zasas")}
       />
     </div>

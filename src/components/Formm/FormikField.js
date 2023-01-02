@@ -8,13 +8,13 @@ import Row from "react-bootstrap/Row";
 /**
  * FormikField Component
  */
-const FormikField = ({ name, type, label }) => {
+const FormikField = ({ name, type, label, selectedValue }) => {
   return (
     <Field name={name}>
       {(formikField) => {
         return (
           <>
-            <Form.Group as={Col} md="12" className="justify-content-center">
+            <Form.Group md="12" className="justify-content-center">
               <Form.Label className="font-size-13">{label}</Form.Label>
               <Form.Control
                 className="font-size-13"
@@ -22,7 +22,7 @@ const FormikField = ({ name, type, label }) => {
                 type={type}
                 name="firstName"
                 {...formikField.field}
-                defaultChecked={formikField.field.value}
+                // defaultChecked={formikField.field.value}
               />
             </Form.Group>
 

@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import calendarSlice, { addEvent, getEvents } from "./slices/calendarSlice";
+import calendarSlice, {
+  addEvent,
+  getEvents,
+  addSelectedEvent,
+  removeSelectedEvent,
+} from "./slices/calendarSlice";
 import editorSlice, {
   setReactQuillInput,
   setCkEditorInput,
 } from "./slices/EditorSlice";
-import formSlice, { addData } from "./slices/formSlice";
+import formSlice, { addFormData } from "./slices/formSlice";
 import tableSlice from "./slices/tableSlice";
 
 const store = configureStore({
@@ -16,5 +21,13 @@ const store = configureStore({
   },
 });
 
-export { addData, addEvent, getEvents, setReactQuillInput, setCkEditorInput };
+export {
+  addFormData,
+  addEvent,
+  getEvents,
+  setReactQuillInput,
+  setCkEditorInput,
+  addSelectedEvent,
+  removeSelectedEvent,
+};
 export default store;

@@ -39,7 +39,8 @@ function Dashboard() {
             handleChangeComplete={handleChangeComplete}
           />
           <p>{rangeValue}</p>
-
+        </Card>
+        <Card title="Multirange Slider">
           <MultiRangeSlider min={0} max={500} />
         </Card>
         <Card title="Voice Recorder">
