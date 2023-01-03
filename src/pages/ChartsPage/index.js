@@ -29,7 +29,7 @@ function ChartsPage() {
         link2="/charts"
       >
         <div className="row">
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Bar Chart"
               options={barChartState.options}
@@ -37,7 +37,7 @@ function ChartsPage() {
               type="bar"
             />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Line Chart"
               options={lineChartState.options}
@@ -45,7 +45,7 @@ function ChartsPage() {
               type="line"
             />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Pie Chart"
               options={pieChartState.options}
@@ -53,7 +53,7 @@ function ChartsPage() {
               type="pie"
             />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Dashed Line Chart"
               options={dashedChartState.options}
@@ -61,7 +61,7 @@ function ChartsPage() {
               type="line"
             />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Area Chart"
               options={areaChartState.options}
@@ -69,7 +69,7 @@ function ChartsPage() {
               type="area"
             />
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <Charts
               title="Mixed Chart"
               options={mixedChartState.options}
@@ -103,7 +103,7 @@ function ChartsPage() {
                     <Link to="createroom">
                       <i
                         style={{ color: "#EA7B5B" }}
-                        className="fas fa-pencil-alt"
+                        classNameName="fas fa-pencil-alt"
                       ></i>
                       <FaPencilAlt />
                     </Link>

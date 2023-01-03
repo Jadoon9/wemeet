@@ -41,10 +41,11 @@ const IndeterminateCheckbox = React.forwardRef(
 function fuzzyTextFilterFn(rows, id, filterValue) {
   return matchSorter(rows, filterValue, { keys: [(row) => row.values[id]] });
 }
+
 //* Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
-const DataTable = ({ columns, data }) => {
+const DataTable = ({ data, columns }) => {
   //* For Filteration =================================================
   const filterTypes = useMemo(
     () => ({
@@ -74,11 +75,13 @@ const DataTable = ({ columns, data }) => {
     []
   );
 
+  console.log(data, "datta");
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     page,
+    rows,
     state,
     prepareRow,
     canPreviousPage,
@@ -95,42 +98,42 @@ const DataTable = ({ columns, data }) => {
     state: { pageIndex, pageSize, globalFilter },
   } = useTable(
     {
-      columns,
       data,
+      columns,
       defaultColumn,
-      initialState: { pageIndex: 1, autoResetGlobalFilter: true },
+      initialState: { pageIndex: 0 },
       filterTypes,
     },
-    useFilters,
     useGlobalFilter,
+    useFilters,
     useSortBy,
     useExpanded,
     usePagination,
-    useRowSelect,
+    useRowSelect
     //* For pushing checkbox for seletion
-    (hooks) => {
-      hooks?.visibleColumns?.push((columns) => [
-        //* Let's make a column for selection
-        {
-          id: "selection",
-          //* The header can use the table's getToggleAllRowsSelectedProps method
-          //* to render a checkbox
-          Header: ({ getToggleAllPageRowsSelectedProps }) => (
-            <div>
-              <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
-            </div>
-          ),
-          //* The cell can use the individual row's getToggleRowSelectedProps method
-          //* to the render a checkbox
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ]);
-    }
+    // (hooks) => {
+    //   hooks?.visibleColumns?.push((columns) => [
+    //     //* Let's make a column for selection
+    //     {
+    //       id: "selection",
+    //       //* The header can use the table's getToggleAllRowsSelectedProps method
+    //       //* to render a checkbox
+    //       Header: ({ getToggleAllPageRowsSelectedProps }) => (
+    //         <div>
+    //           <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
+    //         </div>
+    //       ),
+    //       //* The cell can use the individual row's getToggleRowSelectedProps method
+    //       //* to the render a checkbox
+    //       Cell: ({ row }) => (
+    //         <div>
+    //           <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
+    //         </div>
+    //       ),
+    //     },
+    //     ...columns,
+    //   ]);
+    // }
   );
 
   return (
@@ -173,21 +176,23 @@ const DataTable = ({ columns, data }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page &&
-            page?.map((row, i) => {
-              prepareRow(row);
-              return (
-                <tr {...row?.getRowProps()}>
-                  {row?.cells?.map((cell) => {
-                    return (
-                      <td className="font-size-11" {...cell?.getCellProps()}>
-                        {cell?.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
+          {page?.map((row, i) => {
+            prepareRow(row);
+            return (
+              <tr {...row?.getRowProps()} className="align-items-center">
+                {row?.cells?.map((cell) => {
+                  return (
+                    <td
+                      className="font-size-11 align-items-center"
+                      {...cell?.getCellProps()}
+                    >
+                      {cell?.render("Cell")}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
 
@@ -208,4 +213,4 @@ const DataTable = ({ columns, data }) => {
   );
 };
 
-export default DataTable;
+export default React.memo(DataTable);

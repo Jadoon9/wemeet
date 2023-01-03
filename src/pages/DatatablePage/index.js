@@ -5,23 +5,30 @@ import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFilter";
 import Button from "../../components/UiElements/Button";
+import { createSelector } from "reselect";
+import MuiTable from "../../components/DataTabel/MuiTable";
 
 const DataTablePage = () => {
   const dispatch = useDispatch();
+  // const check = createSelector(
+  //   (state) => state.table.data,
+  //   (option) => option
+  // );
+  // console.log(check, "checkdata");
+  const { data, loading } = useSelector((state) => state.table);
+  const tableData = useMemo(() => data, []);
   useEffect(() => {
     dispatch(getTableData());
   }, [dispatch]);
-
-  const { data, loading } = useSelector((state) => state.table);
 
   const handleClickGroup = (original) => {
     console.log(original, "clickedd");
   };
 
-  const columns = useMemo(
+  const columnsReactTable = useMemo(
     () => [
-      { Header: "Id", accessor: "Id" },
-      { Header: "Name", accessor: "Name" },
+      { Header: "Id", accessor: "id" },
+      { Header: "Name", accessor: "name" },
       {
         Header: "Image",
         accessor: "img",
@@ -34,28 +41,33 @@ const DataTablePage = () => {
           />
         ),
       },
-      { Header: "Date", accessor: "Date" },
+      { Header: "Date", accessor: "date" },
       {
         Header: "Price",
-        accessor: "Price",
+        accessor: "price",
         Filter: NameRangeColumnFilter,
         filter: "between",
       },
-      { Header: "Amount", accessor: "Amount" },
-      { Header: "Quantity", accessor: "Quantity" },
-      { Header: "Status", accessor: "Status" },
-      {
-        Header: "Actions",
-        Cell: ({ original }) => (
-          <Button onClick={() => handleClickGroup(original)} text="Delete" />
-        ),
-      },
+      { Header: "Amount", accessor: "amount" },
+      { Header: "Quantity", accessor: "quantity" },
+      { Header: "Status", accessor: "status" },
     ],
     []
   );
 
-  const tableData = useMemo(() => data, []);
-  console.log(tableData, "tableData");
+  const columnsMuiDatatable = useMemo(
+    () => [
+      { field: "id", headerName: "Id", width: 150 },
+      { field: "name", headerName: "Name", width: 150 },
+      { field: "img", headerName: "Image", width: 150 },
+      { field: "date", headerName: "Date", width: 150 },
+      { field: "price", headerName: "Price", width: 150 },
+      { field: "amount", headerName: "Amount", width: 150 },
+      { field: "quantity", headerName: "Quantity", width: 150 },
+      { field: "status", headerName: "Status", width: 150 },
+    ],
+    []
+  );
 
   return (
     <>
@@ -70,11 +82,19 @@ const DataTablePage = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <>{tableData && <DataTable columns={columns} data={tableData} />}</>
+          <div className="h-100">
+            {/* <DataTable columns={columnsReactTable} data={tableData} /> */}
+            <MuiTable
+              data={data}
+              columns={columnsMuiDatatable}
+              title="Mui Data Table"
+              getRowId={(row) => row.id}
+            />
+          </div>
         )}
       </MainPageLayout>
     </>
   );
 };
 
-export default DataTablePage;
+export default React.memo(DataTablePage);
