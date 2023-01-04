@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "../../components/Carousel";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
+import SwiperSlider from "../../components/Carousel/SwiperCarousel";
 
 const CarouselPage = () => {
   return (
@@ -15,7 +16,8 @@ const CarouselPage = () => {
         link2="/ui-elements"
         link3="/editor"
       >
-        <Carousel />
+        {/* <Carousel /> */}
+        <SwiperSlider />
       </MainPageLayout>
     </>
   );

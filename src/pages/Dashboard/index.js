@@ -40,9 +40,9 @@ function Dashboard() {
           />
           <p>{rangeValue}</p>
         </Card>
-        <Card title="Multirange Slider">
+        {/* <Card title="Multirange Slider">
           <MultiRangeSlider min={0} max={500} />
-        </Card>
+        </Card> */}
         <Card title="Voice Recorder">
           <VoiceRecord />
         </Card>

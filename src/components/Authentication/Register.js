@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Form from "../../components/Formm";
-import FormikField from "../Formm/FormikField";
+import Form from "../../components/Formm/Formik";
+import FormikField from "../Formm/Formik/FormikField";
 import Button from "../UiElements/Button";
 
 const Register = () => {

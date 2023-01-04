@@ -81,7 +81,6 @@ const DataTable = ({ data, columns }) => {
     getTableBodyProps,
     headerGroups,
     page,
-    rows,
     state,
     prepareRow,
     canPreviousPage,
@@ -109,31 +108,31 @@ const DataTable = ({ data, columns }) => {
     useSortBy,
     useExpanded,
     usePagination,
-    useRowSelect
+    useRowSelect,
     //* For pushing checkbox for seletion
-    // (hooks) => {
-    //   hooks?.visibleColumns?.push((columns) => [
-    //     //* Let's make a column for selection
-    //     {
-    //       id: "selection",
-    //       //* The header can use the table's getToggleAllRowsSelectedProps method
-    //       //* to render a checkbox
-    //       Header: ({ getToggleAllPageRowsSelectedProps }) => (
-    //         <div>
-    //           <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
-    //         </div>
-    //       ),
-    //       //* The cell can use the individual row's getToggleRowSelectedProps method
-    //       //* to the render a checkbox
-    //       Cell: ({ row }) => (
-    //         <div>
-    //           <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
-    //         </div>
-    //       ),
-    //     },
-    //     ...columns,
-    //   ]);
-    // }
+    (hooks) => {
+      hooks?.visibleColumns?.push((columns) => [
+        //* Let's make a column for selection
+        {
+          id: "selection",
+          //* The header can use the table's getToggleAllRowsSelectedProps method
+          //* to render a checkbox
+          Header: ({ getToggleAllPageRowsSelectedProps }) => (
+            <div>
+              <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
+            </div>
+          ),
+          //* The cell can use the individual row's getToggleRowSelectedProps method
+          //* to the render a checkbox
+          Cell: ({ row }) => (
+            <div>
+              <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
+            </div>
+          ),
+        },
+        ...columns,
+      ]);
+    }
   );
 
   return (

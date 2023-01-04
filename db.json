@@ -170,6 +170,17 @@
       "title": "shahzeb",
       "eventColor": "info",
       "start": "2023-01-04T12:00:00"
+    },
+    {
+      "id": "7cd56e92-51ae-422c-a3f9-332ae63fdfc8",
+      "title": "shahxeb",
+      "eventColor": "success",
+      "start": "2023-01-16T12:00:00"
+    },
+    {
+      "id": "44122586-961e-4404-a14c-ed84c64041ce",
+      "title": "asd",
+      "start": "2023-01-11T12:00:00"
     }
   ],
   "chartsData": {
@@ -322,6 +333,86 @@
     {
       "img": "../imgs/users/avatar-1.jpg",
       "id": 7,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 8,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 9,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 10,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 11,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 12,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 13,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 14,
+      "name": "Ealter Jones",
+      "date": "02 Nov, 2022",
+      "amount": 1,
+      "price": 1234,
+      "quantity": 1,
+      "status": "Confirm"
+    },
+    {
+      "img": "../imgs/users/avatar-1.jpg",
+      "id": 15,
       "name": "Ealter Jones",
       "date": "02 Nov, 2022",
       "amount": 1,

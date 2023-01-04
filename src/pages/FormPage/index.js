@@ -1,8 +1,9 @@
 import React from "react";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
-import Formm from "../../components/Formm";
+import Formm from "../../components/Formm/Formik";
 import { useDispatch, useSelector } from "react-redux";
 import { addFormData } from "../../redux/store";
+import ReactHookForm from "../../components/Formm/ReactHookForm/ReactHookForm";
 
 const FormPage = () => {
   const formData = useSelector((state) => state.form.formData);
@@ -40,6 +41,7 @@ const FormPage = () => {
         time="true"
         color="true"
       />
+      {/* <ReactHookForm /> */}
     </MainPageLayout>
   );
 };

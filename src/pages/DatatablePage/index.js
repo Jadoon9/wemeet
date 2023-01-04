@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import DataTable from "../../components/DataTabel/DataTable";
 import { getTableData } from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
@@ -7,8 +7,10 @@ import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFil
 import Button from "../../components/UiElements/Button";
 import { createSelector } from "reselect";
 import MuiTable from "../../components/DataTabel/MuiTable";
+import { Avatar } from "@mui/material";
 
 const DataTablePage = () => {
+  const [pageSize, setPageSize] = useState(5);
   const dispatch = useDispatch();
   // const check = createSelector(
   //   (state) => state.table.data,
@@ -17,6 +19,7 @@ const DataTablePage = () => {
   // console.log(check, "checkdata");
   const { data, loading } = useSelector((state) => state.table);
   const tableData = useMemo(() => data, []);
+
   useEffect(() => {
     dispatch(getTableData());
   }, [dispatch]);
@@ -59,7 +62,14 @@ const DataTablePage = () => {
     () => [
       { field: "id", headerName: "Id", width: 150 },
       { field: "name", headerName: "Name", width: 150 },
-      { field: "img", headerName: "Image", width: 150 },
+      {
+        field: "img",
+        headerName: "Image",
+        width: 150,
+        renderCell: (params) => <Avatar src={params.row.img} />,
+        sortable: false,
+        filterable: false,
+      },
       { field: "date", headerName: "Date", width: 150 },
       { field: "price", headerName: "Price", width: 150 },
       { field: "amount", headerName: "Amount", width: 150 },
@@ -68,6 +78,10 @@ const DataTablePage = () => {
     ],
     []
   );
+
+  const pageChangeHandler = (num) => {
+    setPageSize(num);
+  };
 
   return (
     <>
@@ -83,13 +97,14 @@ const DataTablePage = () => {
           <p>Loading...</p>
         ) : (
           <div className="h-100">
-            {/* <DataTable columns={columnsReactTable} data={tableData} /> */}
-            <MuiTable
+            <DataTable columns={columnsReactTable} data={tableData} />
+            {/* <MuiTable
+              pageSize={pageSize}
               data={data}
               columns={columnsMuiDatatable}
               title="Mui Data Table"
-              getRowId={(row) => row.id}
-            />
+              pageChange={pageChangeHandler}
+            /> */}
           </div>
         )}
       </MainPageLayout>

@@ -6,10 +6,10 @@ const Buttonn = ({ type, onClick, variant, text, disabled }) => {
     <Button
       size="sm"
       disabled={disabled}
-      className="mt-4 btn btn-primary"
+      className="mt-4"
       onClick={onClick}
       type={type}
-      variant={variant}
+      variant={variant || "primary"}
     >
       {text}
     </Button>

@@ -3,9 +3,9 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import Modal from "../UiElements/Modal";
-import Form from "../Formm";
-import FormikField from "../Formm/FormikField";
-import FormikSelect from "../Formm/FormikSelect";
+import Form from "../Formm/Formik";
+import FormikField from "../Formm/Formik/FormikField";
+import FormikSelect from "../Formm/Formik/FormikSelect";
 import Button from "../UiElements/Button";
 
 const Calendar = ({

@@ -2,10 +2,10 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 import FormikField from "./FormikField";
-import FormikSelect from "../../components/Formm/FormikSelect";
+import FormikSelect from "./FormikSelect";
 import { useDispatch, useSelector } from "react-redux";
-import { addData } from "../../redux/store";
-import Button from "../UiElements/Button";
+import { addData } from "../../../redux/store";
+import Button from "../../UiElements/Button";
 
 const regexpUrl =
   /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/;
@@ -149,15 +149,15 @@ const LoginFormikComponents = ({
                 <FormikField label="Url" name="url" type="url" />
                 <FormikField label="Telephone" name="telephone" type="tel" />
                 <FormikField label="Number" name="number" type="number" />
-                {/* <FormikField label="Date" name="date" type="date" /> */}
-                {/* <FormikField
+                <FormikField label="Date" name="date" type="date" />
+                <FormikField
                   label="Date and Time"
                   name="dateandtime"
                   type="datetime-local"
-                /> */}
-                {/* <FormikField label="Month" name="month" type="month" />
+                />
+                <FormikField label="Month" name="month" type="month" />
                 <FormikField label="Week" name="week" type="week" />
-                <FormikField label="Time" name="time" type="time" /> */}
+                <FormikField label="Time" name="time" type="time" />
 
                 <Button type="submit" text="Submit" variant="primary" />
               </div>
