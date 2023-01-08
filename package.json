@@ -123,7 +123,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server -p 3005 --watch db.json",
-    "sitemap": "babel-node ./src/sitemap-generator.js"
+    "sitemap": "babel-node ./sitemap-generator.js"
   },
   "eslintConfig": {
     "extends": [

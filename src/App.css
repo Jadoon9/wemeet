@@ -4,6 +4,12 @@ body {
   font-family: "Poppins", sans-serif;
   color: #6c6c6c;
 }
+.bg-pattern {
+  background-image: url("../public/imgs/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 #page-topbar {
   position: fixed;
   top: 0;

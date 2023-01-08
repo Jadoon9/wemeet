@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import authSlice from "./slices/authSlice";
 import calendarSlice, {
   addEvent,
   getEvents,
@@ -18,6 +19,7 @@ const store = configureStore({
     form: formSlice,
     table: tableSlice,
     editor: editorSlice,
+    auth: authSlice,
   },
 });
 

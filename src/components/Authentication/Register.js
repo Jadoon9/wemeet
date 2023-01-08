@@ -4,9 +4,9 @@ import Form from "../../components/Formm/Formik";
 import FormikField from "../Formm/Formik/FormikField";
 import Button from "../UiElements/Button";
 
-const Register = () => {
+const Register = ({ handleRegisterSubmit }) => {
   return (
-    <>
+    <div className="bg-pattern">
       <div className="bg-overlay"></div>
       <div className="account-pages my-5 pt-5">
         <div className="container">
@@ -38,7 +38,12 @@ const Register = () => {
                     Get your free Upzet account now.
                   </p>
                   {/* Use Form component pass items for validation and required fields as children */}
-                  <Form password="true" userName="true" email="true">
+                  <Form
+                    password="true"
+                    userName="true"
+                    email="true"
+                    onSubmit={handleRegisterSubmit}
+                  >
                     <FormikField
                       label="User Name"
                       name="userName"
@@ -56,7 +61,7 @@ const Register = () => {
                 </div>
               </div>
               <div className="mt-5 text-center">
-                <p className="text-primary-50">
+                <p className="text-white">
                   Already have an account ?
                   <Link to="/login" className="fw-medium text-primary">
                     Login
@@ -67,7 +72,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

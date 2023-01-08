@@ -41,6 +41,8 @@ function Header({ onClick }) {
   const [showdropdown, setDropDown] = useState(false);
   const [showSettings, setSettings] = useState(false);
 
+  console.log("hereeeeeee");
+
   return (
     <div>
       <header id="page-topbar">

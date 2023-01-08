@@ -113,9 +113,7 @@ const LoginFormikComponents = ({
     ...(month && {
       month: yup.date().required("Please select valid month"),
     }),
-    ...(month && {
-      month: yup.date().required("Please select valid month"),
-    }),
+
     ...(week && {
       week: yup.string().required("Please select valid Week"),
     }),
@@ -131,6 +129,7 @@ const LoginFormikComponents = ({
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => {
+        console.log(values, "valuueesss");
         onSubmit(values);
       }}
       validationSchema={validationSchema}

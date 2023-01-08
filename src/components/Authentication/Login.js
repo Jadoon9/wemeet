@@ -4,9 +4,9 @@ import Form from "../Formm/Formik";
 import FormikField from "../Formm/Formik/FormikField";
 import Button from "../UiElements/Button";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   return (
-    <>
+    <div className="bg-pattern">
       <div className="bg-overlay"></div>
       <div className="account-pages my-5 pt-5">
         <div className="container">
@@ -19,7 +19,7 @@ const Login = () => {
                       <a href="{% url 'dashboard' %}" className="">
                         <img
                           src="{% static 'images/logo-dark.png' %}"
-                          alt=""
+                          alt="logo"
                           height="24"
                           className="auth-logo logo-dark mx-auto"
                         />
@@ -38,12 +38,8 @@ const Login = () => {
                     <p className="mb-5 text-center">
                       Sign in to continue to Upzet.
                     </p>
-                    <Form password="true" userName="true">
-                      <FormikField
-                        label="User Name"
-                        name="userName"
-                        type="text"
-                      />
+                    <Form password="true" email="true" onSubmit={handleLogin}>
+                      <FormikField label="Email" name="email" type="email" />
 
                       <FormikField
                         label="Password"
@@ -56,23 +52,18 @@ const Login = () => {
                 </div>
               </div>
               <div className="mt-5 text-center">
-                <p className="text-primary-50">
+                <p className=" text-white">
                   Don't have an account ?
                   <Link to="/register" className="fw-medium text-primary">
                     Register
                   </Link>
-                </p>
-                <p className="text-white-50">
-                  ©<script>document.write(new Date().getFullYear());</script>
-                  Upzet. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger"></i> by Themesdesign
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

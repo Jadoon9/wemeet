@@ -20,7 +20,7 @@ const FormikField = ({ name, type, label, selectedValue }) => {
                 className="font-size-13"
                 id={name}
                 type={type}
-                name="firstName"
+                name={name}
                 {...formikField.field}
                 // defaultChecked={formikField.field.value}
               />
