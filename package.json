@@ -67,6 +67,7 @@
     "jquery.flot.tooltip": "^0.9.0",
     "jqvmap": "^1.5.1",
     "json-server": "^0.17.1",
+    "json-server-auth": "^2.1.0",
     "jszip": "^3.2.2",
     "magnific-popup": "^1.1.0",
     "masonry-layout": "^4.2.2",
@@ -102,6 +103,7 @@
     "react-slick": "^0.29.0",
     "react-slider": "^2.0.4",
     "react-table": "^7.8.0",
+    "react-toastify": "^9.1.1",
     "reselect": "^4.1.7",
     "select2": "^4.0.10",
     "simplebar": "^5.3.9",
@@ -122,7 +124,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p 3005 --watch db.json",
+    "server": "json-server -p 3005 --watch db.json -m ./node_modules/json-server-auth",
     "sitemap": "babel-node ./sitemap-generator.js"
   },
   "eslintConfig": {

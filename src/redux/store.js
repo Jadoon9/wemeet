@@ -10,6 +10,7 @@ import editorSlice, {
   setReactQuillInput,
   setCkEditorInput,
 } from "./slices/EditorSlice";
+import { logout } from "./slices/authSlice";
 import formSlice, { addFormData } from "./slices/formSlice";
 import tableSlice from "./slices/tableSlice";
 
@@ -31,5 +32,6 @@ export {
   setCkEditorInput,
   addSelectedEvent,
   removeSelectedEvent,
+  logout,
 };
 export default store;

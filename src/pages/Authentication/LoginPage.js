@@ -2,18 +2,26 @@ import React from "react";
 import Login from "../../components/Authentication/Login";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../components/Authentication/loginThunk";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleLogin = (values) => {
-    console.log(values, "userrrr");
+  const handleLogin = async (values) => {
     const data = {
-      username: values.username,
       email: values.email,
       password: values.password,
     };
-    dispatch(loginUser(data));
+    const response = await dispatch(loginUser(data));
+    if (response?.payload?.code === "ERR_BAD_REQUEST") {
+      toast.error(response?.payload?.response?.data);
+    } else {
+      localStorage.setItem("user", JSON.stringify(response.payload));
+      navigate("/");
+      toast.success("Successfully Logged In");
+    }
   };
 
   return <Login handleLogin={handleLogin} />;

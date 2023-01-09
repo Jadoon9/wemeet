@@ -32,6 +32,9 @@ import Brands from "./Brands";
 import NotificationBar from "./NotificationBar";
 import RightSidebar from "./RightSidebar";
 import VerticalMenu from "./Sidebar/VerticalMenu";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/store";
+import { toast } from "react-toastify";
 
 function Header({ onClick }) {
   const [showflag, setShowFlag] = useState(false);
@@ -40,8 +43,13 @@ function Header({ onClick }) {
   const [shownoti, setShowNoti] = useState(false);
   const [showdropdown, setDropDown] = useState(false);
   const [showSettings, setSettings] = useState(false);
+  const dispatch = useDispatch();
 
-  console.log("hereeeeeee");
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.clear();
+    toast.success("Logged Out");
+  };
 
   return (
     <div>
@@ -201,15 +209,18 @@ function Header({ onClick }) {
                     screen
                   </a>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item text-danger" href="#">
+                  <buttton
+                    className="dropdown-item text-danger"
+                    onClick={() => handleLogout()}
+                  >
                     <RiShutDownLine className="align-middle me-1 text-danger" />{" "}
                     Log Out
-                  </a>
+                  </buttton>
                 </div>
               )}
             </div>
 
-            <div className="dropdown d-inline-block">
+            {/* <div className="dropdown d-inline-block">
               <button
                 type="button"
                 className="btn header-item noti-icon right-bar-toggle waves-effect"
@@ -218,7 +229,7 @@ function Header({ onClick }) {
                 <RiSettings3Fill />
               </button>
               {showSettings && <RightSidebar setSettings={setSettings} />}
-            </div>
+            </div> */}
           </div>
         </div>
       </header>

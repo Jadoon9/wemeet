@@ -10,8 +10,7 @@ const headers = {
 // GETT ALL THE USERS
 export const getUsers = createAsyncThunk("users/data", async (data) => {
   try {
-    const response = await axios.get("http://localhost:3005/authData");
-
+    const response = await axios.get("http://localhost:3005/users");
     return response.data;
     // return await request("POST", "/calendarData", data);
   } catch (error) {
@@ -23,10 +22,12 @@ export const getUsers = createAsyncThunk("users/data", async (data) => {
 export const loginUser = createAsyncThunk("user/login", async (data) => {
   console.log(data, "dataaa");
   try {
-    const response = await axios.get(
-      `http://localhost:3005/authData/${data.email}`
+    const response = await axios.post(
+      `http://localhost:3005/login`,
+      data,
+      headers
     );
-    console.log(response.data, "datttaaa");
+
     return response.data;
     // return await request("POST", "/calendarData", data);
   } catch (error) {

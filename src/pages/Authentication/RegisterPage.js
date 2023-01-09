@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../components/Authentication/registerThunk";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -12,23 +13,24 @@ const RegisterPage = () => {
 
   const { error } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    if (error) {
-      alert(error);
-    }
-  }, [error]);
-
-  const handleRegisterSubmit = (values) => {
+  const handleRegisterSubmit = async (values) => {
     const data = {
       id: uuid(),
-      username: values.username,
+      userName: values.userName,
       email: values.email,
       password: values.password,
     };
     try {
-      dispatch(registerUser(data));
+      const response = await dispatch(registerUser(data));
+      if (response?.payload?.code === "ERR_BAD_REQUEST") {
+        toast.error(response?.payload?.response?.data);
+      } else {
+        localStorage.setItem("user", JSON.stringify(response.payload));
+        navigate("/");
+        toast.success("Successfully Registered");
+      }
     } catch (e) {
-      console.log(e);
+      console.log(e, "eventerror");
     }
   };
 

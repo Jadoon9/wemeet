@@ -26,11 +26,24 @@ const initialState = {
 export const authSlice = createSlice({
   name: "register",
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state, action) => {
+      state.isLoggedIn = false;
+      state.loggedInUser = null;
+      state.loading = false;
+      state.error = null;
+    },
+    login: (state, action) => {
+      state.isLoggedIn = true;
+      state.loggedInUser = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+  },
 
   // * Apiii Calls resultss
   extraReducers: {
-    //* Users Data
+    //* Users Data ====================================
     [getUsers.pending]: (state, action) => {
       state.loading = true;
     },
@@ -46,25 +59,24 @@ export const authSlice = createSlice({
       state.error = action.payload;
     },
 
-    //* User registeraion
+    //* User registeraion ====================================
     [registerUser.pending]: (state, action) => {
       state.loading = true;
     },
 
     [registerUser.fulfilled]: (state, action) => {
-      state.users.forEach((user) => {
-        if (user.email === action.payload.email) {
-          state.loading = false;
-          state.error = "User already exist";
-          state.isLoggedIn = false;
-          state.loggedInUser = null;
-        } else {
-          state.loading = false;
-          state.isLoggedIn = true;
-          state.loggedInUser = action.payload;
-          state.error = null;
-        }
-      });
+      // * Checking for error
+      if (action.payload?.response?.data) {
+        state.loading = false;
+        state.isLoggedIn = false;
+        state.loggedInUser = null;
+        state.error = action.payload?.response?.data;
+      } else {
+        state.loading = false;
+        state.error = null;
+        state.isLoggedIn = true;
+        state.loggedInUser = action.payload;
+      }
     },
 
     [registerUser.rejected]: (state, action) => {
@@ -72,17 +84,24 @@ export const authSlice = createSlice({
       state.error = action.payload;
     },
 
-    //* User Loginn
+    //* User Loginn ====================================
     [loginUser.pending]: (state, action) => {
       state.loading = true;
     },
 
     [loginUser.fulfilled]: (state, action) => {
+      if (action.payload?.response?.data) {
+        state.loading = false;
+        state.isLoggedIn = false;
+        state.loggedInUser = null;
+        state.error = action.payload?.response?.data;
+      } else {
+        state.loading = false;
+        state.error = null;
+        state.isLoggedIn = true;
+        state.loggedInUser = action.payload;
+      }
       console.log(action.payload, "checkkk");
-      state.loading = false;
-      state.error = null;
-      state.isLoggedIn = true;
-      state.loggedInUser = action.payload;
     },
 
     [loginUser.rejected]: (state, action) => {
@@ -93,6 +112,6 @@ export const authSlice = createSlice({
 });
 
 // this is for dispatch
-
+export const { logout, login } = authSlice.actions;
 // this is for configureStore
 export default authSlice.reducer;

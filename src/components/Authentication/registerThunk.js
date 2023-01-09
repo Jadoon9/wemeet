@@ -10,7 +10,14 @@ const headers = {
 // Post new Event on calendar
 export const registerUser = createAsyncThunk("register/user", async (data) => {
   try {
-    const response = await axios.post("http://localhost:3005/authData", data);
+    const response = await axios.post(
+      "http://localhost:3005/users",
+      JSON.stringify(data),
+      {
+        headers,
+      }
+    );
+
     return response.data;
     // return await request("POST", "/calendarData", data);
   } catch (error) {

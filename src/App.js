@@ -21,6 +21,11 @@ import routes from "./routes";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import { useDispatch } from "react-redux";
 import { getUsers } from "./components/Authentication/loginThunk";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { login } from "./redux/slices/authSlice";
+import { useNavigate, useLocation } from "react-router-dom";
+
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -28,56 +33,56 @@ import { getUsers } from "./components/Authentication/loginThunk";
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    dispatch(getUsers());
+    if (loggedUser) {
+      dispatch(login(loggedUser));
+      navigate(location.pathname);
+    }
+    // dispatch(getUsers());
   }, [dispatch]);
 
   return (
     <div id="layout-wrapper">
-      <BrowserRouter>
-        <Routes>
-          {/* Public Routesss */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+      <Routes>
+        {/* Public Routesss */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
-          {/* Protected Routess */}
-          <Route element={<ProtectedRoute isLoggedIn={true} />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="table" element={<DataTablePage />} />
-            <Route path="calendar" element={<Calendarr />} />
-            <Route path="form" element={<FormPage />} />
-            <Route path="progress-bar" element={<ProgressBarPage />} />
-            <Route path="notifications" element={<Notifications />} />
-            <Route path="charts" element={<Charts />} />
-            <Route path="ui-elements" element={<AlertsPage />} />
-            <Route path="breadcrumbs" element={<BreadCrumbsPage />} />
-            <Route path="alerts" element={<AlertsPage />} />
-            <Route path="editor" element={<EditorPage />} />
-            <Route path="carousel" element={<CarouselPage />} />
-            <Route path="cards" element={<CardsPage />} />
-            <Route path="breadcrumbs" element={<BreadCrumbsPage />} />
-          </Route>
+        {/* Protected Routess */}
+        <Route element={<ProtectedRoute isLoggedIn={true} />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="table" element={<DataTablePage />} />
+          <Route path="calendar" element={<Calendarr />} />
+          <Route path="form" element={<FormPage />} />
+          <Route path="progress-bar" element={<ProgressBarPage />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="charts" element={<Charts />} />
+          <Route path="ui-elements" element={<AlertsPage />} />
+          <Route path="breadcrumbs" element={<BreadCrumbsPage />} />
+          <Route path="alerts" element={<AlertsPage />} />
+          <Route path="editor" element={<EditorPage />} />
+          <Route path="carousel" element={<CarouselPage />} />
+          <Route path="cards" element={<CardsPage />} />
+          <Route path="breadcrumbs" element={<BreadCrumbsPage />} />
+        </Route>
+      </Routes>
 
-          {/* <Route path="/" element={<Dashboard />} />
-          <Route path="/table" element={<DataTablePage />} />
-          <Route path="/calendar" element={<Calendarr />} />
-          <Route path="/form" element={<FormPage />} />
-          <Route path="/progress-bar" element={<ProgressBarPage />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/charts" element={<Charts />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/ui-elements" element={<AlertsPage />} />
-          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} />
-          <Route path="/alerts" element={<AlertsPage />} />
-          <Route path="/editor" element={<EditorPage />} />
-          <Route path="/carousel" element={<CarouselPage />} />
-          <Route path="/cards" element={<CardsPage />} />
-          <Route path="/breadcrumbs" element={<BreadCrumbsPage />} /> */}
-          {/* <Route path="/alerts" element={< />} /> */}
-        </Routes>
-      </BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
