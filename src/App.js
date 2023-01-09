@@ -25,6 +25,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { login } from "./redux/slices/authSlice";
 import { useNavigate, useLocation } from "react-router-dom";
+import PaymentsPage from "./pages/PaymentsPage";
+import Checkout from "./components/Payments/Stripe/Checkout";
+import Cancel from "./components/Payments/Stripe/Cancel";
+import Success from "./components/Payments/Stripe/Success";
 
 // import 'libs/jquery/dist/jquery.min.js'
 
@@ -42,8 +46,7 @@ function App() {
       dispatch(login(loggedUser));
       navigate(location.pathname);
     }
-    // dispatch(getUsers());
-  }, [dispatch]);
+  }, [dispatch, navigate]);
 
   return (
     <div id="layout-wrapper">
@@ -54,14 +57,18 @@ function App() {
 
         {/* Protected Routess */}
         <Route element={<ProtectedRoute isLoggedIn={true} />}>
-          <Route path="/" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="table" element={<DataTablePage />} />
           <Route path="calendar" element={<Calendarr />} />
           <Route path="form" element={<FormPage />} />
+          <Route path="stripe-checkout" element={<Checkout />} />
+          <Route path="stripe-cancel" element={<Cancel />} />
+          <Route path="stripe-success" element={<Success />} />
+          <Route path="paypal" element={<PaymentsPage />} />
           <Route path="progress-bar" element={<ProgressBarPage />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="charts" element={<Charts />} />
-          <Route path="ui-elements" element={<AlertsPage />} />
+          {/* <Route path="ui-elements" element={<AlertsPage />} /> */}
           <Route path="breadcrumbs" element={<BreadCrumbsPage />} />
           <Route path="alerts" element={<AlertsPage />} />
           <Route path="editor" element={<EditorPage />} />

@@ -16,29 +16,23 @@ import MenuItem from "./MenuItem";
 
 function VerticalMenu({ sidebar }) {
   const [showReserv, setShowres] = useState(false);
-  const [showUser, setShowUser] = useState(false);
   const [showReport, setShowReport] = useState(false);
   const [showUiElements, setShowUiElements] = useState(false);
-  const [showAuth, setShowAuth] = useState(false);
+
+  const [showPayment, setShowPayment] = useState(false);
 
   const handleShowReservChange = () => {
     setShowres(!showReserv);
   };
 
-  const handleUserChange = () => {
-    setShowUser(!showUser);
-  };
-
-  const handleReportChange = () => {
-    setShowReport(!showReport);
+  const handlePaymentsCahnge = () => {
+    setShowPayment(!showPayment);
   };
 
   const handleUiElementChange = () => {
     setShowUiElements(!showReport);
   };
-  const handleAuthChange = () => {
-    setShowAuth(!showAuth);
-  };
+
   return (
     <>
       <div className="vertical-menu">
@@ -69,6 +63,19 @@ function VerticalMenu({ sidebar }) {
               />
 
               <MenuItem
+                show={showPayment}
+                handleChange={handlePaymentsCahnge}
+                Icon={MdOutlinePieChartOutline}
+                title="Payments"
+                showDownIcon="true"
+                item1="Stripe"
+                item2="Paypal"
+                mainLink="#"
+                link1="/stripe-checkout"
+                link2="/paypal"
+              />
+
+              <MenuItem
                 mainLink="/progress-bar"
                 Icon={MdStackedBarChart}
                 title="Progress Bar"
@@ -95,7 +102,7 @@ function VerticalMenu({ sidebar }) {
                 mainLink="#"
                 link1="/charts"
               />
-              <MenuItem
+              {/* <MenuItem
                 show={showAuth}
                 handleChange={handleAuthChange}
                 Icon={MdAccountBox}
@@ -106,7 +113,7 @@ function VerticalMenu({ sidebar }) {
                 mainLink="#"
                 link1="/login"
                 link2="/register"
-              />
+              /> */}
 
               {/* <MenuItem
                 mainLink="/coupon"

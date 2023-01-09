@@ -13,7 +13,7 @@ const index = () => {
         link1="/"
         link2="/notifications"
       >
-        <div class="col-lg-4">
+        <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Notifications</h4>

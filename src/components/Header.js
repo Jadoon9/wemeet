@@ -32,7 +32,7 @@ import Brands from "./Brands";
 import NotificationBar from "./NotificationBar";
 import RightSidebar from "./RightSidebar";
 import VerticalMenu from "./Sidebar/VerticalMenu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/store";
 import { toast } from "react-toastify";
 
@@ -44,6 +44,8 @@ function Header({ onClick }) {
   const [showdropdown, setDropDown] = useState(false);
   const [showSettings, setSettings] = useState(false);
   const dispatch = useDispatch();
+
+  const { loggedInUser } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -92,7 +94,7 @@ function Header({ onClick }) {
           </div>
 
           <div className="d-flex">
-            <div
+            {/* <div
               className="dropdown d-none d-sm-inline-block"
               onClick={() => setShowFlag(!showflag)}
             >
@@ -118,9 +120,9 @@ function Header({ onClick }) {
                   <Country img={russiaflag} country={"russia"} />
                 </div>
               )}
-            </div>
+            </div> */}
             {/* ////////////////// */}
-            <div className="dropdown d-none d-lg-inline-block ms-1">
+            {/* <div className="dropdown d-none d-lg-inline-block ms-1">
               <button
                 type="button"
                 className="menu-trigger btn header-item noti-icon waves-effect menu-trigger "
@@ -150,8 +152,8 @@ function Header({ onClick }) {
                   </div>
                 </div>
               )}
-            </div>
-            <div className="dropdown d-none d-lg-inline-block ms-1">
+            </div> */}
+            {/* <div className="dropdown d-none d-lg-inline-block ms-1">
               <button
                 type="button"
                 className="btn header-item noti-icon waves-effect"
@@ -159,7 +161,7 @@ function Header({ onClick }) {
               >
                 <RiFullscreenLine className="i" />
               </button>
-            </div>
+            </div> */}
 
             {/* <div className="dropdown d-inline-block">
                 <button
@@ -197,20 +199,23 @@ function Header({ onClick }) {
                   src={avatar}
                   alt="Header Avatar"
                 />
-                <span className="d-none d-xl-inline-block ms-1">Admin</span>
+                <span className="d-none d-xl-inline-block ms-1">
+                  {loggedInUser?.user?.userName}
+                </span>
 
                 <MdExpandMore className="d-none d-xl-inline-block" />
               </button>
               {showdropdown && (
                 <div className="dropdown-menu dropdown-menu-end show">
-                  <a className="dropdown-item" href="auth-lock-screen.html">
+                  {/* <a className="dropdown-item" href="auth-lock-screen.html">
                     <i className="ri-lock-unlock-line align-middle me-1"></i>
                     <RiLockUnlockLine className="align-middle me-1" /> Lock
                     screen
-                  </a>
-                  <div className="dropdown-divider"></div>
+                  </a> */}
+                  {/* <div className="dropdown-divider"></div> */}
                   <buttton
                     className="dropdown-item text-danger"
+                    style={{ cursor: "pointer" }}
                     onClick={() => handleLogout()}
                   >
                     <RiShutDownLine className="align-middle me-1 text-danger" />{" "}

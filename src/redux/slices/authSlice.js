@@ -90,6 +90,7 @@ export const authSlice = createSlice({
     },
 
     [loginUser.fulfilled]: (state, action) => {
+      // * Checking for error
       if (action.payload?.response?.data) {
         state.loading = false;
         state.isLoggedIn = false;

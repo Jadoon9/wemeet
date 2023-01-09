@@ -541,6 +541,12 @@
       "password": "$2a$10$42XNFmnvwNrtZPCdxf8Fjuwvqb2MLaSzirRQRWm0LOAFbsSMq5fXO",
       "id": "f69fa123-c019-4c49-9164-6367666b72bd",
       "userName": "shahzebjadoon0@gmail.com"
+    },
+    {
+      "email": "shahzebjadoon9@gmail.com",
+      "password": "$2a$10$jWR5B9RprHt70OlF4reMTOeoZOZd9bgOImsZ0BsNHvocGZlo4ttDO",
+      "id": "967e04bb-3013-42fa-b80c-46b722aa38a4",
+      "userName": "Shahzeb"
     }
   ]
 }
