@@ -29,6 +29,7 @@ import PaymentsPage from "./pages/PaymentsPage";
 import Checkout from "./components/Payments/Stripe/Checkout";
 import Cancel from "./components/Payments/Stripe/Cancel";
 import Success from "./components/Payments/Stripe/Success";
+import PaypalPage from "./pages/PaymentsPage/PaypalPage";
 
 // import 'libs/jquery/dist/jquery.min.js'
 
@@ -64,7 +65,7 @@ function App() {
           <Route path="stripe-checkout" element={<Checkout />} />
           <Route path="stripe-cancel" element={<Cancel />} />
           <Route path="stripe-success" element={<Success />} />
-          <Route path="paypal" element={<PaymentsPage />} />
+          <Route path="paypal" element={<PaypalPage />} />
           <Route path="progress-bar" element={<ProgressBarPage />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="charts" element={<Charts />} />
