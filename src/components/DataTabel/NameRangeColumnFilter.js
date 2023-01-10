@@ -34,7 +34,7 @@ const NumberRangeColumnFilter = ({
         value={filterValue[0] || ""}
         count={min}
       />
-      to
+      -
       <CommonSearchFilter
         type="number"
         onChange={maxFilterChangeHandler}

@@ -8,27 +8,12 @@ import Button from "../../components/UiElements/Button";
 import { createSelector } from "reselect";
 import MuiTable from "../../components/DataTabel/MuiTable";
 import { Avatar } from "@mui/material";
+import { Helmet } from "react-helmet";
 
 const DataTablePage = () => {
   const [pageSize, setPageSize] = useState(5);
   const dispatch = useDispatch();
-  // const check = createSelector(
-  //   (state) => state.table.data,
-  //   (option) => option
-  // );
-  // console.log(check, "checkdata");
-  const { data, loading } = useSelector((state) => state.table);
-  const tableData = useMemo(() => data, []);
-
-  useEffect(() => {
-    dispatch(getTableData());
-  }, [dispatch]);
-
-  const handleClickGroup = (original) => {
-    console.log(original, "clickedd");
-  };
-
-  const columnsReactTable = useMemo(
+  const reactTableData = useMemo(
     () => [
       { Header: "Id", accessor: "id" },
       { Header: "Name", accessor: "name" },
@@ -57,6 +42,35 @@ const DataTablePage = () => {
     ],
     []
   );
+
+  const { data, loading } = useSelector((state) => state.table);
+  const tableData = useMemo(() => [...data], []);
+
+  // const tableHeader = useMemo(
+  //   () =>
+  //     data[0]
+  //       ? Object.keys(data[0]).map((key) => {
+  //           if (key === "img") {
+  //             return {
+  //               Header: key,
+  //               accesor: key,
+  //               Cell: ({ values }) => <img src={values} />,
+  //               // maxWidth: 40,
+  //             };
+  //           }
+  //           return { Header: key, accessor: key };
+  //         })
+  //       : [],
+  //   [data]
+  // );
+
+  useEffect(() => {
+    dispatch(getTableData());
+  }, [dispatch]);
+
+  const handleClickGroup = (original) => {
+    console.log(original, "clickedd");
+  };
 
   const columnsMuiDatatable = useMemo(
     () => [
@@ -97,7 +111,15 @@ const DataTablePage = () => {
           <p>Loading...</p>
         ) : (
           <div className="h-100">
-            <DataTable columns={columnsReactTable} data={tableData} />
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>Dashboard | Data Table</title>
+              <meta
+                name="description"
+                content="Data Table Component with react-table"
+              />
+            </Helmet>
+            <DataTable columns={reactTableData} data={tableData} />
             {/* <MuiTable
               pageSize={pageSize}
               data={data}

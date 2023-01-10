@@ -28,7 +28,6 @@ import {
   RiShutDownLine,
 } from "react-icons/ri";
 import Country from "./Country";
-import Brands from "./Brands";
 import NotificationBar from "./NotificationBar";
 import RightSidebar from "./RightSidebar";
 import VerticalMenu from "./Sidebar/VerticalMenu";

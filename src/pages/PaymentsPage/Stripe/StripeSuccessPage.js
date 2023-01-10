@@ -1,6 +1,6 @@
 import React from "react";
-import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
-import PaypalCheckout from "../../components/Payments/Paypal/PaypalCheckout";
+import MainPageLayout from "../../../components/MainPageLayout/MainPageLayout";
+import StripeSuccess from "../../../components/Payments/Stripe/StripeSuccess";
 
 const PaymentsPage = () => {
   return (
@@ -12,7 +12,7 @@ const PaymentsPage = () => {
       link1="/"
       link2="/stripe"
     >
-      <PaypalCheckout />
+      <StripeSuccess />
     </MainPageLayout>
   );
 };

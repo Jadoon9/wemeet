@@ -16,6 +16,7 @@ import {
   removeEvent,
   removeSelectedEvent,
 } from "../../redux/slices/calendarSlice";
+import { Helmet } from "react-helmet";
 
 function Calendarr() {
   const dispatch = useDispatch();
@@ -81,6 +82,11 @@ function Calendarr() {
           <l1>Loading .... </l1>
         ) : (
           <>
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>Dashboard | Calendar</title>
+              <meta name="description" content="Full calendar with events " />
+            </Helmet>
             {data && (
               <Calendar
                 initialEvents={data}

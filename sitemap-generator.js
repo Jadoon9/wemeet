@@ -1,94 +1,46 @@
-// require("babel-register")({
-//   presets: ["es2015", "react"],
-// });
+import fs from "fs";
+import prettier from "prettier";
+import globby from "globby";
 
-// const router = require("./sitemap-routes").default;
-// const Sitemap = require("react-router-sitemap").default;
+(async () => {
+  const prettierConfig = await prettier.resolveConfig("./.prettierc.js");
+  const pages = await globby([
+    "pages/*.js",
+    "content/**/*.mdx",
+    "!pages/_*.js",
+    "!pages/api",
+  ]);
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://localhost:3000</loc>
+</url>
+${pages
+  ?.map((page) => {
+    const path = page
+      .replace("pages", "")
+      .replace("content", "")
+      .replace(".js", "")
+      .replace("mdx", "");
 
-// function generateSitemap() {
-//   return new Sitemap(router)
-//     .build("https://localhost:3000")
-//     .save("./public/sitemap.xml");
-// }
+    const route = path === "/index" ? "" : path;
 
-// generateSitemap();
-
-require("@babel/register")({
-  extends: "./.babelrc",
-});
-require.extensions[".scss"] = () => {};
-require.extensions[".jpg"] = () => {};
-require.extensions[".png"] = () => {};
-require.extensions[".svg"] = () => {};
-require.extensions[".css"] = () => {};
-const router = require("./sitemap-routes.jsx").default;
-const Sitemap = require("react-router-sitemap").default;
-const axios = require("axios");
-
-async function generateSitemap() {
-  const posts = await axios.get(`https://linom.ir/api/blogpost`);
-  const pagesData = posts.data.posts;
-  let blogSlugMap = [];
-
-  for (var i = 1; i <= pagesData.last_page; i++) {
-    let po = await axios.get(`https://linom.ir/api/blogpost?page=${i}`);
-    let pst = po.data.posts;
-    for (var g = 0; g < pst.data.length; g++) {
-      blogSlugMap.push({
-        slug: pst.data[g].slug,
-        lastmod: pst.data[g].updated_at,
-      });
+    if (path === "/404") {
+      return;
     }
-  }
+    return `<url> 
+    <loc>${`http://localhost:3000${route}`}</loc>
+  </url>`;
+  })
+  .join("")}
+<lastmod>2023-01-10</lastmod>
 
-  const courses = await axios.get(`https://linom.ir/api/course`);
-  const pagesData2 = courses.data.courses;
-  let courseSlugMap = [];
+</urlset>`;
 
-  for (var i = 1; i <= pagesData2.last_page; i++) {
-    let po = await axios.get(`https://linom.ir/api/course?page=${i}`);
-    let pst = po.data.courses;
-    for (var g = 0; g < pst.data.length; g++) {
-      courseSlugMap.push({
-        slug: pst.data[g].slug,
-        lastmod: pst.data[g].updated_at,
-      });
-    }
-  }
+  const formated = prettier.format(sitemap, {
+    ...prettierConfig,
+    parser: "html",
+  });
 
-  const paramsConfig = {
-    "/blog/:slug": blogSlugMap,
-    "/course/:slug": courseSlugMap,
-  };
-  const filterConfig = {
-    isValid: false,
-    rules: [/\/video\/:slug/],
-    // rules: [/video/:slug/]
-  };
-  const mySitemap = new Sitemap(router)
-    .filterPaths(filterConfig)
-    .applyParams(paramsConfig)
-    .build("https://linom.ir");
-
-  let b = 0;
-  let c = 0;
-  for (let i = 0; i < mySitemap.sitemaps[0].urls.length; i++) {
-    if (mySitemap.sitemaps[0].urls[i].url.includes("blog/")) {
-      // console.log(new Date(blogSlugMap[b].lastmod).toISOString())
-      mySitemap.sitemaps[0].urls[i].lastmod = new Date(blogSlugMap[b].lastmod);
-      b++;
-    }
-    if (mySitemap.sitemaps[0].urls[i].url.includes("course/")) {
-      // console.log(new Date(blogSlugMap[c].lastmod).toISOString())
-      mySitemap.sitemaps[0].urls[i].lastmod = new Date(
-        courseSlugMap[c].lastmod
-      );
-      c++;
-    }
-    // mySitemap.sitemaps[0].urls[i].priority = 0.8
-  }
-
-  return mySitemap.save("./public/sitemap.xml");
-}
-
-generateSitemap().catch((err) => console.log(err));
+  fs.writeFileSync("public/sitemap.xml", formated);
+})();

@@ -30,7 +30,7 @@ function VerticalMenu({ sidebar }) {
   };
 
   const handleUiElementChange = () => {
-    setShowUiElements(!showReport);
+    setShowUiElements(!showUiElements);
   };
 
   return (

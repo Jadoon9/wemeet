@@ -13,7 +13,7 @@ import {
 import { Table } from "react-bootstrap";
 import { FaSortUp, FaSortDown, FaSort } from "react-icons/fa";
 import FontAwesome from "react-icons";
-
+import Button from "../UiElements/Button";
 import { matchSorter } from "match-sorter";
 import GlobalSearchFilter from "./GlobalSearchFilter";
 import DefaultColumnFilter from "./DefaultColumnFilter";
@@ -45,6 +45,47 @@ function fuzzyTextFilterFn(rows, id, filterValue) {
 //* Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
+// * Table Hooks
+const tableHooks = (hooks) => {
+  // * Checkbox at the begining
+  hooks.visibleColumns.push((columns) => [
+    //* Let's make a column for selection
+    {
+      id: "selection",
+      //* The header can use the table's getToggleAllRowsSelectedProps method
+      //* to render a checkbox
+      Header: ({ getToggleAllPageRowsSelectedProps }) => (
+        <div>
+          <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
+        </div>
+      ),
+      //* The cell can use the individual row's getToggleRowSelectedProps method
+      //* to the render a checkbox
+      Cell: ({ row }) => (
+        <div>
+          <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
+        </div>
+      ),
+    },
+    ...columns,
+    {
+      id: "Edit",
+      Header: "Edit",
+      Cell: ({ row }) => {
+        return (
+          <button
+            style={{ width: "80px", padding: ".3rem", border: "none" }}
+            className="bg-primary text-white"
+            onClick={() => alert(`Editing ${row.values.name}`)}
+          >
+            Edit
+          </button>
+        );
+      },
+    },
+  ]);
+};
+
 const DataTable = ({ data, columns }) => {
   //* For Filteration =================================================
   const filterTypes = useMemo(
@@ -75,7 +116,6 @@ const DataTable = ({ data, columns }) => {
     []
   );
 
-  console.log(data, "datta");
   const {
     getTableProps,
     getTableBodyProps,
@@ -109,29 +149,10 @@ const DataTable = ({ data, columns }) => {
     useExpanded,
     usePagination,
     useRowSelect,
+    tableHooks,
     //* For pushing checkbox for seletion
     (hooks) => {
-      hooks?.visibleColumns?.push((columns) => [
-        //* Let's make a column for selection
-        {
-          id: "selection",
-          //* The header can use the table's getToggleAllRowsSelectedProps method
-          //* to render a checkbox
-          Header: ({ getToggleAllPageRowsSelectedProps }) => (
-            <div>
-              <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
-            </div>
-          ),
-          //* The cell can use the individual row's getToggleRowSelectedProps method
-          //* to the render a checkbox
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ]);
+      hooks?.visibleColumns?.push((columns) => [...columns]);
     }
   );
 
@@ -151,9 +172,12 @@ const DataTable = ({ data, columns }) => {
                   />
                 </th>
               </tr>
-              <tr {...headerGroup?.getHeaderGroupProps()}>
+              <tr
+                className="align-items-center justify-content-center "
+                {...headerGroup?.getHeaderGroupProps()}
+              >
                 {headerGroup?.headers?.map((column) => (
-                  <th {...column?.getHeaderProps()}>
+                  <th className=" text-center" {...column?.getHeaderProps()}>
                     <span
                       className="font-size-11"
                       {...column.getSortByToggleProps()}
@@ -178,7 +202,10 @@ const DataTable = ({ data, columns }) => {
           {page?.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row?.getRowProps()} className="align-items-center">
+              <tr
+                {...row?.getRowProps()}
+                className=" align-items-center justify-content-center"
+              >
                 {row?.cells?.map((cell) => {
                   return (
                     <td

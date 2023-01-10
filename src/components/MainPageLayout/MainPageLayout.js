@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BreadCrumbs from "../BreadCrumbs";
-import TableButtons from "../TableButtons";
 
 const MainPageLayout = ({
   title,
@@ -44,12 +43,6 @@ const MainPageLayout = ({
                   {cardTitle && <h4 className="card-title">{cardTitle}</h4>}
                   {description && (
                     <p className="card-title-desc">{description}</p>
-                  )}
-
-                  {showButton && (
-                    <>
-                      <TableButtons />
-                    </>
                   )}
                   {children}
                 </div>

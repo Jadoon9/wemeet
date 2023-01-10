@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Card from "../../components/Card";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 
@@ -13,6 +14,11 @@ const CardsPage = () => {
       link2="/ui-elements"
       link3="/cards"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard | Cards</title>
+        <meta name="description" content="Reusable card component " />
+      </Helmet>
       <Card
         image="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
         title="Card Title"

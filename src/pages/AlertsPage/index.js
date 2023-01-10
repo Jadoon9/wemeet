@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import Alert from "../../components/Alerts";
 import CardAlerts from "../../components/Alerts/CardAlerts";
+import { Helmet } from "react-helmet";
 
 const AlertsPage = () => {
   const [showAlert, setShowAlert] = useState(true);
@@ -18,6 +19,14 @@ const AlertsPage = () => {
       link2="/ui-elements"
       link3="/alerts"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard | Alerts Components</title>
+        <meta
+          name="description"
+          content="Different alerts from bootstrap that can be used "
+        />
+      </Helmet>
       <Alert
         alertColor="alert-info"
         onClick={alertCloseHandler}

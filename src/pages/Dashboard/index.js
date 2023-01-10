@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Card from "../../components/Card";
 import MultiRangeSlider from "../../components/DataTabel/MultiRangeSlider";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
-
+import { Helmet } from "react-helmet";
 // import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
 
 import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
@@ -31,6 +31,11 @@ function Dashboard() {
         link1="/"
         link2="/"
       >
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Dashboard | Home</title>
+          <meta name="description" content="Dashboard Components" />
+        </Helmet>
         <Card title="Range Selector">
           <RangeSelector
             rangeValue={rangeValue}

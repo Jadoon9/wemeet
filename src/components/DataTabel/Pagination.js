@@ -58,12 +58,13 @@ const Paginationn = ({
               Page
               <strong>
                 {pageIndex + 1} of {pageOptions.length}
-              </strong>{" "}
+              </strong>
             </span>
           </li>
         </Pagination.Item>
         <Pagination.Item>
           <select
+            className="form-select form-select-sm"
             value={pageSize}
             onChange={(e) => {
               setPageSize(Number(e.target.value));

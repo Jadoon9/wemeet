@@ -8,17 +8,12 @@ const PaypalCheckout = () => {
   };
 
   return (
-    <div className="checkout">
-      <h1>PayPal Checkout</h1>
-      <p className="checkout-title">Design+Code React Hooks Course</p>
-      <p className="checkout-description">
-        Learn how to build a website with React Hooks
-      </p>
-      <h1 className="checkout-price">$19</h1>
+    <div className="d-flex align-items-center flex-column justify-content-center">
+      <h4>PayPal Checkout</h4>
+      <h5 className="">$19</h5>
 
-      <div className="paypal">
-        <p className="checkout-title"> PAY WITH PAYPAL</p>
-        <div className="paypal-button-container">
+      <div className="">
+        <div className="">
           <PayPalScriptProvider
             options={{
               "client-id":

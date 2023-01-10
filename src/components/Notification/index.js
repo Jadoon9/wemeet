@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import MainPageLayout from "../MainPageLayout/MainPageLayout";
 import NotificationItem from "./NotificationItem";
 
@@ -13,6 +14,14 @@ const index = () => {
         link1="/"
         link2="/notifications"
       >
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Dashboard | Notifications</title>
+          <meta
+            name="description"
+            content="Notifications component with cards  "
+          />
+        </Helmet>
         <div class="col-lg-6">
           <div class="card">
             <div class="card-body">

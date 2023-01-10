@@ -5,6 +5,7 @@ import CkEditor from "../../components/Editor/CkEditor";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 import { setCkEditorInput, setReactQuillInput } from "../../redux/store";
+import { Helmet } from "react-helmet";
 
 const EditorPage = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,14 @@ const EditorPage = () => {
         link2="/ui-elements"
         link3="/editor"
       >
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Dashboard | Text Editors</title>
+          <meta
+            name="description"
+            content="Implemented Text editors with react quill and ckeditor"
+          />
+        </Helmet>
         <Card title="React Quill Editor">
           <Editor
             theme="snow"

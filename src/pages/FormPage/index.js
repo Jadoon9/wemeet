@@ -4,6 +4,7 @@ import Formm from "../../components/Formm/Formik";
 import { useDispatch, useSelector } from "react-redux";
 import { addFormData } from "../../redux/store";
 import ReactHookForm from "../../components/Formm/ReactHookForm/ReactHookForm";
+import { Helmet } from "react-helmet";
 
 const FormPage = () => {
   const formData = useSelector((state) => state.form.formData);
@@ -22,6 +23,11 @@ const FormPage = () => {
       link1="/"
       link2="/form"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard | Forms</title>
+        <meta name="description" content="Form component with Formik " />
+      </Helmet>
       <Formm
         onSubmit={formSubmitHandler}
         email="true"

@@ -3,6 +3,7 @@ import CircularProgress from "../../components/ProgressBar/CircularProgress";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import LinearProgress from "../../components/ProgressBar/LinearProgress";
 import Card from "../../components/Card";
+import { Helmet } from "react-helmet";
 
 const ProgressBar = () => {
   return (
@@ -14,6 +15,14 @@ const ProgressBar = () => {
       link1="/"
       link2="/progress-bar"
     >
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard | Progress Bars</title>
+        <meta
+          name="description"
+          content="Added progress bars of different types. Used bootstrap "
+        />
+      </Helmet>
       <Card title="Circular Progress">
         <CircularProgress
           value={80}

@@ -17,20 +17,18 @@ import LoginPage from "./pages/Authentication/LoginPage";
 import RegisterPage from "./pages/Authentication/RegisterPage";
 import DataTablePage from "./pages/DatatablePage/index";
 import { useEffect, useState } from "react";
-import routes from "./routes";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import { useDispatch } from "react-redux";
-import { getUsers } from "./components/Authentication/loginThunk";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { login } from "./redux/slices/authSlice";
 import { useNavigate, useLocation } from "react-router-dom";
-import PaymentsPage from "./pages/PaymentsPage";
-import Checkout from "./components/Payments/Stripe/Checkout";
-import Cancel from "./components/Payments/Stripe/Cancel";
-import Success from "./components/Payments/Stripe/Success";
-import PaypalPage from "./pages/PaymentsPage/PaypalPage";
-
+import Checkout from "./components/Payments/Stripe/StripeCheckout";
+import Cancel from "./components/Payments/Stripe/StripeCancel";
+import Success from "./components/Payments/Stripe/StripeSuccess";
+import PaypalPage from "./pages/PaymentsPage/Paypal/PaypalPage";
+import StripeCheckoutPage from "./pages/PaymentsPage/Stripe/StripeCheckoutPage";
+import StripeCancelPage from "./pages/PaymentsPage/Stripe/StripeCancelPage";
 // import 'libs/jquery/dist/jquery.min.js'
 
 // import "simplebar-react/dist/simplebar.min.css";
@@ -62,8 +60,8 @@ function App() {
           <Route path="table" element={<DataTablePage />} />
           <Route path="calendar" element={<Calendarr />} />
           <Route path="form" element={<FormPage />} />
-          <Route path="stripe-checkout" element={<Checkout />} />
-          <Route path="stripe-cancel" element={<Cancel />} />
+          <Route path="stripe-checkout" element={<StripeCheckoutPage />} />
+          <Route path="stripe-cancel" element={<StripeCancelPage />} />
           <Route path="stripe-success" element={<Success />} />
           <Route path="paypal" element={<PaypalPage />} />
           <Route path="progress-bar" element={<ProgressBarPage />} />

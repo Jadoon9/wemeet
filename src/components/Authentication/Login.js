@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Form from "../Formm/Formik";
 import FormikField from "../Formm/Formik/FormikField";
 import Button from "../UiElements/Button";
+import darkLogo from "../../imgs/logo-dark.png";
+import lightLogo from "../../imgs/logo-light.png";
 
 const Login = ({ handleLogin }) => {
   return (
@@ -18,13 +20,13 @@ const Login = ({ handleLogin }) => {
                     <div className="text-center">
                       <a href="{% url 'dashboard' %}" className="">
                         <img
-                          src="{% static 'images/logo-dark.png' %}"
+                          src={darkLogo}
                           alt="logo"
                           height="24"
                           className="auth-logo logo-dark mx-auto"
                         />
                         <img
-                          src="{% static 'images/logo-light.png' %}"
+                          src={lightLogo}
                           alt=""
                           height="24"
                           className="auth-logo logo-light mx-auto"
