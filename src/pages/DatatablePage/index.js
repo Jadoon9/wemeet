@@ -119,7 +119,7 @@ const DataTablePage = () => {
                 content="Data Table Component with react-table"
               />
             </Helmet>
-            <DataTable columns={reactTableData} data={tableData} />
+            <DataTable columns={reactTableData} data={tableData || []} />
             {/* <MuiTable
               pageSize={pageSize}
               data={data}

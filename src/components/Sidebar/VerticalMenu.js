@@ -35,7 +35,15 @@ function VerticalMenu({ sidebar }) {
 
   return (
     <>
-      <div className="vertical-menu">
+      <div
+        className="vertical-menu"
+        style={{
+          position: "fixed",
+          overflowY: "scroll",
+          top: 0,
+          bottom: 0,
+        }}
+      >
         <div data-simplebar className="h-100">
           <div id="sidebar-menu">
             <ul className="metismenu list-unstyled" id="side-menu">
