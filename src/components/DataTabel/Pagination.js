@@ -13,6 +13,9 @@ const Paginationn = ({
   pageSize,
   setPageSize,
 }) => {
+  const onPageSizeChange = (e) => {
+    setPageSize(Number(e.target.value));
+  };
   return (
     <>
       <Pagination size="sm" className="justify-content-end align-items-center">
@@ -66,9 +69,7 @@ const Paginationn = ({
           <select
             className="form-select form-select-sm"
             value={pageSize}
-            onChange={(e) => {
-              setPageSize(Number(e.target.value));
-            }}
+            onChange={(e) => onPageSizeChange(e)}
           >
             {[10, 20, 30, 40, 50].map((pageSize) => (
               <option key={pageSize} value={pageSize}>

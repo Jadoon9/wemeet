@@ -3,11 +3,14 @@ import Login from "../../components/Authentication/Login";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../components/Authentication/loginThunk";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "";
 
   const handleLogin = async (values) => {
     const data = {

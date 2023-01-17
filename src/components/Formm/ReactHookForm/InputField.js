@@ -13,7 +13,7 @@ const InputField = ({ label, name, type, register, errors }) => {
         type={type}
         name={name}
       />
-      {/* <p>{errors?.$[name]?.message}</p> */}
+      <p className="text-danger font-size-10">{errors?.[name]?.message}</p>
     </Form.Group>
   );
 };

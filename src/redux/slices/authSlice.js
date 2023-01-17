@@ -27,6 +27,9 @@ export const authSlice = createSlice({
   name: "register",
   initialState,
   reducers: {
+    // auth: (state, action) => {
+    //   state.auth = action.payload;
+    // },
     logout: (state, action) => {
       state.isLoggedIn = false;
       state.loggedInUser = null;
@@ -95,6 +98,7 @@ export const authSlice = createSlice({
         state.loading = false;
         state.isLoggedIn = false;
         state.loggedInUser = null;
+
         state.error = action.payload?.response?.data;
       } else {
         state.loading = false;
@@ -113,6 +117,6 @@ export const authSlice = createSlice({
 });
 
 // this is for dispatch
-export const { logout, login } = authSlice.actions;
+export const { logout, login, auth } = authSlice.actions;
 // this is for configureStore
 export default authSlice.reducer;

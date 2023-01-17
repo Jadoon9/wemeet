@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Header from "../Header";
+
 import VerticalMenu from "../Sidebar/VerticalMenu";
 
 function ProtectedRoute() {
   const { isLoggedIn } = useSelector((state) => state.auth);
-
+  const location = useLocation();
   return (
     <>
       {isLoggedIn ? (
@@ -17,7 +18,7 @@ function ProtectedRoute() {
           <Outlet />
         </>
       ) : (
-        <Navigate to="/login" />
+        <Navigate to="/login" state={{ from: location }} replace />
       )}
     </>
   );

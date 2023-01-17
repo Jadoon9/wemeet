@@ -18,12 +18,12 @@ const FormikField = ({ name, label, selectedValue }) => {
               </Form.Label>
               <Form.Select className="font-size-13" {...formikField.field}>
                 <option disabled>-- Select --</option>
-                <option value="danger">Danger</option>
-                <option value="success">Success</option>
-                <option value="primary">Primary</option>
-                <option value="info">Info</option>
-                <option value="dark">Dark</option>
-                <option value="warning">Warning</option>
+                <option value="blue">Primary</option>
+                <option value="red">Danger</option>
+                <option value="green">Success</option>
+                <option value="orange">Info</option>
+                <option value="brown">Dark</option>
+                <option value="yellow">Warning</option>
               </Form.Select>
             </Form.Group>
             <FormikErrorMessage name={name} />

@@ -13,11 +13,13 @@ const MenuItem = ({
   item3,
   item4,
   item5,
+  item6,
   link1,
   link2,
   link3,
   link4,
   link5,
+  link6,
 }) => {
   return (
     <>
@@ -58,6 +60,11 @@ const MenuItem = ({
             {link5 && (
               <li>
                 <Link to={`${link5}`}>{item5}</Link>
+              </li>
+            )}
+            {link6 && (
+              <li>
+                <Link to={`${link6}`}>{item6}</Link>
               </li>
             )}
           </ul>

@@ -3,6 +3,7 @@ import {
   getCalenderEvents,
   postCalenderEvents,
   deleteCalenderEvents,
+  updateCalenderEvents,
 } from "../../components/Calendar/calendarThunk";
 export function createEventId() {
   return String(eventGuid++);
@@ -35,47 +36,89 @@ export const calendarSlice = createSlice({
     // },
   },
 
-  // * Apiii Call reducersss
-  extraReducers: (builder) => {
-    //* add new event
-    builder.addCase(getCalenderEvents.pending, (state, action) => {
+  // * Apiii Calls resultss
+  extraReducers: {
+    //* add new event ====================================
+    [getCalenderEvents.pending]: (state, action) => {
       state.loading = true;
-    });
-    builder.addCase(getCalenderEvents.fulfilled, (state, action) => {
+    },
+
+    [getCalenderEvents.fulfilled]: (state, action) => {
       state.loading = false;
       console.log(action.payload, "check");
       state.data = action.payload;
-    });
-    builder.addCase(getCalenderEvents.rejected, (state, action) => {
+    },
+
+    [getCalenderEvents.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    });
+    },
 
-    //*  Post new Event
-    builder.addCase(postCalenderEvents.pending, (state, action) => {
+    //* Post new Event ====================================
+    [postCalenderEvents.pending]: (state, action) => {
       state.loading = true;
-    });
-    builder.addCase(postCalenderEvents.fulfilled, (state, action) => {
+    },
+
+    [postCalenderEvents.fulfilled]: (state, action) => {
       state.loading = false;
       const { data } = action.payload;
+      console.log(data, "dattaacheckk");
       state.data.push(data);
-    });
-    builder.addCase(postCalenderEvents.rejected, (state, action) => {
+    },
+
+    [postCalenderEvents.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    });
-    //*  Delete  Event
-    builder.addCase(deleteCalenderEvents.pending, (state, action) => {
+    },
+
+    //* Post new Event ====================================
+    [postCalenderEvents.pending]: (state, action) => {
       state.loading = true;
-    });
-    builder.addCase(deleteCalenderEvents.fulfilled, (state, action) => {
+    },
+
+    [postCalenderEvents.fulfilled]: (state, action) => {
+      state.loading = false;
+      const { data } = action.payload;
+      console.log(data, "dattaacheckk");
+      state.data.push(data);
+    },
+
+    [postCalenderEvents.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+
+    //*  Update an Event====================================
+    [updateCalenderEvents.pending]: (state, action) => {
+      state.loading = true;
+    },
+
+    [updateCalenderEvents.fulfilled]: (state, action) => {
+      state.loading = false;
+      const { data } = action.payload;
+      console.log(data, "dattaacheckk");
+      // state.data.push(data);
+    },
+
+    [updateCalenderEvents.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+
+    //* Delete  Event====================================
+    [deleteCalenderEvents.pending]: (state, action) => {
+      state.loading = true;
+    },
+
+    [deleteCalenderEvents.fulfilled]: (state, action) => {
       state.loading = false;
       state.data = action.payload;
-    });
-    builder.addCase(deleteCalenderEvents.rejected, (state, action) => {
+    },
+
+    [deleteCalenderEvents.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
-    });
+    },
   },
 });
 

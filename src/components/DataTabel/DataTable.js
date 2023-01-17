@@ -17,74 +17,13 @@ import Button from "../UiElements/Button";
 import { matchSorter } from "match-sorter";
 import GlobalSearchFilter from "./GlobalSearchFilter";
 import DefaultColumnFilter from "./DefaultColumnFilter";
-import MultiRangeSlider from "./MultiRangeSlider";
-
-// * Checkboxesss
-const IndeterminateCheckbox = React.forwardRef(
-  ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = useRef();
-    const resolvedRef = ref || defaultRef;
-
-    useEffect(() => {
-      resolvedRef.current.indeterminate = indeterminate;
-    }, [resolvedRef, indeterminate]);
-
-    return (
-      <>
-        <input type="checkbox" ref={resolvedRef} {...rest} />
-      </>
-    );
-  }
-);
-
-//* For Filteration =================================================
-function fuzzyTextFilterFn(rows, id, filterValue) {
-  return matchSorter(rows, filterValue, { keys: [(row) => row.values[id]] });
-}
+import Checkboxes from "./Checkbox";
+import { MdModeEditOutline } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { tableHooks, fuzzyTextFilterFn } from "./Checkbox";
 
 //* Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = (val) => !val;
-
-// * Table Hooks
-const tableHooks = (hooks) => {
-  // * Checkbox at the begining
-  hooks.visibleColumns.push((columns) => [
-    //* Let's make a column for selection
-    {
-      id: "selection",
-      //* The header can use the table's getToggleAllRowsSelectedProps method
-      //* to render a checkbox
-      Header: ({ getToggleAllPageRowsSelectedProps }) => (
-        <div>
-          <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
-        </div>
-      ),
-      //* The cell can use the individual row's getToggleRowSelectedProps method
-      //* to the render a checkbox
-      Cell: ({ row }) => (
-        <div>
-          <IndeterminateCheckbox {...row?.getToggleRowSelectedProps()} />
-        </div>
-      ),
-    },
-    ...columns,
-    {
-      id: "Edit",
-      Header: "Edit",
-      Cell: ({ row }) => {
-        return (
-          <button
-            style={{ width: "80px", padding: ".3rem", border: "none" }}
-            className="bg-primary text-white"
-            onClick={() => alert(`Editing ${row.values.name}`)}
-          >
-            Edit
-          </button>
-        );
-      },
-    },
-  ]);
-};
 
 const DataTable = ({ data, columns }) => {
   //* For Filteration =================================================
@@ -132,9 +71,10 @@ const DataTable = ({ data, columns }) => {
     nextPage,
     previousPage,
     setPageSize,
+    selectedFlatRows,
     visibleColumns,
     preGlobalFilteredRows,
-    state: { pageIndex, pageSize, globalFilter },
+    // state: { pageIndex, pageSize, globalFilter },
   } = useTable(
     {
       data,
@@ -149,19 +89,21 @@ const DataTable = ({ data, columns }) => {
     useExpanded,
     usePagination,
     useRowSelect,
-    tableHooks,
-    //* For pushing checkbox for seletion
-    (hooks) => {
-      hooks?.visibleColumns?.push((columns) => [...columns]);
-    }
+    tableHooks
+    // //* For pushing checkbox for seletion
+    // (hooks) => {
+    //   hooks?.visibleColumns?.push((columns) => [...columns]);
+    // }
   );
+
+  const { pageIndex, pageSize } = state;
 
   return (
     <>
       {/* react ttable with data and all the columns provided */}
       <Table striped hover responsive {...getTableProps()}>
         <thead>
-          {headerGroups?.map((headerGroup) => (
+          {headerGroups?.map((headerGroup, i) => (
             <>
               <tr>
                 <th colSpan={visibleColumns.length}>
@@ -173,7 +115,7 @@ const DataTable = ({ data, columns }) => {
                 </th>
               </tr>
               <tr
-                className="align-items-center justify-content-center "
+                // className="align-items-center justify-content-center "
                 {...headerGroup?.getHeaderGroupProps()}
               >
                 {headerGroup?.headers?.map((column) => (
@@ -203,6 +145,7 @@ const DataTable = ({ data, columns }) => {
             prepareRow(row);
             return (
               <tr
+                key={i}
                 {...row?.getRowProps()}
                 className=" align-items-center justify-content-center"
               >

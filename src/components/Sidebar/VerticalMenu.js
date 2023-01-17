@@ -36,15 +36,15 @@ function VerticalMenu({ sidebar }) {
   return (
     <>
       <div
-        className="vertical-menu"
+        className="vertical-menu h-100"
         style={{
           position: "fixed",
           overflowY: "scroll",
-          top: 0,
-          bottom: 0,
+          // top: 0,
+          // bottom: 0,
         }}
       >
-        <div data-simplebar className="h-100">
+        <div data-simplebar className="">
           <div id="sidebar-menu">
             <ul className="metismenu list-unstyled" id="side-menu">
               <li className="menu-title">Menu</li>
@@ -89,11 +89,11 @@ function VerticalMenu({ sidebar }) {
                 title="Progress Bar"
               />
 
-              <MenuItem
+              {/* <MenuItem
                 mainLink="/notifications"
                 Icon={MdNotifications}
                 title="Notification"
-              />
+              /> */}
               {/* <MenuItem
                 mainLink="/calender"
                 Icon={MdOutlineCalendarToday}
@@ -138,7 +138,8 @@ function VerticalMenu({ sidebar }) {
                 item2="Editor"
                 item3="Carousel"
                 item4="Cards"
-                item5="BreadCrumbs"
+                item5="Notifications"
+                item6="BreadCrumbs"
                 // item4="Time Slot"
                 // item5="Wallet"
                 mainLink="#"
@@ -146,7 +147,8 @@ function VerticalMenu({ sidebar }) {
                 link2="/editor"
                 link3="/carousel"
                 link4="/cards"
-                link5="/breadcrumbs"
+                link5="/notifications"
+                link6="/breadcrumbs"
                 // link3="/rooms"
                 // link4="/timeslot"
                 // link5="/wallet"

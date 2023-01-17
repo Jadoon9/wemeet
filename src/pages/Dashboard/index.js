@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import Card from "../../components/Card";
-import MultiRangeSlider from "../../components/DataTabel/MultiRangeSlider";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { Helmet } from "react-helmet";
 // import MultiRangeSlider from "../../components/RangeSelector/MultiSlider";
@@ -9,6 +8,8 @@ import RangeSelector from "../../components/RangeSelector/RangeSelector.js";
 import VideoInput from "../../components/VideoInput/VideoInput.js";
 import VoiceInput from "../../components/VoiceInput/VoiceInput";
 import VoiceRecord from "../../components/VoiceInput/VoiceRecorder.js";
+import MultiRange from "../../components/RangeSelector/MultiRange";
+import { refreshToken } from "../../api";
 
 function Dashboard() {
   // Single Range Slider ========
@@ -45,9 +46,18 @@ function Dashboard() {
           />
           <p>{rangeValue}</p>
         </Card>
-        {/* <Card title="Multirange Slider">
-          <MultiRangeSlider min={0} max={500} />
-        </Card> */}
+
+        <Card title="Multi range">
+          <div className="mt-4 mb-5">
+            <MultiRange
+              min={0}
+              max={1000}
+              onChange={({ min, max }) =>
+                console.log(`min = ${min}, max = ${max}`)
+              }
+            />
+          </div>
+        </Card>
         <Card title="Voice Recorder">
           <VoiceRecord />
         </Card>

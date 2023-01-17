@@ -1,6 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import DataTable from "../../components/DataTabel/DataTable";
-import { getTableData } from "../../components/DataTabel/tablethunk";
+import {
+  deleteUser,
+  getTableData,
+} from "../../components/DataTabel/tablethunk";
 import MainPageLayout from "../../components/MainPageLayout/MainPageLayout";
 import { useDispatch, useSelector } from "react-redux";
 import NameRangeColumnFilter from "../../components/DataTabel/NameRangeColumnFilter";
@@ -9,14 +12,33 @@ import { createSelector } from "reselect";
 import MuiTable from "../../components/DataTabel/MuiTable";
 import { Avatar } from "@mui/material";
 import { Helmet } from "react-helmet";
+import { MdDelete, MdModeEditOutline } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const DataTablePage = () => {
   const [pageSize, setPageSize] = useState(5);
+
   const dispatch = useDispatch();
-  const reactTableData = useMemo(
+
+  const handleDelete = async (row) => {
+    console.log(row.values, "rowww");
+    try {
+      dispatch(deleteUser(row.values.id));
+      dispatch(getTableData());
+      toast.success(`Deleted ${row.values.name} `);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleEdit = (row) => {
+    console.log(row.values, "rowww");
+    alert(row.values.name);
+  };
+
+  const reactTableColumns = useMemo(
     () => [
-      { Header: "Id", accessor: "id" },
-      { Header: "Name", accessor: "name" },
+      { Header: "Id", accessor: "id", filterable: false },
+      { Header: "Name", accessor: "name", filterable: false },
       {
         Header: "Image",
         accessor: "img",
@@ -39,12 +61,53 @@ const DataTablePage = () => {
       { Header: "Amount", accessor: "amount" },
       { Header: "Quantity", accessor: "quantity" },
       { Header: "Status", accessor: "status" },
+      {
+        Header: "Actions",
+        Cell: ({ row }) => (
+          <>
+            <div className="d-flex">
+              <MdDelete
+                style={{
+                  color: "red",
+                  fontSize: "1.3rem",
+                  cursor: "pointer",
+                }}
+                // className="bg-primary text-white"
+                onClick={() => {
+                  handleDelete(row);
+                }}
+              />
+              &nbsp; &nbsp;
+              <MdModeEditOutline
+                style={{
+                  color: "blue",
+                  fontSize: "1.3rem",
+                  cursor: "pointer",
+                }}
+                // className="bg-primary text-white"
+                onClick={() => {
+                  handleEdit(row);
+                }}
+              />
+            </div>
+          </>
+        ),
+      },
     ],
     []
   );
 
+  // const actionColumn = ;
+
+  // reactTableColumns.push(actionColumn);
+
   const { data, loading } = useSelector((state) => state.table);
-  const tableData = useMemo(() => [...data], []);
+
+  const tableData = useMemo(() => {
+    return data.length > 0 ? [...data] : [];
+  }, [data]);
+
+  // const tableData = useMemo(() => {return [...data]}}, []);
 
   // const tableHeader = useMemo(
   //   () =>
@@ -72,30 +135,10 @@ const DataTablePage = () => {
     console.log(original, "clickedd");
   };
 
-  const columnsMuiDatatable = useMemo(
-    () => [
-      { field: "id", headerName: "Id", width: 150 },
-      { field: "name", headerName: "Name", width: 150 },
-      {
-        field: "img",
-        headerName: "Image",
-        width: 150,
-        renderCell: (params) => <Avatar src={params.row.img} />,
-        sortable: false,
-        filterable: false,
-      },
-      { field: "date", headerName: "Date", width: 150 },
-      { field: "price", headerName: "Price", width: 150 },
-      { field: "amount", headerName: "Amount", width: 150 },
-      { field: "quantity", headerName: "Quantity", width: 150 },
-      { field: "status", headerName: "Status", width: 150 },
-    ],
-    []
-  );
-
-  const pageChangeHandler = (num) => {
-    setPageSize(num);
-  };
+  console.log(tableData, "tableData");
+  // const pageChangeHandler = (num) => {
+  //   setPageSize(num);
+  // };
 
   return (
     <>
@@ -119,7 +162,11 @@ const DataTablePage = () => {
                 content="Data Table Component with react-table"
               />
             </Helmet>
-            <DataTable columns={reactTableData} data={tableData || []} />
+            {tableData.length > 0 ? (
+              <DataTable columns={reactTableColumns} data={tableData} />
+            ) : (
+              <h2>No record found</h2>
+            )}
             {/* <MuiTable
               pageSize={pageSize}
               data={data}

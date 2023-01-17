@@ -21,7 +21,7 @@ const LoginFormikComponents = ({
   onSubmit,
   children,
   eventName,
-  eventColor,
+  color,
   userName,
   email,
   password,
@@ -36,13 +36,16 @@ const LoginFormikComponents = ({
   month,
   week,
   time,
-  color,
   selectedEventTitle,
+  selectedEventColor,
+  selectedStartDate,
 }) => {
   const initialValues = {
     userName: "",
-    eventName: "",
-    eventcolor: "",
+    eventName: selectedEventTitle || "",
+    color: selectedEventColor || "",
+    startDate: "",
+    endDate: "",
     email: "",
     password: "",
     rememberMe: false,
@@ -71,8 +74,8 @@ const LoginFormikComponents = ({
     ...(eventName && {
       eventName: yup.string().required("Event Name field is required"),
     }),
-    ...(eventColor && {
-      eventColor: yup.string().required("Event Name field is required"),
+    ...(color && {
+      color: yup.string().required("Event Color  field is required"),
     }),
     ...(email && {
       email: yup

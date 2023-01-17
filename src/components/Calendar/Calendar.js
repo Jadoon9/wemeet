@@ -3,10 +3,11 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import Modal from "../UiElements/Modal";
-import Form from "../Formm/Formik";
+
 import FormikField from "../Formm/Formik/FormikField";
 import FormikSelect from "../Formm/Formik/FormikSelect";
 import Button from "../UiElements/Button";
+import CalendarForm from "./CalendarForm";
 
 const Calendar = ({
   onChange,
@@ -17,6 +18,7 @@ const Calendar = ({
   eventClick,
   deleteEvent,
   selectedEvent,
+  selectedStartDate,
 }) => {
   return (
     <div>
@@ -27,34 +29,16 @@ const Calendar = ({
         onClose={handleModal}
         showModal={showModal}
       >
-        <Form
-          eventName="true"
+        <CalendarForm
           onSubmit={addNewEvent}
           selectedEventTitle={selectedEvent?.title}
-          selectedEventColor={selectedEvent?.textColor}
-        >
-          <FormikField label="Event Name" name="eventName" type="text" />
-          <FormikSelect name="eventColor" label="Category" type="select" />
-          <div className="d-flex justify-content-between">
-            <div>
-              <Button
-                type="button"
-                variant="danger"
-                text="Delete Event"
-                onClick={deleteEvent}
-              />
-            </div>
-            <div>
-              <Button
-                type="button"
-                variant="light"
-                text="Close"
-                onClick={handleModal}
-              />
-              <Button type="submit" variant="primary" text="Save" />
-            </div>
-          </div>
-        </Form>
+          selectedEventColor={selectedEvent?.backgroundColor}
+          selectedEventStartDate={selectedEvent?.statrtDate}
+          selectedEventEndDate={selectedEvent?.endDate}
+          selectedStartDate={selectedStartDate}
+          deleteEvent={deleteEvent}
+          handleModal={handleModal}
+        />
       </Modal>
       <FullCalendar
         headerToolbar={{
@@ -64,7 +48,7 @@ const Calendar = ({
         }}
         initialView="dayGridMonth"
         plugins={[timeGridPlugin, interactionPlugin, dayGridPlugin]}
-        initialEvents={initialEvents}
+        events={initialEvents}
         weekends={true}
         editable={true}
         selectable={true}
@@ -72,7 +56,10 @@ const Calendar = ({
         dayMaxEvents={true}
         dateClick={onChange}
         // eventAdd={}
-        eventClick={(e) => eventClick(e)}
+        eventClick={(e) => {
+          console.log(e.event, "eventceckkk");
+          eventClick(e);
+        }}
         eventRemove={(e) => console.log(e, "zasas")}
       />
     </div>

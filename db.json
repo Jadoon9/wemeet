@@ -22,80 +22,70 @@
       "id": 1,
       "title": "All-day event",
       "start": "2022-12-26T12:00:00",
-      "end": "2022-12-26T12:10:00"
+      "end": "2022-12-26T12:10:00",
+      "color": "red"
     },
     {
       "id": 2,
       "title": "Event",
       "start": "2022-12-26T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "49f434e7-654d-4501-9ae1-a1762b35b208",
       "title": "ASD",
-      "eventColor": "danger",
+      "textColor": "danger",
       "start": "2022-12-07T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "561e861b-de4b-416d-9eb3-3f299330ab9f",
       "title": "shahzeb",
-      "eventColor": "primary",
+      "textColor": "primary",
       "start": "2022-12-05T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "2bb8716c-cbf6-4505-813b-e0e89726524d",
       "title": "jadoon",
-      "eventColor": "danger",
+      "textColor": "danger",
       "start": "2022-12-06T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "41161900-2807-4dbc-a66d-e46d3733e688",
       "title": "asda",
-      "eventColor": "primary",
+      "textColor": "primary",
       "start": "2022-12-13T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "faca13ce-09d0-43cf-87d2-9388686e0074",
       "title": "testt",
-      "eventColor": "success",
+      "textColor": "success",
       "start": "2022-12-20T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "06936781-f832-4b70-98c6-a3d27002071e",
       "title": "asd",
-      "eventColor": "danger",
+      "textColor": "danger",
       "start": "2022-12-15T12:00:00",
-      "end": "2022-12-26T12:00:00"
+      "end": "2022-12-26T12:00:00",
+      "color": "red"
     },
     {
       "id": "bc4cc6dd-3e98-425d-8dbf-b762728606c4",
       "title": "shahxeb",
-      "eventColor": "danger",
+      "textColor": "danger",
       "start": "2022-12-28T12:00:00",
       "end": "2022-12-26T12:00:00"
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8
     },
     {
       "id": "8c667a6a-a9c3-480b-853f-4697d98ac6da",
@@ -123,54 +113,41 @@
       "start": "undefinedT12:00:00"
     },
     {
-      "id": 9
-    },
-    {
       "id": "d9721344-6a54-4a3a-b71b-7e23f73867c5",
       "title": "check",
       "start": "2022-11-29T11:00:00+05:00T12:00:00"
     },
     {
-      "id": "a938d9b1-63e1-4fba-a472-1e3a65a062b4",
-      "title": "hereee",
-      "start": "2023-01-10T12:00:00"
+      "title": "hereeeas21",
+      "backgroundColor": "red",
+      "borderColor": "red",
+      "start": "2023-01-10T12:00",
+      "end": "2023-01-17T12:43",
+      "id": "a938d9b1-63e1-4fba-a472-1e3a65a062b4"
     },
     {
       "id": "94f5ed5f-f071-4565-804c-d675e71e6f4c",
       "title": "testigggg",
-      "start": "2023-01-09T12:00:00"
-    },
-    {
-      "id": "c08bdaa9-ab94-4319-b05e-ce705fea0703",
-      "title": "15",
-      "start": "2023-01-15T12:00:00"
+      "start": "2023-01-09T12:00:00",
+      "color": "red"
     },
     {
       "id": "f340bef3-6406-479f-b8fa-117a9b6cd32b",
       "title": "15 2",
-      "start": "2023-01-15T12:00:00"
+      "start": "2023-01-15T12:00:00",
+      "color": "red"
     },
     {
       "id": "38009a23-6531-41cd-bb10-e6e72dab5a74",
       "title": "15 3",
-      "start": "2023-01-15T12:00:00"
+      "start": "2023-01-15T12:00:00",
+      "color": "red"
     },
     {
       "id": "8c66e587-b339-4d65-b3fa-98f1b0446969",
       "title": "15 4",
-      "start": "2023-01-15T12:00:00"
-    },
-    {
-      "id": "1ba93121-9729-49f9-9015-b874c2aca60f",
-      "title": "shahzeb",
-      "eventColor": "info",
-      "start": "2023-01-04T12:00:00"
-    },
-    {
-      "id": "7cd56e92-51ae-422c-a3f9-332ae63fdfc8",
-      "title": "shahxeb",
-      "eventColor": "success",
-      "start": "2023-01-16T12:00:00"
+      "start": "2023-01-15T12:00:00",
+      "color": "red"
     },
     {
       "id": "44122586-961e-4404-a14c-ed84c64041ce",
@@ -178,15 +155,225 @@
       "start": "2023-01-11T12:00:00"
     },
     {
-      "id": "8052dbc2-c278-41e8-899c-e81b37c28b41",
+      "id": "bc0b1a1c-0a96-4ae6-ae5e-840a8a4443f6",
       "title": "shahxeb",
-      "start": "2023-01-26T12:00:00"
+      "start": "2023-01-23T12:00:00"
     },
     {
-      "id": "b4cccd38-1744-407b-81dc-86ee685d565f",
-      "title": "sad",
-      "eventColor": "primary",
-      "start": "2023-01-25T12:00:00"
+      "id": "e2ba1e3d-f8f2-4db1-b709-ab99da8954e6",
+      "title": "shahxeb",
+      "textColor": "info",
+      "start": "2023-01-12T12:00:00"
+    },
+    {
+      "id": "8ffc0204-4516-44ba-9562-1b6f85d5d2f9",
+      "title": "shahxeb jadoon",
+      "textColor": "dark",
+      "start": "undefinedT12:00:00"
+    },
+    {
+      "title": "2nd",
+      "backgroundColor": "",
+      "borderColor": "",
+      "start": "2023-01-02T12:00",
+      "end": "2023-01-05T12:41",
+      "id": "bf975339-be7a-4e2b-a873-97150e7af468"
+    },
+    {
+      "id": "70f0de91-a87d-4b46-bb8c-2558a7dc5b8b",
+      "title": "gggg",
+      "color": "orange",
+      "start": "2023-01-17T12:00:00"
+    },
+    {
+      "id": "b3dd1de0-b698-4395-a905-e9526236667f",
+      "title": "wawad",
+      "color": "brown",
+      "start": "2023-01-24T12:00:00"
+    },
+    {
+      "id": "73992184-6068-4c9e-ae59-577956fbfe1a",
+      "title": "foormm",
+      "color": "yellow",
+      "start": "2023-01-19T12:00:00"
+    },
+    {
+      "id": "9611163c-18e4-4b16-893d-3ba207bdcf73",
+      "title": "checkk",
+      "color": "yellow",
+      "start": "2023-01-22T12:00:00"
+    },
+    {
+      "id": "fc9d75bb-e47b-477f-b35a-cf27562c30b6",
+      "title": "shahxeb",
+      "color": "blue",
+      "start": "2023-01-13T16:30:00+05:00T12:00:00"
+    },
+    {
+      "id": "c4cd5408-b73c-403c-a69d-04fedf70f278",
+      "title": "asdad",
+      "color": "brown",
+      "start": "2023-01-13T18:00:00+05:00T12:00:00"
+    },
+    {
+      "id": "e368a797-9b69-4bc5-9b29-3c38d7a33a64",
+      "title": "as",
+      "color": "blue",
+      "start": "2023-01-13T12:00:00"
+    },
+    {
+      "id": "bc1fb53a-0288-4719-8605-0207e1942cca",
+      "title": "yyyy",
+      "color": "",
+      "start": "2023-02-02T12:00:00"
+    },
+    {
+      "id": "3590bf97-32b1-460e-95d0-873cb7fddd41",
+      "title": "sdada",
+      "color": "",
+      "start": "2023-02-03T12:00:00"
+    },
+    {
+      "id": "a90c3cca-0dda-49b5-9e61-c68e10a68aeb",
+      "title": "ssada",
+      "color": "green",
+      "start": "2023-02-01T12:00:00"
+    },
+    {
+      "id": "c9915ce4-1039-4c5a-862b-92654cfcfb32",
+      "title": "adadas",
+      "color": "blue",
+      "start": "2023-01-27T12:00:00"
+    },
+    {
+      "id": "0f5e61b6-6c59-45ca-9de5-f73a62ed7769",
+      "title": "checkk",
+      "color": "brown",
+      "start": "2023-01-29T12:00:00"
+    },
+    {
+      "id": "663376d3-01cd-4cf3-a9db-87ae018e4661",
+      "title": "shahxeb",
+      "color": "",
+      "start": "2023-01-16T14:30:00+05:00T12:00:00"
+    },
+    {
+      "id": "16d50bac-d4e9-4986-9339-4c080ff319f9",
+      "title": "asd",
+      "color": "green",
+      "start": "2023-01-16T06:00:00+05:00T12:00:00"
+    },
+    {
+      "id": "68a87c17-cd81-422d-8655-5f7d61fd7c17",
+      "title": "shahzeb",
+      "color": "blue",
+      "start": "2023-01-16T00:00:00+05:00T12:00:00"
+    },
+    {
+      "id": "65adc3fc-30b4-4d38-9be0-ffa351bf4334",
+      "title": "asda",
+      "color": "",
+      "start": "2023-01-16T12:00:00"
+    },
+    {
+      "id": "d300287a-f424-4dac-88ba-38e5e930d3de",
+      "title": "checkk",
+      "color": "blue",
+      "start": "2023-01-08T12:00:00"
+    },
+    {
+      "id": "8055eb85-cda6-46f1-969b-3624fec4fa53",
+      "title": "asds",
+      "color": "blue",
+      "start": "2023-01-03T12:00:00"
+    },
+    {
+      "id": "4431808a-73c8-4840-8b6e-a023935d655e",
+      "title": "asdas",
+      "color": "blue",
+      "start": "2023-01-18T00:00",
+      "end": "2023-01-19T10:26"
+    },
+    {
+      "id": "f22ad367-1418-49fc-b1d6-f596e5a6bb11",
+      "title": "foormm",
+      "color": "green",
+      "start": "2023-01-19T12:00",
+      "end": "2023-01-26T11:25"
+    },
+    {
+      "id": "557544b4-bf54-41e2-96c2-10d6bbbba1a8",
+      "title": "gggg",
+      "color": "green",
+      "start": "2023-01-17T12:00",
+      "end": "2023-01-12T11:27"
+    },
+    {
+      "id": "03f0a793-fd7b-4dc1-aad5-821ea1129c0e",
+      "data": {
+        "title": "asasda",
+        "backgroundColor": "primary",
+        "borderColor": "primary",
+        "start": "2023-01-04T00:00",
+        "end": "2023-01-05T11:37"
+      }
+    },
+    {
+      "id": "4ed44e1f-7708-49f7-82a6-0b8dcfc2c606",
+      "title": "asdas",
+      "start": "2023-01-06T00:00",
+      "end": "2023-01-07T11:44"
+    },
+    {
+      "id": "512599c1-e216-4b5a-ab26-358accc0a719",
+      "title": "ads",
+      "start": "2023-01-31T00:00",
+      "end": "2023-01-25T11:45"
+    },
+    {
+      "id": "0bc6a105-9557-401f-8229-a1ba26713a0b",
+      "title": "assas",
+      "start": "2023-01-30T00:00",
+      "end": "2023-01-31T11:45"
+    },
+    {
+      "id": "18e46d9d-b352-4685-9a81-395b7811f5cd",
+      "title": "asd",
+      "start": "2023-01-28T00:00",
+      "end": "2023-01-29T11:46"
+    },
+    {
+      "id": "7a671a24-533d-4b9f-8fbb-2e6e920f4eaa",
+      "title": "adasd",
+      "backgroundColor": "orange",
+      "start": "2023-02-06T00:00",
+      "end": "2023-02-08T11:47"
+    },
+    {
+      "id": "9b1b6637-ade4-4c66-82f9-46939a932b45",
+      "data": {
+        "title": "asdasas",
+        "backgroundColor": "",
+        "borderColor": "",
+        "start": "2023-01-01T00:00",
+        "end": "2023-01-02T18:34"
+      }
+    },
+    {
+      "id": "0e3b85cc-2999-4d42-ab56-308be399d37d",
+      "title": "neww",
+      "backgroundColor": "green",
+      "borderColor": "green",
+      "start": "2023-01-11T00:00",
+      "end": "2023-01-12T12:44"
+    },
+    {
+      "title": "5thhh",
+      "backgroundColor": "green",
+      "borderColor": "green",
+      "start": "2023-02-04T00:00",
+      "end": "2023-02-04T12:44",
+      "id": "e72ab05f-3716-45fd-8985-32b6358bed60"
     }
   ],
   "chartsData": {
@@ -356,38 +543,8 @@
   "tableData": [
     {
       "img": "../imgs/users/avatar-1.jpg",
-      "id": 1,
-      "name": "Walter Jones",
-      "date": "02 Nov, 2022",
-      "amount": 1,
-      "price": 1234,
-      "quantity": 1,
-      "status": "Confirm"
-    },
-    {
-      "img": "../imgs/users/avatar-1.jpg",
-      "id": 2,
-      "name": "Aalter Jones",
-      "date": "02 Nov, 2022",
-      "amount": 1,
-      "price": 1234,
-      "quantity": 1,
-      "status": "Confirm"
-    },
-    {
-      "img": "../imgs/users/avatar-1.jpg",
-      "id": 3,
-      "name": "Balter Jones",
-      "date": "02 Nov, 2022",
-      "amount": 1,
-      "price": 1234,
-      "quantity": 1,
-      "status": "Confirm"
-    },
-    {
-      "img": "../imgs/users/avatar-1.jpg",
       "id": 4,
-      "name": "Zalter Jones",
+      "name": "Ialter Jones",
       "date": "02 Nov, 2022",
       "amount": 1,
       "price": 1234,
@@ -397,7 +554,7 @@
     {
       "img": "../imgs/users/avatar-1.jpg",
       "id": 5,
-      "name": "Talter Jones",
+      "name": "Halter Jones",
       "date": "02 Nov, 2022",
       "amount": 1,
       "price": 1234,
@@ -407,7 +564,7 @@
     {
       "img": "../imgs/users/avatar-1.jpg",
       "id": 6,
-      "name": "ralter Jones",
+      "name": "Kalter Jones",
       "date": "02 Nov, 2022",
       "amount": 1,
       "price": 1234,
@@ -417,7 +574,7 @@
     {
       "img": "../imgs/users/avatar-1.jpg",
       "id": 7,
-      "name": "Ealter Jones",
+      "name": "Lalter Jones",
       "date": "02 Nov, 2022",
       "amount": 1,
       "price": 1234,

@@ -10,6 +10,7 @@ import {
   deleteCalenderEvents,
   getCalenderEvents,
   postCalenderEvents,
+  updateCalenderEvents,
 } from "../../components/Calendar/calendarThunk";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -17,57 +18,75 @@ import {
   removeSelectedEvent,
 } from "../../redux/slices/calendarSlice";
 import { Helmet } from "react-helmet";
+import moment from "moment";
 
 function Calendarr() {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
-  const [saveDate, setSaveDate] = useState("");
 
-  const { loading, data, selectedEvent } = useSelector(
-    (state) => state.calendar
-  );
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedStartDate, setSelectedStartDate] = useState(null);
+  const { loading, data } = useSelector((state) => state.calendar);
 
+  // * get all events on initial render
   useEffect(() => {
     dispatch(getCalenderEvents());
   }, [dispatch]);
 
+  // * open event modal on click
   const handleModal = () => {
     setShowModal(!showModal);
   };
 
+  // * click on empty cell
   const handleDateClick = (e) => {
+    setSelectedStartDate(moment(e.date).format("YYYY-MM-DDTHH:mm"));
+    setSelectedEvent(null);
     handleModal(true);
-    setSaveDate(e);
   };
 
+  // *  event add and update to db with post/patch
+  const addNewEvent = (item) => {
+    console.log(item, "checkitemselected");
+    const data = {
+      ...(selectedEvent === null && { id: uuidv4() }),
+      title: item.eventName,
+      backgroundColor: item.backgroundColor,
+      borderColor: item.backgroundColor,
+      start: item?.startDate,
+      end: item?.endDate,
+    };
+    selectedEvent === null
+      ? dispatch(postCalenderEvents(data))
+      : dispatch(updateCalenderEvents({ id: selectedEvent.id, data }));
+    dispatch(getCalenderEvents());
+    handleModal(false);
+  };
+
+  // * click on already added event
   const eventClickHandler = (e) => {
+    console.log(e.event, "eventcd");
     const selected = {
       id: e.event.id,
       title: e.event.title,
-      eventColor: e.event.textColor,
+      backgroundColor: e.event.backgroundColor,
+      statrtDate: moment(e.event.start).format("YYYY-MM-DDTHH:mm"),
+      endDate: moment(e.event.end).format("YYYY-MM-DDTHH:mm"),
     };
+    setSelectedEvent(selected);
     dispatch(addSelectedEvent(selected));
     handleModal(true);
   };
 
-  const addNewEvent = (item) => {
-    const data = {
-      id: uuidv4(),
-      title: item.eventName,
-      eventColor: item.eventColor,
-      start: saveDate.dateStr + "T12:00:00",
-    };
-    dispatch(postCalenderEvents(data));
-    handleModal(false);
-  };
-
+  // * delete selected event
   const handleDeleteEvent = () => {
     dispatch(deleteCalenderEvents(selectedEvent.id));
     dispatch(getCalenderEvents());
     handleModal(false);
   };
 
+  console.log(selectedEvent, "selectedEvent");
   return (
     <>
       <MainPageLayout
@@ -97,6 +116,7 @@ function Calendarr() {
                 eventClick={eventClickHandler}
                 deleteEvent={handleDeleteEvent}
                 selectedEvent={selectedEvent}
+                selectedStartDate={selectedStartDate}
               />
             )}
           </>

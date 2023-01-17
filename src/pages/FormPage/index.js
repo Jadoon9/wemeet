@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFormData } from "../../redux/store";
 import ReactHookForm from "../../components/Formm/ReactHookForm/ReactHookForm";
 import { Helmet } from "react-helmet";
+import FormikContainer from "../../components/Formm/FormikReusable/FormikContainer";
+import RegistrationForm from "../../components/Formm/ReactHookForm";
 
 const FormPage = () => {
   const formData = useSelector((state) => state.form.formData);
@@ -13,7 +15,7 @@ const FormPage = () => {
   const formSubmitHandler = (e) => {
     dispatch(addFormData(e));
   };
-  console.log(formData, "formData");
+
   return (
     <MainPageLayout
       title="Formik Form With all fields"
@@ -47,7 +49,7 @@ const FormPage = () => {
         time="true"
         color="true"
       />
-      {/* <ReactHookForm /> */}
+      {/* <RegistrationForm /> */}
     </MainPageLayout>
   );
 };

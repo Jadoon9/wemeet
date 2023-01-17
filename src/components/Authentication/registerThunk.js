@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import api from "../../api";
 import request from "../../api";
 
 const headers = {
@@ -10,13 +11,9 @@ const headers = {
 // Post new Event on calendar
 export const registerUser = createAsyncThunk("register/user", async (data) => {
   try {
-    const response = await axios.post(
-      "http://localhost:3005/users",
-      JSON.stringify(data),
-      {
-        headers,
-      }
-    );
+    const response = await api.post("/users", JSON.stringify(data), {
+      headers,
+    });
 
     return response.data;
     // return await request("POST", "/calendarData", data);

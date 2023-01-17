@@ -6,6 +6,7 @@ import SearchFilter from "./GlobalSearchFilter";
 const NumberRangeColumnFilter = ({
   column: { filterValue = [], preFilteredRows, setFilter, id },
 }) => {
+  console.log(filterValue, "filterValue");
   const [min, max] = useMemo(() => {
     let min = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
     let max = preFilteredRows.length ? preFilteredRows[0].values[id] : 0;
